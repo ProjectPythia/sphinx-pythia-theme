@@ -1,5 +1,5 @@
 import os
-from setuptools import setup
+from setuptools import setup, find_packages
 
 from sphinx_pythia_theme import __version__
 
@@ -34,6 +34,6 @@ setup(
             'pythia = sphinx_pythia_theme',
         ]
     },
-    packages=['sphinx_pythia_theme'],
+    packages=find_packages(),
     include_package_data=True,
 )
