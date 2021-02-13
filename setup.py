@@ -31,7 +31,7 @@ setup(
     ],
     entry_points = {
         'sphinx.html_themes': [
-            'pythia = sphinx_pythia_theme',
+            'sphinx_pythia_theme = sphinx_pythia_theme',
         ]
     },
     packages=find_packages(),
