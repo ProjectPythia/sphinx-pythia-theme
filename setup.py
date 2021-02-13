@@ -34,6 +34,6 @@ setup(
             'pythia = sphinx_pythia_theme',
         ]
     },
-    packages=["sphinx_pythia_theme"],
+    packages=['sphinx_pythia_theme'],
     include_package_data=True,
 )
