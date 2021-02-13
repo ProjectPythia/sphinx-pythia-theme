@@ -73,8 +73,9 @@
               {% trans theme_sponsor_text=theme_sponsor_text|e %}{{ theme_sponsor_text }}{% endtrans %}
             </div>
             {%- if theme_sponsor_image %}
+            {% set sponsor_image_path = pathto('_static/') ~ theme_sponsor_image %}
             <div class="col-auto">
-              <img src="{{ pathto(f'_static/img/{theme_sponsor_image}, 1) }}">
+              <img src="{{ pathto(sponsor_image_path, 1) }}">
             </div>
             {%- endif %}
           </div>
