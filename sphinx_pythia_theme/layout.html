@@ -4,23 +4,14 @@
 <!DOCTYPE html>
 {%- endblock %}
 
-{% macro navBar() %}
+{% macro navbar() %}
 {% include "navbar.html" %}
 {% endmacro %}
 
-{%- block extrahead %}
+{% block extrahead %}
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <!-- Favicon -->
-    <link rel="apple-touch-icon" sizes="180x180" href="{{ pathto('_static/ico/apple-touch-icon.png', 1) }}">
-    <link rel="icon" type="image/png" sizes="32x32" href="{{ pathto('_static/ico/favicon-32x32.png', 1) }}">
-    <link rel="icon" type="image/png" sizes="16x16" href="{{ pathto('_static/ico/favicon-16x16.png', 1) }}">
-    <link rel="manifest" href="{{ pathto('_static/ico/site.webmanifest', 1) }}">
-    <link rel="mask-icon" href="{{ pathto('_static/ico/safari-pinned-tab.svg', 1) }}" color="#333333">
-    <meta name="msapplication-TileColor" content="#2b5797">
-    <meta name="theme-color" content="#ffffff">
 
     <!-- CSS -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap">
@@ -33,38 +24,28 @@
 {% block sidebarsourcelink %}{% endblock %}
 
 {%- block content %}
-    {{ navBar() }}
-
+    {{- navbar() }}
+    <!-- Main -->
     <main role="main">
-
       {%- block sidebar1 %}{# sidebar1 location #}{% endblock %}
-
-      {% block body %}{% endblock %}
-
+      {%- block body %}{% endblock %}
       {%- block sidebar2 %}{# sidebar2 location #}{% endblock %}
-
     </main>
-{%- endblock %}
+{% endblock %}
 
 {%- block footer %}
     <footer class="footer">
+      {%- if show_copyright %}
       <div class="container-fluid bottomnav">
         <div class="d-flex justify-content-center">
-          {%- if show_copyright %}
             {%- if hasdoc('copyright') %}
-              {% trans path=pathto('copyright'), copyright=copyright|e %}&copy; <script>document.write(new Date().getFullYear())</script> <a href="{{ path }}">Copyright</a> {{ copyright }}.{% endtrans %}<br/>
+              {% trans path=pathto('copyright'), copyright=copyright|e %}<a href="{{ path }}">&copy;</a> <script>document.write(new Date().getFullYear())</script> {{ copyright }}.{% endtrans %}<br/>
             {%- else %}
-              {% trans copyright=copyright|e %}&copy; <script>document.write(new Date().getFullYear())</script> Copyright {{ copyright }}.{% endtrans %}<br/>
+              {% trans copyright=copyright|e %}&copy; <script>document.write(new Date().getFullYear())</script> {{ copyright }}.{% endtrans %}<br/>
             {%- endif %}
-          {%- endif %}
-          {%- if last_updated %}
-            {% trans last_updated=last_updated|e %}Last updated on {{ last_updated }}.{% endtrans %}<br/>
-          {%- endif %}
-          {%- if show_sphinx %}
-            {% trans sphinx_version=sphinx_version|e %}Created using <a href="http://sphinx-doc.org/">Sphinx</a> {{ sphinx_version }}.{% endtrans %}<br/>
-          {%- endif %}
         </div>
       </div>
+      {%- endif %}
       {%- if theme_sponsor_text %}
       <div class="container-fluid sponsor">
         <div class="container">
@@ -73,9 +54,8 @@
               {% trans theme_sponsor_text=theme_sponsor_text|e %}{{ theme_sponsor_text }}{% endtrans %}
             </div>
             {%- if theme_sponsor_image %}
-            {% set sponsor_image_path = pathto('_static/') ~ theme_sponsor_image %}
             <div class="col-auto">
-              <img src="{{ pathto(sponsor_image_path, 1) }}">
+              <img src="{{ pathto(theme_sponsor_image, 1) }}">
             </div>
             {%- endif %}
           </div>
