@@ -53,13 +53,16 @@ def add_functions_to_context(app, pagename, templatename, context, doctree):
             return []
 
         soup = bs(body, 'html.parser')
-        divisions = find_tags_by_name(soup, 'div')
+
+        divisions = []
+        for h1 in soup.find_all(['h1']):
+            divisions.append(h1.parent)
+            for child in h1.parent.children:
+                if child.name == 'div':
+                    divisions.append(child.extract())
 
         sections = []
         for div in divisions:
-            for _div in div.find_all('div'):
-                _div.extract()
-
             h = div.find(['h1', 'h2'])
             if not h:
                 continue
@@ -67,19 +70,13 @@ def add_functions_to_context(app, pagename, templatename, context, doctree):
             kind = 'banner' if h.name == 'h1' else 'section'
             title = h.extract()
             title_link = title.find('a')
-            if title_link:
-                section_id = title_link['href'].replace('#', '')
-                link_icon = soup.new_tag('i')
-                link_icon['class'] = ['bi', 'bi-link']
-                title_link.string.replace_with(link_icon)
-            else:
-                section_id = None
+            section_id = title_link['href'].replace('#', '')
 
             section = {}
             section['kind'] = kind
             section['title'] = str(title)
             section['id'] = section_id
-            section['text'] = ''.join(str(c).strip() for c in div.contents)
+            section['contents'] = ''.join(str(c).strip() for c in div.contents)
 
             sections.append(section)
 
@@ -89,6 +86,20 @@ def add_functions_to_context(app, pagename, templatename, context, doctree):
     context['generate_body_sections'] = generate_body_sections
 
 
+def set_default_permalinks_icon(app):
+    if 'permalinks_icon' in app.config.html_theme_options:
+        app.config.html_permalinks_icon = app.config.html_theme_options['permalinks_icon']
+    else:
+        app.config.html_permalinks_icon = '<i class="bi bi-link"></i>'
+
+
 def setup(app: Sphinx):
+    app.require_sphinx('3.5')
     app.add_html_theme('sphinx_pythia_theme', get_html_theme_path())
-    app.connect("html-page-context", add_functions_to_context)
+    app.connect('builder-inited', set_default_permalinks_icon)
+    app.connect('html-page-context', add_functions_to_context)
+
+    return {
+        'parallel_read_safe': True,
+        'parallel_write_safe': True,
+    }
