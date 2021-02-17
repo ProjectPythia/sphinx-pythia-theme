@@ -57,7 +57,6 @@ def add_functions_to_context(app, pagename, templatename, context, doctree):
 
         sections = []
         for div in divisions:
-            section = {}
             for _div in div.find_all('div'):
                 _div.extract()
 
@@ -76,6 +75,7 @@ def add_functions_to_context(app, pagename, templatename, context, doctree):
             else:
                 section_id = None
 
+            section = {}
             section['kind'] = kind
             section['title'] = str(title)
             section['id'] = section_id
