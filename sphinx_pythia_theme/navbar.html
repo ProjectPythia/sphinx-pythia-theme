@@ -1,10 +1,9 @@
+    {% set navitems = generate_page_nav_items() %}
     <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg {% if theme_navbar_fixed_top|tobool -%} navbar-fixed-top {%- endif %} navbar-dark bg-dark">
+    <nav class="navbar navbar-expand-lg {% if theme_navbar_fixed_top|tobool -%} fixed-top {%- endif %} navbar-dark bg-dark">
       <div class="container-fluid">
         <a class="navbar-brand" href="{{ pathto(master_doc) }}">
-          {%- block sidebarlogo %}
-            {%- if logo %}<img src="{{ pathto('_static/' + logo, 1) }}">{%- endif %}
-          {%- endblock %}
+          {%- if logo %}<img src="{{ pathto('_static/' + logo, 1) }}">{%- endif -%}
           {% if theme_navbar_title -%}{{ theme_navbar_title|e }}{%- endif -%}
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -12,9 +11,9 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarNavDropdown">
           <ul class="navbar-nav">
-            <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="#">Home</a>
-            </li>
+            {%- for item in navitems %}
+            {{ item }}
+            {%- endfor -%}
             {% if theme_navbar_links %}
             {%- for link in theme_navbar_links %}
             <li class="nav-item">
@@ -22,7 +21,6 @@
             </li>
             {%- endfor %}
             {% endif %}
-            {{ toc }}
           </ul>
         </div>
       </div>
