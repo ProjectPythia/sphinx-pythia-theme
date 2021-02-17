@@ -10641,6 +10641,13 @@ textarea.form-control-lg {
   bottom: 0;
 }
 
+.section {
+  margin: auto;
+}
+.section h3, .section .h3, .section h4, .section .h4, .section h5, .section .h5, .section h6, .section .h6 {
+  text-align: center;
+}
+
 .section-box {
   padding-top: 8rem;
   padding-bottom: 8rem;
