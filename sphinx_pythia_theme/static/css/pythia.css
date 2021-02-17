@@ -10702,6 +10702,16 @@ textarea.form-control-lg {
   height: 80px;
 }
 
+a.headerlink {
+  text-decoration: none;
+  color: transparent;
+  position: absolute;
+}
+
+a.headerlink:hover {
+  color: #adb5bd;
+}
+
 a.navbar-brand img {
   height: 2rem;
   vertical-align: middle;

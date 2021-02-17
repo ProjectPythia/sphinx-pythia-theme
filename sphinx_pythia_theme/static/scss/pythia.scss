@@ -93,6 +93,16 @@
   }
 }
 
+a.headerlink {
+  text-decoration: none;
+  color: transparent;
+  position: absolute;
+}
+
+a.headerlink:hover {
+  color: $gray-500;
+}
+
 a.navbar-brand img {
   height: 2rem;
   vertical-align: middle;
