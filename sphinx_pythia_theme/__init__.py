@@ -67,8 +67,16 @@ def add_functions_to_context(app, pagename, templatename, context, doctree):
             if not h:
                 continue
 
-            kind = 'banner' if h.name == 'h1' else 'section'
+            if h.name == 'h1':
+                kind = 'banner'
+                hclass = 'display-1'
+                for p in div.find_all('p'):
+                    p['class'] = ['lead'] + p.get('class', [])
+            else:
+                kind = 'section'
+                hclass = 'display-5'
             title = h.extract()
+            title['class'] = [hclass] + title.get('class', [])
             title_link = title.find('a')
             section_id = title_link['href'].replace('#', '')
 
