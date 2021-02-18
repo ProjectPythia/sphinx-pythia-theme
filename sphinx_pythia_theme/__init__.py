@@ -67,6 +67,7 @@ def add_functions_to_context(app, pagename, templatename, context, doctree):
             'section-box-light',
             'section-box-light-gray',
             'section-box-dark-gray',
+            'section-box-light-gray',
         ]
         itr = itertools.cycle(section_classes)
         for div in divisions:
