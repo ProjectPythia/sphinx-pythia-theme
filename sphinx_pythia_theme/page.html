@@ -27,7 +27,7 @@
         </div>
       </div>
       {%- elif section['kind'] == 'section' %}
-      <div class="container-fluid section-box section-box-light" id="{{ section['id'] }}">
+      <div class="container-fluid section-box {{ section['class'] }}" id="{{ section['id'] }}">
         <div class="d-flex justify-content-center">
           <div class="section-title">
             {{ section['title'] }}

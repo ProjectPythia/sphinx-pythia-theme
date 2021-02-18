@@ -1,4 +1,5 @@
 import os
+import itertools
 from pathlib import Path
 
 from bs4 import BeautifulSoup as bs
@@ -62,6 +63,12 @@ def add_functions_to_context(app, pagename, templatename, context, doctree):
                     divisions.append(child.extract())
 
         sections = []
+        section_classes = [
+            'section-box-light',
+            'section-box-light-gray',
+            'section-box-dark-gray',
+        ]
+        itr = itertools.cycle(section_classes)
         for div in divisions:
             h = div.find(['h1', 'h2'])
             if not h:
@@ -84,6 +91,7 @@ def add_functions_to_context(app, pagename, templatename, context, doctree):
             section['kind'] = kind
             section['title'] = str(title)
             section['id'] = section_id
+            section['class'] = None if kind == 'banner' else next(itr)
             section['contents'] = ''.join(str(c).strip() for c in div.contents)
 
             sections.append(section)
