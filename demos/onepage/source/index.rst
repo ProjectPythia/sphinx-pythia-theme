@@ -1,5 +1,3 @@
-Initial Text is ignored!
-
 Project Pythia
 ==============
 

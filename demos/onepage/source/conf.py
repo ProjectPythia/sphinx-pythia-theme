@@ -49,6 +49,7 @@ exclude_patterns = []
 #
 html_theme = 'sphinx_pythia_theme'
 html_theme_options = {
+    'use_page_nav': True,
     'banner_bgimage': '_static/background.jpg',
     'banner_mask_color': 'rgb(0,100,0)',
     'banner_mask_opacity': '0.6',
