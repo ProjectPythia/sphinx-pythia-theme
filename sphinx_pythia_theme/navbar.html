@@ -1,4 +1,8 @@
+    {% if theme_use_page_nav %}
     {% set navitems = generate_page_nav_items() %}
+    {% else %}
+    {% set navitems = generate_doc_nav_items(maxdepth=1, collapse=True, includehidden=True, titles_only=True) %}
+    {% endif %}
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg {% if theme_navbar_fixed_top|tobool -%} fixed-top {%- endif %} navbar-dark bg-dark">
       <div class="container-fluid">

@@ -48,6 +48,24 @@ def add_functions_to_context(app, pagename, templatename, context, doctree):
         return [str(li).replace('\n', '').strip() for li in list_items]
 
 
+    def generate_doc_nav_items(**kwargs):
+        toctree = context['toctree'](**kwargs)
+        if not toctree:
+            return []
+
+        soup = bs(toctree, 'html.parser')
+        list_items = find_tags_by_name(soup, 'li', maxdepth=3)
+        for li in list_items:
+            for ul in li.find_all('ul'):
+                ul.extract()
+            li['class'] = ['nav-item'] + li.get('class', [])
+            anchor = li.find('a')
+            if anchor:
+                anchor['class'] = ['nav-link'] + anchor.get('class', [])
+
+        return [str(li).replace('\n', '').strip() for li in list_items]
+
+
     def generate_body_sections():
         body = context.get('body')
         if not body:
@@ -100,6 +118,7 @@ def add_functions_to_context(app, pagename, templatename, context, doctree):
         return sections
 
     context['generate_page_nav_items'] = generate_page_nav_items
+    context['generate_doc_nav_items'] = generate_doc_nav_items
     context['generate_body_sections'] = generate_body_sections
 
 
