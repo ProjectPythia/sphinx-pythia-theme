@@ -1,0 +1,50 @@
+@use 'ncar';
+
+@import "../bootstrap/scss/bootstrap";
+
+$sidebar-width: 200px;
+
+body {
+  font-family: map-get(ncar.$fonts, 'body'), sans-serif;
+}
+
+p {
+  text-align: justify;
+}
+
+nav a.navbar-brand img {
+    height: 2rem;
+}
+
+.sidebar {
+  position: fixed;
+  width: $sidebar-width;
+  border-right: 1px solid $gray-300;
+
+  ul li {
+    margin-left: 0;
+    line-height: 1rem;
+    font-size: 1.2rem;
+    font-weight: 500;
+  }
+
+  ul ul li {
+    margin-left: 1rem;
+    line-height: 1rem;
+    font-size: 1rem;
+    font-weight: 400;
+  }
+
+  ul ul ul li {
+    margin-left: 1.2rem;
+    line-height: 0.9rem;
+    font-size: 0.8rem;
+    font-weight: 300;
+  }
+}
+
+.main {
+  margin-left: $sidebar-width;
+  padding-left: 2rem;
+  padding-right: 2rem;
+}

@@ -1,0 +1,129 @@
+@use 'ncar';
+
+@import "../bootstrap/scss/bootstrap";
+
+.banner {
+  // Photo by Jeff Stapleton from Pexels
+  background-image: url(../img/backgrounds/pexels-jeff-stapleton-5792818.jpg);
+  background-size: cover;
+  background-position: center center;
+}
+
+.banner-mask {
+  background-color: map-get(ncar.$colors, 'blue');
+  opacity: 0.85;
+}
+
+.banner-box {
+  padding-top: 12rem;
+  padding-bottom: 8rem;
+}
+
+.banner-caption {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+}
+
+.section {
+  margin: auto;
+
+  h3, h4, h5, h6 {
+    text-align: center;
+  }
+}
+
+.section-box {
+  padding-top: 8rem;
+  padding-bottom: 8rem;
+}
+
+.section-title {
+  display: inline-block;
+  padding: 0 4rem 1rem 4rem;
+  margin-bottom: 3rem;
+}
+
+.section-box.section-box-light {
+  color: $dark;
+  background-color: $light;
+
+  .section-title {
+    border-bottom: 2px solid map-get(ncar.$colors, 'deep-blue');
+  }
+}
+
+.section-box.section-box-light-gray {
+  color: $dark;
+  background-color: $gray-300;
+
+  .section-title {
+    border-bottom: 2px solid map-get(ncar.$colors, 'deep-blue');
+  }
+}
+
+.section-box.section-box-dark-gray {
+  color: $light;
+  background-color: $gray-600;
+
+  .section-title {
+    border-bottom: 2px solid map-get(ncar.$colors, 'highlight-green');
+  }
+}
+
+.section-box.section-box-dark {
+  color: $light;
+  background-color: $dark;
+
+  .section-title {
+    border-bottom: 2px solid map-get(ncar.$colors, 'highlight-green');
+  }
+}
+
+.footer {
+  color: $light;
+  font-family: map-get(ncar.$fonts, 'footnote');
+
+  .bottomnav {
+    background-color: $dark;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+  }
+
+  .sponsor {
+    background-color: $gray-800;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+
+    img {
+      height: 80px;
+    }
+  }
+}
+
+a.headerlink {
+  text-decoration: none;
+  color: transparent;
+  position: absolute;
+}
+
+a.headerlink:hover {
+  color: $gray-500;
+}
+
+a.navbar-brand img {
+  height: 2rem;
+  vertical-align: middle;
+}
+
+body {
+  font-family: map-get(ncar.$fonts, 'body'), sans-serif;
+}
+
+nav {
+  box-shadow: 0 0 10px 0 rgba(0,0,0,.6);
+}
+
+p {
+  text-align: justify;
+}
