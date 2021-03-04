@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="static/ico/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="static/ico/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="static/ico/favicon-16x16.png">
+    <link rel="manifest" href="static/ico/site.webmanifest">
+    <link rel="mask-icon" href="static/ico/safari-pinned-tab.svg" color="#333333">
+    <meta name="msapplication-TileColor" content="#2b5797">
+    <meta name="theme-color" content="#ffffff">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="static/css/pythia-traditional.css">
+
+  </head>
+
+  <body>
+
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark sticky-top shadow">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#"><img src="static/img/pythia_logo-white-rtext.svg"></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar-content" aria-controls="navbar-content" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbar-content">
+          <ul class="navbar-nav me-auto">
+            <li class="nav-item">
+              <a class="nav-link active" href="#">NavA</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">NavB</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navC-dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">NavC</a>
+              <ul class="dropdown-menu" aria-labelledby="navC-dropdown">
+                <li>
+                  <a class="dropdown-item" href="#">NavC1</a>
+                </li>
+                <li>
+                  <a class="dropdown-item" href="#">NavC2</a>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <main class="container-fluid my-4">
+
+      <!-- Left Sidebar -->
+      <div class="sidebar fixed">
+        <ul class="nav flex-column">
+          <li class="nav-item">
+            <a class="nav-link" href="#">Section 1</a>
+            <ul class="nav flex-column">
+              <li class="nav-item">
+                <a class="nav-link" href="#">Section 1A</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" class="nav" href="#">Section 1B</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Section 2</a>
+            <ul class="nav flex-column">
+              <li class="nav-item">
+                <a class="nav-link" href="#">Section 2A</a>
+                <ul class="nav flex-column">
+                  <li class="nav-item">
+                    <a class="nav-link" href="#">Section 2A1</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#">Section 2A2</a>
+                  </li>
+                </ul>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Section 2B</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Section 3</a>
+            <ul class="nav flex-column">
+              <li class="nav-item">
+                <a class="nav-link" href="#">Section 3A</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Section 3B</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Main Content -->
+      <div class="main">
+        <h1>Title</h1>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean vehicula mattis dolor,
+          non blandit risus. Phasellus gravida metus eu risus varius gravida. Phasellus turpis
+          erat, eleifend egestas urna vel, viverra malesuada nisi. Nulla dui risus, placerat eu
+          diam in, gravida tincidunt elit. Nullam a condimentum tortor. Praesent at pulvinar odio,
+          sit amet sodales arcu. Fusce sed egestas nisi. Cras in justo porta, ullamcorper nulla a,
+          mattis velit. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per
+          inceptos himenaeos. Praesent ut sem malesuada, vestibulum libero sit amet, accumsan dui.
+          Proin et fermentum metus. Aenean vitae nisi et mi mollis posuere in eget massa.
+        </p>
+        <p>
+          Donec eleifend sit amet lectus mattis malesuada. Curabitur id neque metus. Sed ut laoreet
+          justo. Etiam lobortis nibh sed ipsum fringilla, vel condimentum odio tincidunt. Proin
+          interdum nisl non justo gravida condimentum. Nullam at lacinia leo, ut finibus nunc.
+          Mauris id odio aliquam nisl vestibulum pretium. In et condimentum quam. Suspendisse aliquam
+          diam quis neque pellentesque, at fermentum ligula faucibus. Phasellus ut tellus magna.
+          Etiam non dignissim diam, egestas faucibus neque. Pellentesque finibus ultricies commodo.
+          Fusce metus dui, tempus vel feugiat nec, volutpat venenatis velit.
+        </p>
+        <p>
+          Integer blandit leo id arcu semper placerat. Vestibulum a sagittis dolor, bibendum
+          pellentesque arcu. Quisque sed neque est. Nulla facilisi. Cras egestas porttitor velit
+          sit amet accumsan. Vivamus ornare urna tristique nisi facilisis semper. Vivamus quis
+          turpis elit. Mauris mi dolor, suscipit in feugiat ac, pellentesque ac augue. Proin
+          posuere arcu eu leo viverra, ut pulvinar ipsum consectetur.
+        </p>
+        <p>
+          Nullam viverra urna vel mi consequat, eget eleifend leo eleifend. Vestibulum ante ipsum
+          primis in faucibus orci luctus et ultrices posuere cubilia curae; Vivamus interdum elit
+          nec ipsum eleifend vulputate. Vestibulum eleifend turpis sed metus elementum, non porttitor
+          augue interdum. Vivamus rhoncus viverra lacus. Praesent eleifend eros ipsum, vitae
+          ullamcorper velit vestibulum et. In hac habitasse platea dictumst. Nam in mi malesuada
+          tellus accumsan finibus non id libero. Cras venenatis pellentesque risus, imperdiet
+          posuere dui auctor vel. Quisque eleifend, ligula vel condimentum ornare, neque eros
+          posuere mauris, euismod cursus augue ante a urna. Proin aliquet ligula eget ante sagittis,
+          ut pharetra augue suscipit. Fusce congue sem ac massa elementum suscipit. Nunc massa
+          purus, bibendum in augue iaculis, consectetur bibendum tortor. Etiam in volutpat nisi.
+          Proin lobortis sollicitudin erat, vitae ornare felis lobortis id. In hac habitasse platea
+          dictumst.
+        </p>
+        <p>
+          Phasellus malesuada blandit sagittis. Nullam id magna massa. Proin ac dui odio. Vestibulum
+          imperdiet orci est, non vulputate nisi sollicitudin sed. Aenean quis congue est, a
+          sollicitudin velit. Sed felis nulla, maximus a convallis bibendum, pretium id justo. Donec
+          faucibus nunc vel massa tempus, id dapibus libero tristique. Vestibulum ante ipsum primis
+          in faucibus orci luctus et ultrices posuere cubilia curae; Interdum et malesuada fames ac
+          ante ipsum primis in faucibus. Quisque lacinia varius efficitur. Pellentesque nec orci
+          vitae nunc volutpat accumsan eget nec eros. Integer non lobortis erat. Nunc dapibus auctor
+          dui, non consequat tortor auctor eu. Fusce diam lacus, blandit vel metus at, blandit
+          tincidunt ligula. Nulla vitae pharetra odio.
+        </p>
+      </div>
+
+    </main>
+
+    <!-- Javascript -->
+    <script src="static/bootstrap/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>
