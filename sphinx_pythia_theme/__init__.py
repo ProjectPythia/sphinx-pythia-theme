@@ -28,7 +28,7 @@ def add_functions_to_context(app, pagename, templatename, context, doctree):
         return found_tags
 
 
-    def generate_page_nav_items():
+    def generate_page_nav_items(includehome=True):
         toc = context.get('toc')
         if not toc:
             return []
@@ -42,19 +42,36 @@ def add_functions_to_context(app, pagename, templatename, context, doctree):
             anchor = li.find('a')
             if anchor:
                 anchor['class'] = ['nav-link'] + anchor.get('class', [])
-                if anchor['href'] == '#':
-                    anchor.string.replace_with('Home')
+
+        if list_items and includehome:
+            top_li = list_items[0]
+            anchor = top_li.find('a')
+            if anchor['href'] == '#':
+                anchor.string.replace_with('Home')
 
         return [str(li).replace('\n', '').strip() for li in list_items]
 
 
-    def generate_doc_nav_items(**kwargs):
+    def generate_doc_nav_items(includehome=True, **kwargs):
         toctree = context['toctree'](**kwargs)
         if not toctree:
             return []
 
         soup = bs(toctree, 'html.parser')
-        list_items = find_tags_by_name(soup, 'li', maxdepth=3)
+
+        list_items = []
+
+        if includehome:
+            li = soup.new_tag('li')
+            li['class'] = ['toctree-l1']
+            anchor = soup.new_tag('a')
+            anchor['class'] = ['reference', 'internal']
+            anchor['href'] = '#'
+            anchor.string = 'Home'
+            li.append(anchor)
+            list_items = [li]
+
+        list_items += find_tags_by_name(soup, 'li', maxdepth=3)
         for li in list_items:
             for ul in li.find_all('ul'):
                 ul.extract()

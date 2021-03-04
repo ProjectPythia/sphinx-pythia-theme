@@ -55,58 +55,48 @@
       </div>
     </nav>
 
-    <main class="container-fluid my-4">
+    <div class="container-fluid my-4 layout">
 
       <!-- Left Sidebar -->
-      <div class="sidebar fixed">
-        <ul class="nav flex-column">
-          <li class="nav-item">
-            <a class="nav-link" href="#">Section 1</a>
-            <ul class="nav flex-column">
-              <li class="nav-item">
-                <a class="nav-link" href="#">Section 1A</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" class="nav" href="#">Section 1B</a>
-              </li>
-            </ul>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Section 2</a>
-            <ul class="nav flex-column">
-              <li class="nav-item">
-                <a class="nav-link" href="#">Section 2A</a>
-                <ul class="nav flex-column">
-                  <li class="nav-item">
-                    <a class="nav-link" href="#">Section 2A1</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="#">Section 2A2</a>
-                  </li>
+      <aside class="sidebar">
+        <nav class="sidebar-nav" aria-label="Table of Contents">
+          <ul class="list-unstyled">
+            <li>
+              <button class="btn d-inline-flex align-items-center rounded">
+                Chapter 1
+              </button>
+            </li>
+            <li>
+              <button class="btn d-inline-flex align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#chapter-2-collapse" aria-expanded="false">
+                Chapter 2
+              </button>
+
+              <div class="collapse" id="chapter-2-collapse">
+                <ul class="list-unstyled">
+                  <li class="mb-1"><a href="#c2s1" class="btn btn-sm">Section 1</a></li>
+                  <ul class="list-unstyled">
+                    <li class="mb-1"><a href="#c2s1A" class="btn btn-sm">Section 1A</a></li>
+                    <ul class="list-unstyled">
+                      <li class="mb-1"><a href="#c2s1A1" class="btn btn-sm">Section 1A1</a></li>
+                    </ul>
+                    <li class="mb-1"><a href="#c2s1B" class="btn btn-sm">Section 1B</a></li>
+                  </ul>
+                  <li class="mb-1"><a href="#c2s2" class="btn btn-sm">Section 2</a></li>
                 </ul>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">Section 2B</a>
-              </li>
-            </ul>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Section 3</a>
-            <ul class="nav flex-column">
-              <li class="nav-item">
-                <a class="nav-link" href="#">Section 3A</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">Section 3B</a>
-              </li>
-            </ul>
-          </li>
-        </ul>
-      </div>
+              </div>
+            </li>
+            <li>
+              <button class="btn d-inline-flex align-items-center rounded">
+                Chapter 3
+              </button>
+            </li>
+          </ul>
+        </nav>
+      </aside>
 
       <!-- Main Content -->
-      <div class="main">
-        <h1>Title</h1>
+      <main class="main">
+        <h1 id="c2">Chapter 2</h1>
         <p>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean vehicula mattis dolor,
           non blandit risus. Phasellus gravida metus eu risus varius gravida. Phasellus turpis
@@ -117,6 +107,7 @@
           inceptos himenaeos. Praesent ut sem malesuada, vestibulum libero sit amet, accumsan dui.
           Proin et fermentum metus. Aenean vitae nisi et mi mollis posuere in eget massa.
         </p>
+        <h2 id="c2s1">Section 1</h2>
         <p>
           Donec eleifend sit amet lectus mattis malesuada. Curabitur id neque metus. Sed ut laoreet
           justo. Etiam lobortis nibh sed ipsum fringilla, vel condimentum odio tincidunt. Proin
@@ -126,6 +117,7 @@
           Etiam non dignissim diam, egestas faucibus neque. Pellentesque finibus ultricies commodo.
           Fusce metus dui, tempus vel feugiat nec, volutpat venenatis velit.
         </p>
+        <h3 id="c2s1A">Section 1A</h3>
         <p>
           Integer blandit leo id arcu semper placerat. Vestibulum a sagittis dolor, bibendum
           pellentesque arcu. Quisque sed neque est. Nulla facilisi. Cras egestas porttitor velit
@@ -133,6 +125,7 @@
           turpis elit. Mauris mi dolor, suscipit in feugiat ac, pellentesque ac augue. Proin
           posuere arcu eu leo viverra, ut pulvinar ipsum consectetur.
         </p>
+        <h4 id="c2s1A1">Section 1A1</h4>
         <p>
           Nullam viverra urna vel mi consequat, eget eleifend leo eleifend. Vestibulum ante ipsum
           primis in faucibus orci luctus et ultrices posuere cubilia curae; Vivamus interdum elit
@@ -147,6 +140,7 @@
           Proin lobortis sollicitudin erat, vitae ornare felis lobortis id. In hac habitasse platea
           dictumst.
         </p>
+        <h3 id="c2s1B">Section 1B</h3>
         <p>
           Phasellus malesuada blandit sagittis. Nullam id magna massa. Proin ac dui odio. Vestibulum
           imperdiet orci est, non vulputate nisi sollicitudin sed. Aenean quis congue est, a
@@ -158,9 +152,41 @@
           dui, non consequat tortor auctor eu. Fusce diam lacus, blandit vel metus at, blandit
           tincidunt ligula. Nulla vitae pharetra odio.
         </p>
-      </div>
+        <h2 id="c2s2">Section 2</h2>
+        <p>
+          Donec eleifend sit amet lectus mattis malesuada. Curabitur id neque metus. Sed ut laoreet
+          justo. Etiam lobortis nibh sed ipsum fringilla, vel condimentum odio tincidunt. Proin
+          interdum nisl non justo gravida condimentum. Nullam at lacinia leo, ut finibus nunc.
+          Mauris id odio aliquam nisl vestibulum pretium. In et condimentum quam. Suspendisse aliquam
+          diam quis neque pellentesque, at fermentum ligula faucibus. Phasellus ut tellus magna.
+          Etiam non dignissim diam, egestas faucibus neque. Pellentesque finibus ultricies commodo.
+          Fusce metus dui, tempus vel feugiat nec, volutpat venenatis velit.
+        </p>
+      </main>
 
-    </main>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container-fluid bottomnav">
+        <div class="d-flex justify-content-center">
+          &copy; <script>document.write(new Date().getFullYear())</script> The Project Pythia Team and Contributors
+        </div>
+      </div>
+      <div class="container-fluid sponsor">
+        <div class="container">
+          <div class="row">
+            <div class="col">
+              This material is based upon work supported by the National Science Foundation under Grant Nos. 2026863 and 2026899.
+              Any opinions, findings, and conclusions or recommendations expressed in this material are those of the author(s) and do not necessarily reflect the views of the National Science Foundation.
+            </div>
+            <div class="col-auto">
+              <img src="static/img/footer-logo-nsf.png">
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
 
     <!-- Javascript -->
     <script src="static/bootstrap/js/bootstrap.bundle.min.js"></script>

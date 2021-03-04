@@ -1,8 +1,17 @@
 @use 'ncar';
 
+$primary: map-get(ncar.$colors, "blue");
+
 @import "../bootstrap/scss/bootstrap";
 
-$sidebar-width: 200px;
+$brand-img-height: 2rem;
+$navbar-vertical-height: 2.5rem + $brand-img-height;
+
+$sidebar-width: 10rem;
+$sidebar-position-absolute: absolute;
+$sidebar-position-fixed: fixed;
+$sidebar-position-sticky: sticky;
+$sidebar-position: $sidebar-position-fixed;
 
 body {
   font-family: map-get(ncar.$fonts, 'body'), sans-serif;
@@ -13,38 +22,86 @@ p {
 }
 
 nav a.navbar-brand img {
-    height: 2rem;
+  height: $brand-img-height;
+}
+
+.layout {
+  display: grid;
+  gap: 1.5rem;
+  grid-template-areas: "sidebar main";
+  grid-template-columns: $sidebar-width 1fr;
 }
 
 .sidebar {
-  position: fixed;
-  width: $sidebar-width;
-  border-right: 1px solid $gray-300;
+  display: block;
+  grid-area: sidebar;
 
-  ul li {
-    margin-left: 0;
-    line-height: 1rem;
+  ul li button {
     font-size: 1.2rem;
+    font-weight: 600;
+  }
+
+  ul ul li a {
+    margin-left: 1rem;
+    font-size: 1rem;
     font-weight: 500;
   }
 
-  ul ul li {
+  ul ul ul li a {
     margin-left: 1rem;
-    line-height: 1rem;
-    font-size: 1rem;
+    font-size: 0.85rem;
     font-weight: 400;
   }
 
-  ul ul ul li {
-    margin-left: 1.2rem;
-    line-height: 0.9rem;
-    font-size: 0.8rem;
+  ul ul ul ul li a {
+    font-size: 0.7rem;
     font-weight: 300;
+  }
+
+  ul ul ul ul ul li a {
+    font-weight: 200;
+  }
+
+  ul ul ul ul ul ul li a {
+    font-style: italic;
   }
 }
 
+.sidebar-nav {
+  position: fixed;
+}
+
 .main {
-  margin-left: $sidebar-width;
+  grid-area: main;
   padding-left: 2rem;
   padding-right: 2rem;
+
+  h1::before, h2::before, h3::before, h4::before, h5::before, h6::before {
+    display: block;
+    height: $navbar-vertical-height;
+    margin-top: -$navbar-vertical-height;
+    visibility: hidden;
+    content: "";
+  }
+}
+
+.footer {
+  color: $light;
+  font-family: map-get(ncar.$fonts, 'footnote');
+
+  .bottomnav {
+    background-color: $dark;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+  }
+
+  .sponsor {
+    background-color: $gray-800;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+
+    img {
+      height: 80px;
+    }
+  }
 }

@@ -49,10 +49,6 @@ exclude_patterns = []
 #
 html_theme = 'sphinx_pythia_theme'
 html_theme_options = {
-    'use_page_nav': False,
-    'banner_bgimage': '_static/background.jpg',
-    'banner_mask_color': 'rgb(0,100,0)',
-    'banner_mask_opacity': '0.6',
     'sponsor_text': 'This material is based upon work supported by the National Science Foundation under Grant No. ABCDEFG.  Any opinions, findings, and conclusions or recommendations expressed in this material are those of the author(s) and do not necessarily reflect the views of the National Science Foundation.',
     'sponsor_image': '_static/sponsor.png',
 }
