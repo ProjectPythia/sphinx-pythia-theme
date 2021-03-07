@@ -36,7 +36,7 @@ nav a.navbar-brand img {
   display: block;
   grid-area: sidebar;
 
-  ul li button {
+  ul li a {
     font-size: 1.2rem;
     font-weight: 600;
   }
@@ -69,6 +69,34 @@ nav a.navbar-brand img {
 
 .sidebar-nav {
   position: fixed;
+}
+
+#chapter-toc {
+  overflow: hidden;
+}
+
+@keyframes expand-toc {
+  from { max-height: 0 }
+    to { max-height: 1000px }
+}
+
+#chapter-toc.expand-toc {
+  height: auto;
+  animation-name: expand-toc;
+  animation-duration: 5s;
+  animation-timing-function: ease-in;
+}
+
+@keyframes collapse-toc {
+  from { max-height: 200px }
+    to { max-height: 0 }
+}
+
+#chapter-toc.collapse-toc {
+  height: 0;
+  animation-name: collapse-toc;
+  animation-duration: 5s;
+  animation-timing-function: ease-out;
 }
 
 .main {
