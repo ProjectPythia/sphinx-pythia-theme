@@ -3,19 +3,21 @@ function expandChapterToc() {
   var chtoc = document.getElementById('chapter-toc');
   chtoc.classList.add('expand-toc');
 }
-expandChapterToc();
 
 document.addEventListener('DOMContentLoaded', function() {
   if (!window.AnimationEvent) { return; }
   var anchors = document.getElementsByTagName('a');
   for (var idx=0; idx<anchors.length; idx+=1) {
-    if (anchors[idx].hostname !== window.location.hostname ||
-      anchors[idx].pathname === window.location.pathname) {
+    if (anchors[idx].hostname !== window.location.hostname) {
       continue;
     }
     anchors[idx].addEventListener('click', function(event) {
       var chtoc = document.getElementById('chapter-toc'),
           anchor = event.currentTarget;
+
+      chtoc.classList.add('collapse-toc');
+
+      event.preventDefault();
 
       var listener = function() {
         window.location = anchor.href;
@@ -23,8 +25,6 @@ document.addEventListener('DOMContentLoaded', function() {
       };
       chtoc.addEventListener('animationend', listener);
 
-      event.preventDefault();
-      chtoc.classList.add('collapse-toc');
     });
   }
 });
@@ -34,6 +34,5 @@ window.addEventListener('pageshow', function (event) {
     return;
   }
   var chtoc = document.getElementById('chapter-toc');
-  chtoc.removeAttribute('class', 'collapse-toc');
-  chtoc.setAttribute('class', 'expand-toc');
+  chtoc.classList.remove('collapse-toc');
 });

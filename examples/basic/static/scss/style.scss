@@ -8,10 +8,7 @@ $brand-img-height: 2rem;
 $navbar-vertical-height: 2.5rem + $brand-img-height;
 
 $sidebar-width: 10rem;
-$sidebar-position-absolute: absolute;
-$sidebar-position-fixed: fixed;
-$sidebar-position-sticky: sticky;
-$sidebar-position: $sidebar-position-fixed;
+$sidebar-position: fixed;
 
 body {
   font-family: map-get(ncar.$fonts, 'body'), sans-serif;
@@ -27,7 +24,7 @@ nav a.navbar-brand img {
 
 .layout {
   display: grid;
-  gap: 1.5rem;
+  gap: 0;
   grid-template-areas: "sidebar main";
   grid-template-columns: $sidebar-width 1fr;
 }
@@ -71,34 +68,6 @@ nav a.navbar-brand img {
   position: fixed;
 }
 
-#chapter-toc {
-  overflow: hidden;
-}
-
-@keyframes expand-toc {
-  from { max-height: 0 }
-    to { max-height: 1000px }
-}
-
-#chapter-toc.expand-toc {
-  height: auto;
-  animation-name: expand-toc;
-  animation-duration: 5s;
-  animation-timing-function: ease-in;
-}
-
-@keyframes collapse-toc {
-  from { max-height: 200px }
-    to { max-height: 0 }
-}
-
-#chapter-toc.collapse-toc {
-  height: 0;
-  animation-name: collapse-toc;
-  animation-duration: 5s;
-  animation-timing-function: ease-out;
-}
-
 .main {
   grid-area: main;
   padding-left: 2rem;
@@ -106,10 +75,10 @@ nav a.navbar-brand img {
 
   h1::before, h2::before, h3::before, h4::before, h5::before, h6::before {
     display: block;
+    position: relative;
     height: $navbar-vertical-height;
     margin-top: -$navbar-vertical-height;
-    visibility: hidden;
-    content: "";
+    content: '';
   }
 }
 
