@@ -5,7 +5,7 @@ $primary: map-get(ncar.$colors, "blue");
 @import "../bootstrap/scss/bootstrap";
 
 $brand-img-height: 2rem;
-$navbar-vertical-height: 2.5rem + $brand-img-height;
+$navbar-vertical-height: 3rem + $brand-img-height;
 
 $sidebar-width: 10rem;
 $sidebar-position: fixed;
