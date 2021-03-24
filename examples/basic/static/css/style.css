@@ -10626,6 +10626,21 @@ textarea.form-control-lg {
     display: none !important;
   }
 }
+a.headerlink {
+  text-decoration: none;
+  color: transparent;
+  position: absolute;
+}
+
+a.headerlink:hover {
+  color: #adb5bd;
+}
+
+a.navbar-brand img {
+  height: 2rem;
+  vertical-align: middle;
+}
+
 body {
   font-family: "Poppins", sans-serif;
 }
@@ -10634,61 +10649,150 @@ p {
   text-align: justify;
 }
 
-nav a.navbar-brand img {
-  height: 2rem;
+.wrapper {
+  padding: 0;
+  margin-top: 3rem;
 }
 
-.layout {
+.twocolumn {
+  margin-top: 4.5rem;
   display: grid;
   gap: 0;
   grid-template-areas: "sidebar main";
-  grid-template-columns: 10rem 1fr;
+  grid-template-columns: 14rem 1fr;
 }
-
-.sidebar {
+.twocolumn .sidebar {
+  margin-left: 1rem;
   display: block;
   grid-area: sidebar;
 }
-.sidebar ul li a {
-  font-size: 1.2rem;
-  font-weight: 600;
+.twocolumn .sidebar .sidebar-nav {
+  position: sticky;
+  top: 4.5rem;
 }
-.sidebar ul ul li a {
-  margin-left: 1rem;
+.twocolumn .sidebar .sidebar-nav .btn.active {
+  background-color: #dee2e6;
+}
+.twocolumn .sidebar .sidebar-nav .btn:focus {
+  box-shadow: none;
+}
+.twocolumn .sidebar .sidebar-nav i.bi::before {
+  line-height: inherit;
+  transition-duration: 300ms;
+}
+.twocolumn .sidebar .sidebar-nav button[aria-expanded=true] i.bi::before {
+  transform: rotate(-90deg);
+}
+.twocolumn .sidebar .sidebar-nav ul li a {
   font-size: 1rem;
-  font-weight: 500;
+  font-weight: 600;
+  margin-left: 0.6rem;
 }
-.sidebar ul ul ul li a {
-  margin-left: 1rem;
+.twocolumn .sidebar .sidebar-nav ul ul li a {
   font-size: 0.85rem;
-  font-weight: 400;
+  font-weight: 500;
+  margin-left: 1.2rem;
 }
-.sidebar ul ul ul ul li a {
+.twocolumn .sidebar .sidebar-nav ul ul ul li a {
   font-size: 0.7rem;
+  font-weight: 400;
+  margin-left: 1.8rem;
+}
+.twocolumn .sidebar .sidebar-nav ul ul ul ul li a {
   font-weight: 300;
+  margin-left: 2.4rem;
 }
-.sidebar ul ul ul ul ul li a {
+.twocolumn .sidebar .sidebar-nav ul ul ul ul ul li a {
   font-weight: 200;
+  margin-left: 3rem;
 }
-.sidebar ul ul ul ul ul ul li a {
+.twocolumn .sidebar .sidebar-nav ul ul ul ul ul ul li a {
   font-style: italic;
 }
-
-.sidebar-nav {
-  position: fixed;
-}
-
-.main {
+.twocolumn main {
   grid-area: main;
+  margin-bottom: 2rem;
   padding-left: 2rem;
-  padding-right: 2rem;
+  padding-right: 4rem;
 }
-.main h1::before, .main .h1::before, .main h2::before, .main .h2::before, .main h3::before, .main .h3::before, .main h4::before, .main .h4::before, .main h5::before, .main .h5::before, .main h6::before, .main .h6::before {
+.twocolumn main h1::before, .twocolumn main .h1::before, .twocolumn main h2::before, .twocolumn main .h2::before, .twocolumn main h3::before, .twocolumn main .h3::before, .twocolumn main h4::before, .twocolumn main .h4::before, .twocolumn main h5::before, .twocolumn main .h5::before, .twocolumn main h6::before, .twocolumn main .h6::before {
   display: block;
   position: relative;
   height: 4.5rem;
   margin-top: -4.5rem;
   content: "";
+}
+
+.banner {
+  background-image: url(../img/backgrounds/pexels-jeff-stapleton-5792818.jpg);
+  background-size: cover;
+  background-position: center center;
+}
+
+.banner-mask {
+  background-color: #1a658f;
+  opacity: 0.85;
+}
+
+.banner-box {
+  padding-top: 12rem;
+  padding-bottom: 8rem;
+}
+
+.banner-caption {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+}
+
+.section {
+  margin: auto;
+}
+.section h3, .section .h3, .section h4, .section .h4, .section h5, .section .h5, .section h6, .section .h6 {
+  text-align: center;
+}
+
+.section-box {
+  padding-top: 8rem;
+  padding-bottom: 8rem;
+}
+
+.section-title {
+  display: inline-block;
+  padding: 0 4rem 1rem 4rem;
+  margin-bottom: 3rem;
+}
+
+.section-box.section-box-light {
+  color: #212529;
+  background-color: #f8f9fa;
+}
+.section-box.section-box-light .section-title {
+  border-bottom: 2px solid #012169;
+}
+
+.section-box.section-box-light-gray {
+  color: #212529;
+  background-color: #dee2e6;
+}
+.section-box.section-box-light-gray .section-title {
+  border-bottom: 2px solid #012169;
+}
+
+.section-box.section-box-dark-gray {
+  color: #f8f9fa;
+  background-color: #6c757d;
+}
+.section-box.section-box-dark-gray .section-title {
+  border-bottom: 2px solid #a8c700;
+}
+
+.section-box.section-box-dark {
+  color: #f8f9fa;
+  background-color: #212529;
+}
+.section-box.section-box-dark .section-title {
+  border-bottom: 2px solid #a8c700;
 }
 
 .footer {

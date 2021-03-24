@@ -1,38 +1,30 @@
-function expandChapterToc() {
-  if (!window.AnimationEvent) { return; }
-  var chtoc = document.getElementById('chapter-toc');
-  chtoc.classList.add('expand-toc');
-}
+window.onscroll = function() {
+    var onPage = [];
 
-document.addEventListener('DOMContentLoaded', function() {
-  if (!window.AnimationEvent) { return; }
-  var anchors = document.getElementsByTagName('a');
-  for (var idx=0; idx<anchors.length; idx+=1) {
-    if (anchors[idx].hostname !== window.location.hostname) {
-      continue;
+    var anchors = document.querySelectorAll('#sidebarNav a');
+    for (var i = 0; i < anchors.length; ++i) {
+        anchors[i].classList.remove('active');
+        var href = anchors[i].getAttribute('href').split('#');
+        if (href[0] == window.location.pathname) {
+            var hrefElemTop = document.getElementById(href[1]).getBoundingClientRect().top;
+            onPage.push([anchors[i], hrefElemTop]);
+        }
     }
-    anchors[idx].addEventListener('click', function(event) {
-      var chtoc = document.getElementById('chapter-toc'),
-          anchor = event.currentTarget;
 
-      chtoc.classList.add('collapse-toc');
+    var activeAnchor = null;
+    if (window.pageYOffset == 0) {
+        activeAnchor = onPage[0][0];
+    } else if ((window.innerHeight + window.pageYOffset) > document.body.offsetHeight) {
+        activeAnchor = onPage[onPage.length - 1][0];
+    } else {
+        for (var i = 0; i < onPage.length; ++i) {
+            var anchor = onPage[i][0];
+            var top = onPage[i][1];
 
-      event.preventDefault();
-
-      var listener = function() {
-        window.location = anchor.href;
-        chtoc.removeEventListener('animationend', listener);
-      };
-      chtoc.addEventListener('animationend', listener);
-
-    });
-  }
-});
-
-window.addEventListener('pageshow', function (event) {
-  if (!event.persisted) {
-    return;
-  }
-  var chtoc = document.getElementById('chapter-toc');
-  chtoc.classList.remove('collapse-toc');
-});
+            if (top < 0.15 * window.innerHeight) {
+                activeAnchor = anchor;
+            }
+        }
+    }
+    activeAnchor.classList.add('active');
+};

@@ -5,10 +5,24 @@ $primary: map-get(ncar.$colors, "blue");
 @import "../bootstrap/scss/bootstrap";
 
 $brand-img-height: 2rem;
-$navbar-vertical-height: 3rem + $brand-img-height;
+$navbar-height: 2.5rem + $brand-img-height;
 
-$sidebar-width: 10rem;
-$sidebar-position: fixed;
+$sidebar-width: 14rem;
+
+a.headerlink {
+  text-decoration: none;
+  color: transparent;
+  position: absolute;
+}
+
+a.headerlink:hover {
+  color: $gray-500;
+}
+
+a.navbar-brand img {
+  height: $brand-img-height;
+  vertical-align: middle;
+}
 
 body {
   font-family: map-get(ncar.$fonts, 'body'), sans-serif;
@@ -18,67 +32,169 @@ p {
   text-align: justify;
 }
 
-nav a.navbar-brand img {
-  height: $brand-img-height;
+.wrapper {
+  padding: 0;
+  margin-top: 3rem;
 }
 
-.layout {
+.twocolumn {
+  margin-top: $navbar-height;
   display: grid;
   gap: 0;
   grid-template-areas: "sidebar main";
   grid-template-columns: $sidebar-width 1fr;
-}
 
-.sidebar {
-  display: block;
-  grid-area: sidebar;
-
-  ul li a {
-    font-size: 1.2rem;
-    font-weight: 600;
-  }
-
-  ul ul li a {
+  .sidebar {
     margin-left: 1rem;
-    font-size: 1rem;
-    font-weight: 500;
-  }
-
-  ul ul ul li a {
-    margin-left: 1rem;
-    font-size: 0.85rem;
-    font-weight: 400;
-  }
-
-  ul ul ul ul li a {
-    font-size: 0.7rem;
-    font-weight: 300;
-  }
-
-  ul ul ul ul ul li a {
-    font-weight: 200;
-  }
-
-  ul ul ul ul ul ul li a {
-    font-style: italic;
-  }
-}
-
-.sidebar-nav {
-  position: fixed;
-}
-
-.main {
-  grid-area: main;
-  padding-left: 2rem;
-  padding-right: 2rem;
-
-  h1::before, h2::before, h3::before, h4::before, h5::before, h6::before {
     display: block;
-    position: relative;
-    height: $navbar-vertical-height;
-    margin-top: -$navbar-vertical-height;
-    content: '';
+    grid-area: sidebar;
+
+    .sidebar-nav {
+      position: sticky;
+      top: $navbar-height;
+
+      .btn.active {
+        background-color: $gray-300;
+      }
+
+      .btn:focus {
+        box-shadow: none;
+      }
+
+      i.bi::before {
+        line-height: inherit;
+        transition-duration: 300ms;
+      }
+
+      button[aria-expanded="true"] i.bi::before {
+        transform: rotate(-90deg);
+      }
+
+      ul li a {
+        font-size: 1rem;
+        font-weight: 600;
+        margin-left: 0.6rem;
+      }
+
+      ul ul li a {
+        font-size: 0.85rem;
+        font-weight: 500;
+        margin-left: 1.2rem;
+      }
+
+      ul ul ul li a {
+        font-size: 0.7rem;
+        font-weight: 400;
+        margin-left: 1.8rem;
+      }
+
+      ul ul ul ul li a {
+        font-weight: 300;
+        margin-left: 2.4rem;
+      }
+
+      ul ul ul ul ul li a {
+        font-weight: 200;
+        margin-left: 3rem;
+      }
+
+      ul ul ul ul ul ul li a {
+        font-style: italic;
+      }
+    }
+  }
+
+  main {
+    grid-area: main;
+    margin-bottom: 2rem;
+    padding-left: 2rem;
+    padding-right: 4rem;
+
+    h1::before, h2::before, h3::before, h4::before, h5::before, h6::before {
+      display: block;
+      position: relative;
+      height: $navbar-height;
+      margin-top: -$navbar-height;
+      content: '';
+    }
+  }
+}
+
+.banner {
+  // Photo by Jeff Stapleton from Pexels
+  background-image: url(../img/backgrounds/pexels-jeff-stapleton-5792818.jpg);
+  background-size: cover;
+  background-position: center center;
+}
+
+.banner-mask {
+  background-color: map-get(ncar.$colors, 'blue');
+  opacity: 0.85;
+}
+
+.banner-box {
+  padding-top: 12rem;
+  padding-bottom: 8rem;
+}
+
+.banner-caption {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+}
+
+.section {
+  margin: auto;
+
+  h3, h4, h5, h6 {
+    text-align: center;
+  }
+}
+
+.section-box {
+  padding-top: 8rem;
+  padding-bottom: 8rem;
+}
+
+.section-title {
+  display: inline-block;
+  padding: 0 4rem 1rem 4rem;
+  margin-bottom: 3rem;
+}
+
+.section-box.section-box-light {
+  color: $dark;
+  background-color: $light;
+
+  .section-title {
+    border-bottom: 2px solid map-get(ncar.$colors, 'deep-blue');
+  }
+}
+
+.section-box.section-box-light-gray {
+  color: $dark;
+  background-color: $gray-300;
+
+  .section-title {
+    border-bottom: 2px solid map-get(ncar.$colors, 'deep-blue');
+  }
+}
+
+.section-box.section-box-dark-gray {
+  color: $light;
+  background-color: $gray-600;
+
+  .section-title {
+    border-bottom: 2px solid map-get(ncar.$colors, 'highlight-green');
+  }
+}
+
+.section-box.section-box-dark {
+  color: $light;
+  background-color: $dark;
+
+  .section-title {
+    border-bottom: 2px solid map-get(ncar.$colors, 'highlight-green');
   }
 }
 
