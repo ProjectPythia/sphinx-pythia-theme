@@ -52,11 +52,12 @@ def add_functions_to_context(app, pagename, templatename, context, doctree):
         return [str(li).replace('\n', '').strip() for li in list_items]
 
 
-    def generate_doc_nav_items(includehome=True, **kwargs):
-        toctree = context['toctree'](**kwargs)
+    def generate_doc_nav_items(includehome=True):
+        toctree = context['toctree'](maxdepth=-1, collapse=False, includehidden=True)
         if not toctree:
             return []
 
+        print(toctree)
         soup = bs(toctree, 'html.parser')
 
         list_items = []

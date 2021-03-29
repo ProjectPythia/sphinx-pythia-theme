@@ -10626,6 +10626,17 @@ textarea.form-control-lg {
     display: none !important;
   }
 }
+:root {
+  --main-contract-breakpoint: 768px;
+  --brand-img-height: 2rem;
+  --navbar-height: 4.5rem;
+  --sidebar-width: 12rem;
+  --sidebar-left-expanded: 0;
+  --sidebar-left-contracted: -10rem;
+  --main-margin-left-expanded: 12rem;
+  --main-margin-left-contracted: 2rem;
+}
+
 a.headerlink {
   text-decoration: none;
   color: transparent;
@@ -10656,19 +10667,34 @@ p {
 
 .twocolumn {
   margin-top: 4.5rem;
-  display: grid;
-  gap: 0;
-  grid-template-areas: "sidebar main";
-  grid-template-columns: 14rem 1fr;
 }
 .twocolumn .sidebar {
-  margin-left: 1rem;
   display: block;
-  grid-area: sidebar;
+  width: 12rem;
+  position: fixed;
+  top: 4.5rem;
+  left: 0;
+  transition: left 500ms;
+}
+.twocolumn .sidebar i.bi::before {
+  line-height: inherit;
+  transition-duration: 300ms;
+}
+.twocolumn .sidebar .bi.bi-chevron-expand::before {
+  transform: rotate(90deg);
+}
+.twocolumn .sidebar .bi.bi-chevron-contract::before {
+  transform: rotate(90deg);
 }
 .twocolumn .sidebar .sidebar-nav {
-  position: sticky;
-  top: 4.5rem;
+  border-top: 1px solid #ced4da;
+  border-top-right-radius: 5px;
+  border-right: 1px solid #ced4da;
+  border-bottom-right-radius: 5px;
+  border-bottom: 1px solid #ced4da;
+  background-color: #f8f9fa;
+  overflow: hidden;
+  transition: height 500ms;
 }
 .twocolumn .sidebar .sidebar-nav .btn.active {
   background-color: #dee2e6;
@@ -10676,12 +10702,12 @@ p {
 .twocolumn .sidebar .sidebar-nav .btn:focus {
   box-shadow: none;
 }
-.twocolumn .sidebar .sidebar-nav i.bi::before {
-  line-height: inherit;
-  transition-duration: 300ms;
-}
-.twocolumn .sidebar .sidebar-nav button[aria-expanded=true] i.bi::before {
+.twocolumn .sidebar .sidebar-nav button[aria-expanded=true] i.bi.bi.bi-chevron-double-left::before {
   transform: rotate(-90deg);
+}
+.twocolumn .sidebar .sidebar-nav #sidebarNavItems {
+  margin: 0;
+  padding-bottom: 1rem;
 }
 .twocolumn .sidebar .sidebar-nav ul li a {
   font-size: 1rem;
@@ -10709,11 +10735,20 @@ p {
 .twocolumn .sidebar .sidebar-nav ul ul ul ul ul ul li a {
   font-style: italic;
 }
+@media (max-width: 767.98px) {
+  .twocolumn .sidebar {
+    left: -10rem;
+  }
+  .twocolumn .sidebar .sidebar-nav {
+    height: 2rem;
+  }
+}
 .twocolumn main {
-  grid-area: main;
+  margin-left: 12rem;
   margin-bottom: 2rem;
   padding-left: 2rem;
   padding-right: 4rem;
+  transition: margin-left 500ms;
 }
 .twocolumn main h1::before, .twocolumn main .h1::before, .twocolumn main h2::before, .twocolumn main .h2::before, .twocolumn main h3::before, .twocolumn main .h3::before, .twocolumn main h4::before, .twocolumn main .h4::before, .twocolumn main h5::before, .twocolumn main .h5::before, .twocolumn main h6::before, .twocolumn main .h6::before {
   display: block;
@@ -10721,6 +10756,11 @@ p {
   height: 4.5rem;
   margin-top: -4.5rem;
   content: "";
+}
+@media (max-width: 767.98px) {
+  .twocolumn main {
+    margin-left: 2rem;
+  }
 }
 
 .banner {

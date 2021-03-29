@@ -1,13 +1,30 @@
 @use 'ncar';
 
-$primary: map-get(ncar.$colors, "blue");
+$primary: map-get(ncar.$colors, 'blue');
 
-@import "../bootstrap/scss/bootstrap";
+@import '../bootstrap/scss/bootstrap';
 
 $brand-img-height: 2rem;
 $navbar-height: 2.5rem + $brand-img-height;
+$sidebar-width: 12rem;
 
-$sidebar-width: 14rem;
+$sidebar-left-contracted: -10rem;
+$main-margin-left-contracted: 2rem;
+
+$sidebar-left-expanded: 0;
+$main-margin-left-expanded: $sidebar-width;
+
+
+:root {
+  --main-contract-breakpoint: #{map-get($grid-breakpoints, 'md')};
+  --brand-img-height: #{$brand-img-height};
+  --navbar-height: #{$navbar-height};
+  --sidebar-width: #{$sidebar-width};
+  --sidebar-left-expanded: #{$sidebar-left-expanded};
+  --sidebar-left-contracted: #{$sidebar-left-contracted};
+  --main-margin-left-expanded: #{$main-margin-left-expanded};
+  --main-margin-left-contracted: #{$main-margin-left-contracted};
+}
 
 a.headerlink {
   text-decoration: none;
@@ -39,19 +56,37 @@ p {
 
 .twocolumn {
   margin-top: $navbar-height;
-  display: grid;
-  gap: 0;
-  grid-template-areas: "sidebar main";
-  grid-template-columns: $sidebar-width 1fr;
 
   .sidebar {
-    margin-left: 1rem;
     display: block;
-    grid-area: sidebar;
+    width: $sidebar-width;
+    position: fixed;
+    top: $navbar-height;
+    left: $sidebar-left-expanded;
+    transition: left 500ms;
+
+    i.bi::before {
+      line-height: inherit;
+      transition-duration: 300ms;
+    }
+
+    .bi.bi-chevron-expand::before {
+      transform: rotate(90deg);
+    }
+
+    .bi.bi-chevron-contract::before {
+      transform: rotate(90deg);
+    }
 
     .sidebar-nav {
-      position: sticky;
-      top: $navbar-height;
+      border-top: 1px solid $gray-400;
+      border-top-right-radius: 5px;
+      border-right: 1px solid $gray-400;
+      border-bottom-right-radius: 5px;
+      border-bottom: 1px solid $gray-400;
+      background-color: $light;
+      overflow: hidden;
+      transition: height 500ms;
 
       .btn.active {
         background-color: $gray-300;
@@ -61,13 +96,13 @@ p {
         box-shadow: none;
       }
 
-      i.bi::before {
-        line-height: inherit;
-        transition-duration: 300ms;
+      button[aria-expanded='true'] i.bi.bi.bi-chevron-double-left::before {
+        transform: rotate(-90deg);
       }
 
-      button[aria-expanded="true"] i.bi::before {
-        transform: rotate(-90deg);
+      #sidebarNavItems {
+        margin: 0;
+        padding-bottom: 1rem;
       }
 
       ul li a {
@@ -103,12 +138,21 @@ p {
       }
     }
   }
+  @include media-breakpoint-down(md) {
+    .sidebar {
+      left: $sidebar-left-contracted;
+      .sidebar-nav {
+        height: 2rem;
+      }
+    }
+  }
 
   main {
-    grid-area: main;
+    margin-left: $main-margin-left-expanded;
     margin-bottom: 2rem;
     padding-left: 2rem;
     padding-right: 4rem;
+    transition: margin-left 500ms;
 
     h1::before, h2::before, h3::before, h4::before, h5::before, h6::before {
       display: block;
@@ -116,6 +160,11 @@ p {
       height: $navbar-height;
       margin-top: -$navbar-height;
       content: '';
+    }
+  }
+  @include media-breakpoint-down(md) {
+    main {
+      margin-left: $main-margin-left-contracted;
     }
   }
 }
