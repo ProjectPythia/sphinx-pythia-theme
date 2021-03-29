@@ -1,7 +1,7 @@
 {%- extends "layout.html" %}
 
 {% block body %}
-      {%- set sections = generate_body_sections() %}
+      {%- set sections = generate_onepage_body_sections() %}
       {%- for section in sections %}
       {%- if section['kind'] == 'banner' %}
       {%- if theme_banner_bgimage %}

@@ -1,0 +1,104 @@
+      {% set navitems = generate_sidebar_items() %}
+      <!-- Left Sidebar -->
+      <aside class="sidebar" id="sidebar">
+        <nav class="sidebar-nav" aria-label="TableOfContents" id="sidebarNav">
+          <div class="container-fluid d-flex justify-content-end px-0">
+            <a class="btn btn-sm" onclick="toggleSidebar()"><i id="contractIcon" class="bi bi-chevron-contract"></i></a>
+          </div>
+          <ul class="list-unstyled" id="sidebarNavItems">
+            <li>
+              <div class="d-flex justify-content-between align-items-center">
+                <a class="btn btn-sm active" href="/page1.html#c1">Chapter 1</a>
+                <button class="btn btn-sm" data-bs-toggle="collapse" data-bs-target="#collapse1" aria-controls="collapse1" aria-expanded="true">
+                  <i class="bi bi-chevron-double-left"></i>
+                </button>
+              </div>
+              <div class="collapse show" id="collapse1">
+                <ul class="list-unstyled">
+                  <li>
+                    <a class="btn btn-sm" href="/page1.html#c1A">Section A</a>
+                    <ul class="list-unstyled">
+                      <li>
+                        <a class="btn btn-sm" href="/page1.html#c1A1">Section A-1</a>
+                        <ul class="list-unstyled">
+                          <li>
+                            <a class="btn btn-sm" href="/page1.html#c1A1i">Section A-1-i</a>
+                          </li>
+                        </ul>
+                      </li>
+                      <li>
+                        <a class="btn btn-sm" href="/page1.html#c1A2">Section A-2</a>
+                      </li>
+                    </ul>
+                  </li>
+                  <li>
+                    <a class="btn btn-sm" href="/page1.html#c1B">Section B</a>
+                  </li>
+                </ul>
+              </div>
+            </li>
+            <li>
+              <div class="d-flex justify-content-between align-items-center">
+                <a class="btn btn-sm" href="/page2.html#c2">Chapter 2</a>
+                <button class="btn btn-sm" data-bs-toggle="collapse" data-bs-target="#collapse2" aria-controls="collapse2" aria-expanded="false">
+                  <i class="bi bi-chevron-double-left"></i>
+                </button>
+              </div>
+              <div class="collapse" id="collapse2">
+                <ul class="list-unstyled">
+                  <li>
+                    <a class="btn btn-sm" href="/page2.html#c2A">Section A</a>
+                    <ul class="list-unstyled">
+                      <li>
+                        <a class="btn btn-sm" href="/page2.html#c2A1">Section A-1</a>
+                        <ul class="list-unstyled">
+                          <li>
+                            <a class="btn btn-sm" href="/page2.html#c2A1i">Section A-1-i</a>
+                          </li>
+                        </ul>
+                      </li>
+                      <li>
+                        <a class="btn btn-sm" href="/page2.html#c2A2">Section A-2</a>
+                      </li>
+                    </ul>
+                  </li>
+                  <li>
+                    <a class="btn btn-sm" href="/page2.html#c2B">Section B</a>
+                  </li>
+                </ul>
+              </div>
+            </li>
+            <li>
+              <div class="d-flex justify-content-between align-items-center">
+                <a class="btn btn-sm" href="/page3.html#c3">Chapter 3</a>
+                <button class="btn btn-sm" data-bs-toggle="collapse" data-bs-target="#collapse3" aria-controls="collapse3" aria-expanded="false">
+                  <i class="bi bi-chevron-double-left"></i>
+                </button>
+              </div>
+              <div class="collapse" id="collapse3">
+                <ul class="list-unstyled">
+                  <li>
+                    <a class="btn btn-sm" href="/page3.html#c3A">Section A</a>
+                    <ul class="list-unstyled">
+                      <li>
+                        <a class="btn btn-sm" href="/page3.html#c3A1">Section A-1</a>
+                        <ul class="list-unstyled">
+                          <li>
+                            <a class="btn btn-sm" href="/page3.html#c3A1i">Section A-1-i</a>
+                          </li>
+                        </ul>
+                      </li>
+                      <li>
+                        <a class="btn btn-sm" href="/page3.html#c3A2">Section A-2</a>
+                      </li>
+                    </ul>
+                  </li>
+                  <li>
+                    <a class="btn btn-sm" href="/page3.html#c3B">Section B</a>
+                  </li>
+                </ul>
+              </div>
+            </li>
+          </ul>
+        </nav>
+      </aside>

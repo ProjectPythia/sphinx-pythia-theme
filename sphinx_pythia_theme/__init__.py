@@ -27,8 +27,7 @@ def add_functions_to_context(app, pagename, templatename, context, doctree):
                 found_tags += find_tags_by_name(child, name, maxdepth=maxdepth, _depth=_depth+1)
         return found_tags
 
-
-    def generate_page_nav_items(includehome=True):
+    def generate_nav_items():
         toc = context.get('toc')
         if not toc:
             return []
@@ -43,16 +42,9 @@ def add_functions_to_context(app, pagename, templatename, context, doctree):
             if anchor:
                 anchor['class'] = ['nav-link'] + anchor.get('class', [])
 
-        if list_items and includehome:
-            top_li = list_items[0]
-            anchor = top_li.find('a')
-            if anchor['href'] == '#':
-                anchor.string.replace_with('Home')
-
         return [str(li).replace('\n', '').strip() for li in list_items]
 
-
-    def generate_doc_nav_items(includehome=True):
+    def generate_sidebar_items():
         toctree = context['toctree'](maxdepth=-1, collapse=False, includehidden=True)
         if not toctree:
             return []
@@ -61,16 +53,6 @@ def add_functions_to_context(app, pagename, templatename, context, doctree):
         soup = bs(toctree, 'html.parser')
 
         list_items = []
-
-        if includehome:
-            li = soup.new_tag('li')
-            li['class'] = ['toctree-l1']
-            anchor = soup.new_tag('a')
-            anchor['class'] = ['reference', 'internal']
-            anchor['href'] = '#'
-            anchor.string = 'Home'
-            li.append(anchor)
-            list_items = [li]
 
         list_items += find_tags_by_name(soup, 'li', maxdepth=3)
         for li in list_items:
@@ -83,8 +65,7 @@ def add_functions_to_context(app, pagename, templatename, context, doctree):
 
         return [str(li).replace('\n', '').strip() for li in list_items]
 
-
-    def generate_body_sections():
+    def generate_onepage_body_sections():
         body = context.get('body')
         if not body:
             return []
@@ -135,9 +116,9 @@ def add_functions_to_context(app, pagename, templatename, context, doctree):
 
         return sections
 
-    context['generate_page_nav_items'] = generate_page_nav_items
-    context['generate_doc_nav_items'] = generate_doc_nav_items
-    context['generate_body_sections'] = generate_body_sections
+    context['generate_nav_items'] = generate_nav_items
+    context['generate_sidebar_items'] = generate_sidebar_items
+    context['generate_onepage_body_sections'] = generate_onepage_body_sections
 
 
 def set_default_permalinks_icon(app):
