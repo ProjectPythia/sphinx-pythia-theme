@@ -38,10 +38,6 @@ window.onscroll = function() {
     activeAnchor.classList.add('active');
 };
 
-function getTopElementId() {
-
-}
-
 var bp = getComputedStyle(document.documentElement).getPropertyValue('--main-contract-breakpoint');
 const mediaQuery = window.matchMedia( '(min-width: ' + bp + ')' );
 document.addEventListener("DOMContentLoaded", function(event) {
@@ -84,10 +80,6 @@ function expandSidebar() {
     var sidebarNav = document.getElementById('sidebarNav');
     var sidebarNavHeight = sidebarNav.scrollHeight;
     sidebarNav.style.height = sidebarNavHeight + 'px';
-    // sidebarNav.addEventListener('transitionend', function(e) {
-    //     sidebarNav.removeEventListener('transitionend', arguments.callee);
-    //     sidebarNav.style.height = null;
-    // });
 
     document.getElementById('contractIcon').classList.remove('bi-chevron-expand');
     document.getElementById('contractIcon').classList.add('bi-chevron-contract');
