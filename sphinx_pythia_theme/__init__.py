@@ -3,7 +3,6 @@ import itertools
 from pathlib import Path
 
 from bs4 import BeautifulSoup as bs
-from bs4.element import NavigableString
 from sphinx.application import Sphinx
 
 __version__ = "0.0.1"
