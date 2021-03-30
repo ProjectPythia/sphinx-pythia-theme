@@ -1,9 +1,10 @@
 window.onscroll = function() {
     var onPage = [];
 
-    var topElemId = document.querySelector('#main div.section').getAttribute('id');
-
     var anchors = document.querySelectorAll('#sidebarNavItems a');
+    if (anchors.length == 0) {
+        return;
+    }
     for (var i = 0; i < anchors.length; ++i) {
         anchors[i].classList.remove('active');
         var href = anchors[i].getAttribute('href').split('#');
