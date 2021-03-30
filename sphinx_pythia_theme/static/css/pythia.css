@@ -10665,6 +10665,10 @@ p {
   margin-top: 3rem;
 }
 
+i.bi::before {
+  line-height: inherit;
+}
+
 .onecolumn .banner {
   background-image: url(../img/backgrounds/pexels-jeff-stapleton-5792818.jpg);
   background-size: cover;
@@ -10739,7 +10743,6 @@ p {
   transition: left 500ms;
 }
 .twocolumn .sidebar i.bi::before {
-  line-height: inherit;
   transition-duration: 300ms;
 }
 .twocolumn .sidebar .bi.bi-chevron-expand::before {

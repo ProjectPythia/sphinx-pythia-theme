@@ -54,6 +54,10 @@ p {
   margin-top: 3rem;
 }
 
+i.bi::before {
+  line-height: inherit;
+}
+
 .onecolumn {
   .banner {
     // Photo by Jeff Stapleton from Pexels
@@ -146,7 +150,6 @@ p {
     transition: left 500ms;
 
     i.bi::before {
-      line-height: inherit;
       transition-duration: 300ms;
     }
 
