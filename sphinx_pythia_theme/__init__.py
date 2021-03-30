@@ -27,14 +27,14 @@ def add_functions_to_context(app, pagename, templatename, context, doctree):
                 found_tags += find_tags_by_name(child, name, maxdepth=maxdepth, _depth=_depth+1)
         return found_tags
 
-    def generate_nav_items():
+    def get_nav_items():
         toc = context.get('toc')
         if not toc:
             return []
 
         soup = bs(toc, 'html.parser')
-        list_items = find_tags_by_name(soup, 'li', maxdepth=3)
-        for li in list_items:
+        nav_items = find_tags_by_name(soup, 'li', maxdepth=3)
+        for li in nav_items:
             for ul in li.find_all('ul'):
                 ul.extract()
             li['class'] = ['nav-item'] + li.get('class', [])
@@ -42,30 +42,48 @@ def add_functions_to_context(app, pagename, templatename, context, doctree):
             if anchor:
                 anchor['class'] = ['nav-link'] + anchor.get('class', [])
 
-        return [str(li).replace('\n', '').strip() for li in list_items]
+        return [str(li).replace('\n', '').strip() for li in nav_items]
 
-    def generate_sidebar_items():
+    def get_sidebar_items():
         toctree = context['toctree'](maxdepth=-1, collapse=False, includehidden=True)
         if not toctree:
             return []
 
-        print(toctree)
         soup = bs(toctree, 'html.parser')
 
-        list_items = []
+        sidebar_items = []
+        for li in soup.find_all('li', class_="toctree-l1"):
+            a = li.find('a').extract()
+            ul = li.find('ul')
+            if ul:
+                ul = ul.extract()
 
-        list_items += find_tags_by_name(soup, 'li', maxdepth=3)
-        for li in list_items:
-            for ul in li.find_all('ul'):
-                ul.extract()
-            li['class'] = ['nav-item'] + li.get('class', [])
-            anchor = li.find('a')
-            if anchor:
-                anchor['class'] = ['nav-link'] + anchor.get('class', [])
+                ul['class'] = 'list-unstyled'
+                for _ul in ul.find_all('ul'):
+                    _ul['class'] = 'list-unstyled'
 
-        return [str(li).replace('\n', '').strip() for li in list_items]
+                for _a in ul.find_all('a'):
+                    # _a['class'] = ['btn', 'btn-sm'] + _a.get('class', [])
+                    _a['class'] = ['btn', 'btn-sm']
 
-    def generate_onepage_body_sections():
+                for _li in ul.find_all('li'):
+                    _li.attrs = {}
+
+            else:
+                ul = ''
+
+            sidebar_item = {}
+            sidebar_item['title'] = a.string
+            sidebar_item['href'] = a['href']
+            sidebar_item['id'] = a['href'].replace('#', '')
+            sidebar_item['is_current'] = 'current' in li['class']
+            sidebar_item['contents'] = str(ul)
+
+            sidebar_items.append(sidebar_item)
+
+        return sidebar_items
+
+    def get_onepage_body_sections():
         body = context.get('body')
         if not body:
             return []
@@ -116,9 +134,9 @@ def add_functions_to_context(app, pagename, templatename, context, doctree):
 
         return sections
 
-    context['generate_nav_items'] = generate_nav_items
-    context['generate_sidebar_items'] = generate_sidebar_items
-    context['generate_onepage_body_sections'] = generate_onepage_body_sections
+    context['get_nav_items'] = get_nav_items
+    context['get_sidebar_items'] = get_sidebar_items
+    context['get_onepage_body_sections'] = get_onepage_body_sections
 
 
 def set_default_permalinks_icon(app):

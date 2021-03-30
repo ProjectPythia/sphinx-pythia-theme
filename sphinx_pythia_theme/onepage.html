@@ -1,43 +1,39 @@
-{%- extends "layout.html" %}
-
-{% block body %}
-      {%- set sections = generate_onepage_body_sections() %}
-      {%- for section in sections %}
-      {%- if section['kind'] == 'banner' %}
-      {%- if theme_banner_bgimage %}
-      {%- set bgimg_style = 'style="background-image: url(' + theme_banner_bgimage + ');"' %}
-      {%- endif %}
-      <div class="banner" id="{{ section['id'] }}" {{ bgimg_style }}>
-        {%- if theme_banner_mask_color %}
-        {%- set color_attr = 'background-color: ' + theme_banner_mask_color + ';' %}
+        {%- set sections = get_onepage_body_sections() %}
+        {%- for section in sections %}
+        {%- if section['kind'] == 'banner' %}
+        {%- if theme_banner_bgimage %}
+        {%- set bgimg_style = 'style="background-image: url(' + theme_banner_bgimage + ');"' %}
         {%- endif %}
-        {%- if theme_banner_mask_opacity %}
-        {%- set opacity_attr = 'opacity: ' + theme_banner_mask_opacity + ';' %}
-        {%- endif %}
-        {%- if color_attr or opacity_attr %}
-        {%- set mask_style = 'style="' + color_attr + opacity_attr + '"' %}
-        {%- endif %}
-        <div class="banner-mask" {{ mask_style }}>
-          <div class="container-fluid">
-            <div class="container text-light banner-box">
-              {{ section['title'] }}
-              {{ section['contents'] }}
+        <div class="banner" id="{{ section['id'] }}" {{ bgimg_style }}>
+          {%- if theme_banner_mask_color %}
+          {%- set color_attr = 'background-color: ' + theme_banner_mask_color + ';' %}
+          {%- endif %}
+          {%- if theme_banner_mask_opacity %}
+          {%- set opacity_attr = 'opacity: ' + theme_banner_mask_opacity + ';' %}
+          {%- endif %}
+          {%- if color_attr or opacity_attr %}
+          {%- set mask_style = 'style="' + color_attr + opacity_attr + '"' %}
+          {%- endif %}
+          <div class="banner-mask" {{ mask_style }}>
+            <div class="container-fluid">
+              <div class="container text-light banner-box">
+                {{ section['title'] }}
+                {{ section['contents'] }}
+              </div>
             </div>
           </div>
         </div>
-      </div>
-      {%- elif section['kind'] == 'section' %}
-      <div class="container-fluid section-box {{ section['class'] }}" id="{{ section['id'] }}">
-        <div class="d-flex justify-content-center">
-          <div class="section-title">
-            {{ section['title'] }}
+        {%- elif section['kind'] == 'section' %}
+        <div class="container-fluid section-box {{ section['class'] }}" id="{{ section['id'] }}">
+          <div class="d-flex justify-content-center">
+            <div class="section-title">
+              {{ section['title'] }}
+            </div>
+          </div>
+          <div class="container">
+            {{ section['contents'] }}
           </div>
         </div>
-        <div class="container">
-          {{ section['contents'] }}
-        </div>
-      </div>
-      {%- else %}
-      {%- endif %}
-      {%- endfor %}
-{% endblock %}
+        {%- else %}
+        {%- endif %}
+        {%- endfor %}
