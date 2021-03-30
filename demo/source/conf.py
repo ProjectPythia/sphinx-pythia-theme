@@ -50,7 +50,6 @@ html_theme = 'sphinx_pythia_theme'
 html_theme_options = {
     # 'onepagenames': ['index'],
     # 'navbar_title': '',
-    # 'navbar_fixed_top': True,
     'navbar_links': {
         'The Book': 'chapter1',
         'GitHub': 'https://github.com/ProjectPythia/sphinx-pythia-theme',
