@@ -30,8 +30,7 @@ release = '0.0.1'
 # Add any Sphinx extension module names here, as strings. They can be
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
 # ones.
-extensions = [
-]
+extensions = []
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']
@@ -49,11 +48,19 @@ exclude_patterns = []
 #
 html_theme = 'sphinx_pythia_theme'
 html_theme_options = {
-    'banner_bgimage': '_static/background.jpg',
-    'banner_mask_color': 'rgb(0,100,0)',
-    'banner_mask_opacity': '0.6',
+    # 'onepagenames': ['index'],
+    # 'navbar_title': '',
+    # 'navbar_fixed_top': True,
+    'navbar_links': {
+        'The Book': 'chapter1',
+        'GitHub': 'https://github.com/ProjectPythia/sphinx-pythia-theme',
+    },
+    # 'banner_bgimage': '_static/background.jpg',
+    # 'banner_mask_color': 'rgb(0,100,0)',
+    # 'banner_mask_opacity': '0.6',
     'sponsor_text': 'This material is based upon work supported by the National Science Foundation under Grant No. ABCDEFG.  Any opinions, findings, and conclusions or recommendations expressed in this material are those of the author(s) and do not necessarily reflect the views of the National Science Foundation.',
     'sponsor_image': '_static/sponsor.png',
+    # 'permalinks_icon': 'bi bi-link',
 }
 
 # Add any paths that contain custom static files (such as style sheets) here,
@@ -61,5 +68,6 @@ html_theme_options = {
 # so a file named "default.css" will overwrite the builtin "default.css".
 html_static_path = ['_static']
 
+# Custom logo and favicon
 html_logo = '_static/logo.svg'
 html_favicon = '_static/favicon.ico'
