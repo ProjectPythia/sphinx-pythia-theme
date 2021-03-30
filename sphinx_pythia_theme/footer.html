@@ -1,0 +1,29 @@
+    <footer class="footer">
+      {%- if show_copyright %}
+      <div class="container-fluid bottomnav">
+        <div class="d-flex justify-content-center">
+            {%- if hasdoc('copyright') %}
+              {% trans path=pathto('copyright'), copyright=copyright|e %}<a href="{{ path }}">&copy;</a> 2021 {{ copyright }}.{% endtrans %}<br/>
+            {%- else %}
+              {% trans copyright=copyright|e %}&copy; 2021 {{ copyright }}.{% endtrans %}<br/>
+            {%- endif %}
+        </div>
+      </div>
+      {%- endif %}
+      {%- if theme_sponsor_text %}
+      <div class="container-fluid sponsor">
+        <div class="container">
+          <div class="row">
+            <div class="col">
+              {% trans theme_sponsor_text=theme_sponsor_text|e %}{{ theme_sponsor_text }}{% endtrans %}
+            </div>
+            {%- if theme_sponsor_image %}
+            <div class="col-auto">
+              <img src="{{ pathto(theme_sponsor_image, 1) }}">
+            </div>
+            {%- endif %}
+          </div>
+        </div>
+      </div>
+      {%- endif %}
+    </footer>
