@@ -31,19 +31,19 @@
 {%- block content %}
     {{- pythiaNavbar() }}
 
-    {%- if pagename == 'index' %}
+    {%- if pagename in theme_onepagenames %}
     <div class="container-fluid wrapper onecolumn">
     {%- else %}
     <div class="container-fluid wrapper twocolumn">
     {%- endif %}
 
-      {%- if pagename != 'index' %}
+      {%- if pagename not in theme_onepagenames %}
       {%- block sidebar1 %}{{ pythiaSidebar() }}{% endblock %}
       {%- endif %}
 
       <!-- Main -->
       <main role="main" id="main">
-        {%- if pagename == 'index' %}
+        {%- if pagename in theme_onepagenames %}
         {%- include "onepage.html" %}
         {%- else %}
         {%- block body %}{% endblock %}
