@@ -140,9 +140,10 @@ def add_functions_to_context(app, pagename, templatename, context, doctree):
 
 def set_default_permalinks_icon(app):
     if 'permalinks_icon' in app.config.html_theme_options:
-        app.config.html_permalinks_icon = app.config.html_theme_options['permalinks_icon']
+        icon_class = app.config.html_theme_options['permalinks_icon']
     else:
-        app.config.html_permalinks_icon = '<i class="bi bi-link"></i>'
+        icon_class = 'bi bi-link'
+    app.config.html_permalinks_icon = f'<i class="{icon_class}"></i>'
 
 
 def setup(app: Sphinx):

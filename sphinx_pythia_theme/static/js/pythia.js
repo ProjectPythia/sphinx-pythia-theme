@@ -80,6 +80,10 @@ function expandSidebar() {
     var sidebarNav = document.getElementById('sidebarNav');
     var sidebarNavHeight = sidebarNav.scrollHeight;
     sidebarNav.style.height = sidebarNavHeight + 'px';
+    sidebarNav.addEventListener('transitionend', function(e) {
+        sidebarNav.removeEventListener('transitionend', arguments.callee);
+        sidebarNav.style.height = 'auto';
+    });
 
     document.getElementById('contractIcon').classList.remove('bi-chevron-expand');
     document.getElementById('contractIcon').classList.add('bi-chevron-contract');

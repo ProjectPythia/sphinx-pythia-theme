@@ -1,6 +1,5 @@
-    {% set nav_items = get_nav_items() %}
     <!-- Navbar (Top)-->
-    <nav class="navbar navbar-expand-lg {% if theme_navbar_fixed_top|tobool -%} fixed-top {%- endif %} navbar-dark bg-dark shadow">
+    <nav class="navbar navbar-expand-lg fixed-top navbar-dark bg-dark shadow">
       <div class="container-fluid">
         <a class="navbar-brand" href="{{ pathto(master_doc) }}">
           {%- if logo %}<img src="{{ pathto('_static/' + logo, 1) }}">{%- endif -%}
@@ -11,13 +10,17 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarNavDropdown">
           <ul class="navbar-nav">
-            {%- for item in nav_items %}
-            {{ item }}
-            {%- endfor -%}
-            {% if theme_navbar_links %}
+            {%- if theme_navbar_links %}
             {%- for link in theme_navbar_links %}
+            {%- set link_ref = theme_navbar_links[link] %}
+            {%- set active = '' %}
+            {%- if hasdoc(link_ref) %}
+            {%- set link_href = pathto(link_ref) %}
+            {%- else %}
+            {%- set link_href = link_ref %}
+            {%- endif %}
             <li class="nav-item">
-              <a class="nav-link" href="{{ pathto(*link[1:]) }}">{{ link[0] }}</a>
+              <a class="nav-link" href="{{ link_href }}">{{ link }}</a>
             </li>
             {%- endfor %}
             {% endif %}
