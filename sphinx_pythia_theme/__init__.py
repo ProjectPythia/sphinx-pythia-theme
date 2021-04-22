@@ -63,7 +63,7 @@ def add_functions_to_context(app, pagename, templatename, context, doctree):
 
                 for _a in ul.find_all('a'):
                     # _a['class'] = ['btn', 'btn-sm'] + _a.get('class', [])
-                    _a['class'] = ['btn', 'btn-sm']
+                    _a['class'] = ['btn', 'btn-default','btn-sm']
 
                 for _li in ul.find_all('li'):
                     _li.attrs = {}

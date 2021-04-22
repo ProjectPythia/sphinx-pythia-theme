@@ -19,7 +19,7 @@
             <li>
               {%- if item['contents'] %}
               <div class="d-flex justify-content-between align-items-center">
-                <a class="btn btn-sm {{ active }}" href="{{ item['href'] }}">{{ item['title'] }}</a>
+                <a class="btn btn-default btn-sm {{ active }}" href="{{ item['href'] }}">{{ item['title'] }}</a>
                 <button class="btn btn-sm" data-bs-toggle="collapse" data-bs-target="#{{ name }}" aria-controls="{{ name }}" aria-expanded="{{ aria }}">
                   <i class="bi bi-chevron-double-left"></i>
                 </button>
@@ -29,7 +29,7 @@
               </div>
               {%- else %}
               <div class="d-flex justify-content-between align-items-center">
-                <a class="btn btn-sm {{ active }}" href="#{{ item['id'] }}">{{ item['title'] }}</a>
+                <a class="btn btn-default btn-sm {{ active }}" href="#{{ item['id'] }}">{{ item['title'] }}</a>
               </div>
               {%- endif %}
             </li>
