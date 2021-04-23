@@ -10652,6 +10652,10 @@ a.navbar-brand img {
   vertical-align: middle;
 }
 
+a.btn-default {
+  text-align: left;
+}
+
 body {
   font-family: "Poppins", sans-serif;
 }
@@ -10737,7 +10741,8 @@ i.bi::before {
 .twocolumn .sidebar {
   display: block;
   width: 12rem;
-  position: fixed;
+  height: 85%;
+  position: absolute;
   top: 4.5rem;
   left: 0;
   transition: left 500ms;
