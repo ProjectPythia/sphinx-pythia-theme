@@ -65,3 +65,4 @@ deserunt mollit anim id est laborum.
    chapter1
    chapter2
    chapter3
+   demo.ipynb
