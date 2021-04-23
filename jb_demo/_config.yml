@@ -1,0 +1,56 @@
+# Book settings
+# Learn more at https://jupyterbook.org/customize/config.html
+
+title: Project Pythia Foundations
+author: The Project Pythia Developers and Contributiors.
+copyright : The Project Pythia Developers and Contributiors.
+logo: images/pythia_logo-white-rtext.svg
+exclude_patterns: [README.md]
+# Force re-execution of notebooks on each build.
+# See https://jupyterbook.org/content/execute.html
+execute:
+  execute_notebooks: force
+
+# Define the name of the latex output file for PDF builds
+latex:
+  latex_documents:
+    targetname: book.tex
+
+# Add a bibtex file so that we can create citations
+bibtex_bibfiles:
+  - references.bib
+
+# Information about where the book exists on the web
+repository:
+  url: https://github.com/ProjectPythia/pythia-foundations # Online location of your book
+  #path_to_book: docs  # Optional path to your book, relative to the repository root
+  branch: main # Which branch of the repository should be used when creating links (optional)
+# Configure your Binder links, such as the URL of the BinderHub.
+launch_buttons:
+  binderhub_url: https://mybinder.org
+
+# Add GitHub buttons to your book
+# See https://jupyterbook.org/customize/config.html#add-a-link-to-your-repository
+html:
+  use_issues_button: false
+  use_repository_button: false
+  #extra_footer: |
+  #  All code in Pythia Foundations is licensed under Apache 2.0. All other non-code content is licensed under <a href="https://creativecommons.org/licenses/by/4.0/">Creative Commons BY 4.0 (CC BY 4.0)</a>.
+sphinx:
+  #extra_extensions:
+  # - sphinx_pythia_theme
+  config:
+    html_theme: 'sphinx_pythia_theme'
+    html_theme_options : {
+        # 'onepagenames': ['index'],
+        # 'navbar_title': '',
+        'navbar_links': {
+            'The Book': 'landing-page',
+            'GitHub': 'https://github.com/ProjectPythia/sphinx-pythia-theme',
+        },
+        # 'banner_bgimage': '_static/background.jpg',
+        # 'banner_mask_color': 'rgb(0,100,0)',
+        # 'banner_mask_opacity': '0.6',
+        'sponsor_text': 'This material is based upon work supported by the National Science Foundation under Grant No. ABCDEFG.  Any opinions, findings, and conclusions or recommendations expressed in this material are those of the author(s) and do not necessarily reflect the views of the National Science Foundation.',
+        'sponsor_image': '_static/img/footer-logo-nsf.png',
+    }

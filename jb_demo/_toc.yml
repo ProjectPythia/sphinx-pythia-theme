@@ -1,0 +1,40 @@
+# Table of content
+# Learn more at https://jupyterbook.org/customize/toc.html
+#
+- file: landing-page
+
+- file: preamble
+  sections:
+    - file: preamble/how-to-contribute
+    - file: preamble/how-to-use
+
+- file: foundations
+  sections:
+    - file: foundations/getting-started-python
+      sections:
+        - file: foundations/basic-python
+          sections:
+            - file: foundations/Hello
+        - file: foundations/how-to-run-python
+          sections:
+            - file: foundations/conda
+    - file: foundations/getting-started-jupyter
+      sections:
+        - file: foundations/jupyter-notebooks
+        - file: foundations/how-to-run-notebooks
+        - file: foundations/markdown
+    - file: foundations/getting-started-github
+      sections:
+        - file: foundations/what-is-github
+        - file: foundations/git
+        - file: foundations/github-pull-request
+
+- file: core
+  sections:
+    - file: core/numpy
+    - file: core/matplotlib
+    - file: core/cartopy
+    - file: core/datetime
+    - file: core/pandas
+    - file: core/data-formats
+    - file: core/xarray
