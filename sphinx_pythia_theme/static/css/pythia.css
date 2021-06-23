@@ -10662,7 +10662,7 @@ body {
   font-family: "Poppins", sans-serif;
 }
 
-i.bi::before {
+i.bi:before {
   line-height: inherit;
 }
 

@@ -60,7 +60,7 @@ body {
   font-family: map-get(ncar.$fonts, 'body'), sans-serif;
 }
 
-i.bi::before {
+i.bi:before {
   line-height: inherit;
 }
 
@@ -231,13 +231,7 @@ div.document.onepager {
   padding: 0;
 
   div.sectionwrapper-1 {
-    // Photo by Jeff Stapleton from Pexels
     background-color: map-get(ncar.$colors, 'blue-alpha');
-    // background-image: linear-gradient(
-    //     map-get(ncar.$colors, 'blue-alpha'),
-    //     map-get(ncar.$colors, 'blue-alpha')
-    //   ),
-    //   url(../images/backgrounds/pexels-jeff-stapleton-5792818.jpg);
     background-size: cover;
     background-position: center center;
     color: $light;
