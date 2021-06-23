@@ -5,17 +5,6 @@
 <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
   <div class="sphinxsidebarwrapper">
     {%- block sidebarlogo %}
-      {%- if logo %}
-    <p class="logo">
-      <a href="{{ pathto(master_doc)|e }}">
-        <img
-          class="logo"
-          src="{{ pathto('_static/' + logo, 1)|e }}"
-          alt="Logo"
-        />
-      </a>
-    </p>
-      {%- endif %}
     {%- endblock sidebarlogo %}
     {%- if sidebars != None %}
       {#- new style sidebar: explicitly include/exclude templates #}
