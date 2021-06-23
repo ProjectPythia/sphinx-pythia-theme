@@ -72,8 +72,17 @@ html_theme_options = {
     'onepagers': [
         'index',
     ],
+    'nav_bar': {
+        'Card 1': '/index.html#card-1',
+        'Card 2': '/index.html#card-2',
+        'Card 3': '/index.html#card-3',
+        'Card 4': '/index.html#card-4',
+        'Github': 'https://github.com',
+    },
     'logos_bar': {
-        'Pythia': '/_static/logo.svg',
+        'steampunk-wings': '/_static/steampunk-wings-logo.jpg',
+        'horse': '/_static/horse-logo2.jpg',
+        'globe-compass': '/_static/globe-compass-logo.jpg',
     },
     'banner_background': '/_static/background.jpg',
     'banner_background_attribution': 'Photo by Jeff Stapleton from Pexels',

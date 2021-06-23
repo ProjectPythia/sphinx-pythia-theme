@@ -1,8 +1,6 @@
 <nav class="navbar navbar-expand-md fixed-top navbar-dark bg-dark shadow">
   <div class="container-fluid">
-    <a class="navbar-brand" href="/index.html#"
-      ><img src="{{ pathto('_static/' + logo, 1)|e }}"
-    /></a>
+    <a class="navbar-brand" href="/index.html#"><img src="{{ pathto('_static/' + logo, 1)|e }}" /></a>
     <button
       class="navbar-toggler"
       type="button"
@@ -16,22 +14,11 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarNavDropdown">
       <ul class="navbar-nav">
+{%- for item in theme_nav_bar %}
         <li class="nav-item">
-          <a class="nav-link" href="/index.html#start-learning"
-            >Start Learning</a
-          >
+          <a class="nav-link" href="{{ theme_nav_bar[item] }}">{{ item }}</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/index.html#join-us">Join us!</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/index.html#the-project-pythia-team"
-            >Team</a
-          >
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/about.html">About</a>
-        </li>
+{%- endfor %}
       </ul>
     </div>
   </div>
