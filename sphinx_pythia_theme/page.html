@@ -3,7 +3,11 @@
 {%- block body %}
 {%- set new_body = bootstrapify(denest_sections(body)) %}
 {%- if theme_banner_background %}
+  {%- if theme_banner_background_attribution %}
+{{ insert_background_images(new_body, theme_banner_background, theme_banner_background_attribution) }}
+  {%- else %}
 {{ insert_background_images(new_body, theme_banner_background) }}
+  {%- endif %}
 {%- else %}
 {{ new_body }}
 {%- endif %}

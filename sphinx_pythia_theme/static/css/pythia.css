@@ -10821,8 +10821,7 @@ div.document.onepager div.sectionwrapper-1 {
   background-position: center center;
   color: #f8f9fa;
 }
-div.document.onepager div.sectionwrapper-1:after {
-  content: "Photo by Jeff Stapleton from Pexels";
+div.document.onepager div.sectionwrapper-1 span.background-attribution {
   float: right;
   margin-top: -1.6rem;
   font-size: 0.8rem;

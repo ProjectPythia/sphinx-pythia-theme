@@ -235,14 +235,13 @@ div.document.onepager {
     background-size: cover;
     background-position: center center;
     color: $light;
-  }
 
-  div.sectionwrapper-1:after {
-    content: 'Photo by Jeff Stapleton from Pexels';
-    float: right;
-    margin-top: -1.6rem;
-    font-size: 0.8rem;
-    opacity: 0.6;
+    span.background-attribution {
+      float: right;
+      margin-top: -1.6rem;
+      font-size: 0.8rem;
+      opacity: 0.6;
+    }
   }
 
   div.sectionwrapper-2 {

@@ -76,6 +76,7 @@ html_theme_options = {
         'Pythia': '/_static/logo.svg',
     },
     'banner_background': '/_static/background.jpg',
+    'banner_background_attribution': 'Photo by Jeff Stapleton from Pexels',
     'sponsor_text': 'This material is based upon work supported by the National Science Foundation under Grant No. XXXXXXX. Any opinions, findings, and conclusions or recommendations expressed in this material are those of the author(s) and do not necessarily reflect the views of the National Science Foundation.',
     'sponsor_logo': '/_static/sponsor.png',
 }
