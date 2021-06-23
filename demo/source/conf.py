@@ -1,3 +1,6 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+
 # Configuration file for the Sphinx documentation builder.
 #
 # This file only contains a selection of the most common options. For a full
@@ -10,20 +13,16 @@
 # add these directories to sys.path here. If the directory is relative to the
 # documentation root, use os.path.abspath to make it absolute, like shown here.
 #
-# import os
-# import sys
-# sys.path.insert(0, os.path.abspath('.'))
-
+import datetime
+import os
+import shutil
+import sys
 
 # -- Project information -----------------------------------------------------
 
 project = 'Project Pythia'
-author = 'The Project Pythia Developers and Contributors'
-copyright = author
-
-# The full version, including alpha/beta/rc tags
-release = '0.0.1'
-
+author = 'Project Pythia Developers & Contributors'
+copyright = f'2020-{datetime.datetime.now().year}, {author}'
 
 # -- General configuration ---------------------------------------------------
 
@@ -31,6 +30,11 @@ release = '0.0.1'
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
 # ones.
 extensions = []
+
+# Define what extensions will parse which kind of source file
+source_suffix = {
+    '.rst': 'restructuredtext',
+}
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']
@@ -47,26 +51,41 @@ exclude_patterns = []
 # a list of builtin themes.
 #
 html_theme = 'sphinx_pythia_theme'
-html_theme_options = {
-    # 'onepagenames': ['index'],
-    # 'navbar_title': '',
-    'navbar_links': {
-        'The Book': 'chapter1',
-        'GitHub': 'https://github.com/ProjectPythia/sphinx-pythia-theme',
-    },
-    # 'banner_bgimage': '_static/background.jpg',
-    # 'banner_mask_color': 'rgb(0,100,0)',
-    # 'banner_mask_opacity': '0.6',
-    'sponsor_text': 'This material is based upon work supported by the National Science Foundation under Grant No. ABCDEFG.  Any opinions, findings, and conclusions or recommendations expressed in this material are those of the author(s) and do not necessarily reflect the views of the National Science Foundation.',
-    'sponsor_image': '_static/sponsor.png',
-    # 'permalinks_icon': 'bi bi-link',
-}
+html_last_updated_fmt = '%d %B %Y'
+
+# Logo & Title
+html_logo = '_static/logo.svg'
+html_title = ''
+
+# Favicon
+html_favicon = '_static/favicon.ico'
 
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,
 # so a file named "default.css" will overwrite the builtin "default.css".
 html_static_path = ['_static']
+# html_css_files = ['custom.css']
+# html_js_files = ['custom.js']
 
-# Custom logo and favicon
-html_logo = '_static/logo.svg'
-html_favicon = '_static/favicon.ico'
+# HTML Theme-specific Options
+html_theme_options = {
+    'onepagers': [
+        'index',
+    ],
+    'nav_bar': {
+        'Card 1': '/index.html#card-1',
+        'Card 2': '/index.html#card-2',
+        'Card 3': '/index.html#card-3',
+        'Card 4': '/index.html#card-4',
+        'Github': 'https://github.com',
+    },
+    'logos_bar': {
+        'steampunk-wings': '/_static/steampunk-wings-logo.jpg',
+        'horse': '/_static/horse-logo2.jpg',
+        'globe-compass': '/_static/globe-compass-logo.jpg',
+    },
+    'banner_background': '/_static/background.jpg',
+    'banner_background_attribution': 'Photo by Jeff Stapleton from Pexels',
+    'sponsor_text': 'This material is based upon work supported by the National Science Foundation under Grant No. XXXXXXX. Any opinions, findings, and conclusions or recommendations expressed in this material are those of the author(s) and do not necessarily reflect the views of the National Science Foundation.',
+    'sponsor_logo': '/_static/sponsor.png',
+}

@@ -1,0 +1,15 @@
+{# Master template for simple pages. Modified from Sphinx basic/page.html #}
+{%- extends "layout.html" %}
+{%- set render_onepager = (pagename in theme_onepagers) and theme_banner_background %}
+{%- block body %}
+{%- set new_body = bootstrapify(denest_sections(body)) %}
+{%- if render_onepager %}
+  {%- if theme_banner_background_attribution %}
+{{ insert_background_images(new_body, theme_banner_background, theme_banner_background_attribution) }}
+  {%- else %}
+{{ insert_background_images(new_body, theme_banner_background) }}
+  {%- endif %}
+{%- else %}
+{{ new_body }}
+{%- endif %}
+{%- endblock %}

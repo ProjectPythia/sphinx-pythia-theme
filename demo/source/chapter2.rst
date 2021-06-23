@@ -1,5 +1,5 @@
-Chapter 2
-=========
+Caput Secundum
+==============
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean vehicula mattis dolor,
 non blandit risus. Phasellus gravida metus eu risus varius gravida. Phasellus turpis
@@ -10,8 +10,8 @@ mattis velit. Class aptent taciti sociosqu ad litora torquent per conubia nostra
 inceptos himenaeos. Praesent ut sem malesuada, vestibulum libero sit amet, accumsan dui.
 Proin et fermentum metus. Aenean vitae nisi et mi mollis posuere in eget massa.
 
-Section A
----------
+Sectioni A
+----------
 
 Donec eleifend sit amet lectus mattis malesuada. Curabitur id neque metus. Sed ut laoreet
 justo. Etiam lobortis nibh sed ipsum fringilla, vel condimentum odio tincidunt. Proin
@@ -21,8 +21,8 @@ diam quis neque pellentesque, at fermentum ligula faucibus. Phasellus ut tellus 
 Etiam non dignissim diam, egestas faucibus neque. Pellentesque finibus ultricies commodo.
 Fusce metus dui, tempus vel feugiat nec, volutpat venenatis velit.
 
-Section A-1
-~~~~~~~~~~~
+Sectioni A-1
+~~~~~~~~~~~~
 
 Integer blandit leo id arcu semper placerat. Vestibulum a sagittis dolor, bibendum
 pellentesque arcu. Quisque sed neque est. Nulla facilisi. Cras egestas porttitor velit
@@ -30,8 +30,8 @@ sit amet accumsan. Vivamus ornare urna tristique nisi facilisis semper. Vivamus 
 turpis elit. Mauris mi dolor, suscipit in feugiat ac, pellentesque ac augue. Proin
 posuere arcu eu leo viverra, ut pulvinar ipsum consectetur.
 
-Section A-1-i
-^^^^^^^^^^^^^
+Sectioni A-1-i
+^^^^^^^^^^^^^^
 
 Nullam viverra urna vel mi consequat, eget eleifend leo eleifend. Vestibulum ante ipsum
 primis in faucibus orci luctus et ultrices posuere cubilia curae; Vivamus interdum elit
@@ -46,8 +46,8 @@ purus, bibendum in augue iaculis, consectetur bibendum tortor. Etiam in volutpat
 Proin lobortis sollicitudin erat, vitae ornare felis lobortis id. In hac habitasse platea
 dictumst.
 
-Section A-2
-~~~~~~~~~~~
+Sectioni A-2
+~~~~~~~~~~~~
 
 Phasellus malesuada blandit sagittis. Nullam id magna massa. Proin ac dui odio. Vestibulum
 imperdiet orci est, non vulputate nisi sollicitudin sed. Aenean quis congue est, a
@@ -59,8 +59,8 @@ vitae nunc volutpat accumsan eget nec eros. Integer non lobortis erat. Nunc dapi
 dui, non consequat tortor auctor eu. Fusce diam lacus, blandit vel metus at, blandit
 tincidunt ligula. Nulla vitae pharetra odio.
 
-Section B
----------
+Sectioni B
+----------
 
 Donec eleifend sit amet lectus mattis malesuada. Curabitur id neque metus. Sed ut laoreet
 justo. Etiam lobortis nibh sed ipsum fringilla, vel condimentum odio tincidunt. Proin

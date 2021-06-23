@@ -1,11 +1,10 @@
 import os
-import itertools
 from pathlib import Path
 
 from bs4 import BeautifulSoup as bs
 from sphinx.application import Sphinx
 
-__version__ = "0.0.1"
+__version__ = '0.0.2'
 
 
 def get_html_theme_path():
@@ -15,141 +14,62 @@ def get_html_theme_path():
 
 
 def add_functions_to_context(app, pagename, templatename, context, doctree):
-
-    def find_tags_by_name(node, name, maxdepth=None, _depth=0):
-        found_tags = []
-        if node.name == name:
-            found_tags.append(node)
-        maxdepth_not_exceeded = True if not maxdepth else _depth <= maxdepth
-        if hasattr(node, 'children') and maxdepth_not_exceeded:
-            for child in node.children:
-                found_tags += find_tags_by_name(child, name, maxdepth=maxdepth, _depth=_depth+1)
-        return found_tags
-
-    def get_nav_items():
-        toc = context.get('toc')
-        if not toc:
-            return []
-
-        soup = bs(toc, 'html.parser')
-        nav_items = find_tags_by_name(soup, 'li', maxdepth=3)
-        for li in nav_items:
-            for ul in li.find_all('ul'):
-                ul.extract()
-            li['class'] = ['nav-item'] + li.get('class', [])
-            anchor = li.find('a')
-            if anchor:
-                anchor['class'] = ['nav-link'] + anchor.get('class', [])
-
-        return [str(li).replace('\n', '').strip() for li in nav_items]
-
-    def get_sidebar_items():
-        toctree = context['toctree'](maxdepth=-1, collapse=False, includehidden=True)
-        if not toctree:
-            return []
-
-        soup = bs(toctree, 'html.parser')
-
-        sidebar_items = []
-        for li in soup.find_all('li', class_="toctree-l1"):
-            a = li.find('a').extract()
-            ul = li.find('ul')
-            if ul:
-                ul = ul.extract()
-
-                ul['class'] = 'list-unstyled'
-                for _ul in ul.find_all('ul'):
-                    _ul['class'] = 'list-unstyled'
-
-                for _a in ul.find_all('a'):
-                    # _a['class'] = ['btn', 'btn-sm'] + _a.get('class', [])
-                    _a['class'] = ['btn', 'btn-sm']
-
-                for _li in ul.find_all('li'):
-                    _li.attrs = {}
-
-            else:
-                ul = ''
-
-            sidebar_item = {}
-            sidebar_item['title'] = a.string
-            sidebar_item['href'] = a['href']
-            sidebar_item['id'] = a['href'].replace('#', '')
-            sidebar_item['is_current'] = 'current' in li['class']
-            sidebar_item['contents'] = str(ul)
-
-            sidebar_items.append(sidebar_item)
-
-        return sidebar_items
-
-    def get_onepage_body_sections():
-        body = context.get('body')
-        if not body:
-            return []
-
-        soup = bs(body, 'html.parser')
-
-        divisions = []
-        for h1 in soup.find_all(['h1']):
-            divisions.append(h1.parent)
-            for child in h1.parent.children:
-                if child.name == 'div':
-                    divisions.append(child.extract())
+    def denest_sections(html):
+        soup = bs(html, 'html.parser')
 
         sections = []
-        section_classes = [
-            'section-box-light',
-            'section-box-light-gray',
-            'section-box-dark-gray',
-            'section-box-light-gray',
-        ]
-        itr = itertools.cycle(section_classes)
-        for div in divisions:
-            h = div.find(['h1', 'h2'])
+        for h1 in soup.find_all(['h1']):
+            sections.append(h1.parent)
+            for child in h1.parent.children:
+                if (child.name == 'section') or (child.name == 'div' and 'section' in child['class']):
+                    sections.append(child.extract())
+
+        return '\n'.join(str(s) for s in sections)
+
+    def bootstrapify(html):
+        soup = bs(html, 'html.parser')
+
+        for s in soup.select('section,div.section'):
+            h = s.find(['h1', 'h2', 'h3', 'h4', 'h5', 'h6'])
             if not h:
                 continue
 
-            if h.name == 'h1':
-                kind = 'banner'
-                hclass = 'display-1'
-                for p in div.find_all('p'):
-                    p['class'] = ['lead'] + p.get('class', [])
-            else:
-                kind = 'section'
-                hclass = 'display-5'
-            title = h.extract()
-            title['class'] = [hclass] + title.get('class', [])
-            title_link = title.find('a')
-            section_id = title_link['href'].replace('#', '')
+            i = h.name[-1]
 
-            section = {}
-            section['kind'] = kind
-            section['title'] = str(title)
-            section['id'] = section_id
-            section['class'] = None if kind == 'banner' else next(itr)
-            section['contents'] = ''.join(str(c).strip() for c in div.contents)
+            h['class'] = [f'display-{i}'] + h.get('class', [])
 
-            sections.append(section)
+            if h.name in ['h1', 'h2']:
+                s.wrap(soup.new_tag('div', **{'class': f'container-fluid sectionwrapper-{i}'}))
+                s.wrap(soup.new_tag('div', **{'class': f'container section-{i}'}))
 
-        return sections
+            if h.name == 'h2':
+                h.wrap(soup.new_tag('div', **{'class': 'section-title-wrapper'}))
+                h.wrap(soup.new_tag('div', **{'class': 'section-title'}))
 
-    context['get_nav_items'] = get_nav_items
-    context['get_sidebar_items'] = get_sidebar_items
-    context['get_onepage_body_sections'] = get_onepage_body_sections
+        return str(soup)
 
+    def insert_background_images(html, img_src, attribution=None):
+        soup = bs(html, 'html.parser')
 
-def set_default_permalinks_icon(app):
-    if 'permalinks_icon' in app.config.html_theme_options:
-        icon_class = app.config.html_theme_options['permalinks_icon']
-    else:
-        icon_class = 'bi bi-link'
-    app.config.html_permalinks_icon = f'<i class="{icon_class}"></i>'
+        for div in soup.select('div.sectionwrapper-1'):
+            div['style'] = f"background-image: linear-gradient(rgba(26, 100, 143, 0.85), rgba(26, 100, 143, 0.85)), url({img_src});"
+
+            if attribution:
+                span = soup.new_tag('span')
+                span['class'] = ['background-attribution']
+                span.string = str(attribution)
+                div.append(span)
+
+        return str(soup)
+
+    context['insert_background_images'] = insert_background_images
+    context['bootstrapify'] = bootstrapify
+    context['denest_sections'] = denest_sections
 
 
 def setup(app: Sphinx):
     app.require_sphinx('3.5')
     app.add_html_theme('sphinx_pythia_theme', get_html_theme_path())
-    app.connect('builder-inited', set_default_permalinks_icon)
     app.connect('html-page-context', add_functions_to_context)
 
     return {
