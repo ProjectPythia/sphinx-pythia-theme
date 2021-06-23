@@ -1,5 +1,16 @@
+import os
+from pathlib import Path
+
 from bs4 import BeautifulSoup as bs
 from sphinx.application import Sphinx
+
+__version__ = '0.0.2'
+
+
+def get_html_theme_path():
+    """Return list of HTML theme paths."""
+    theme_path = os.path.abspath(Path(__file__).parent)
+    return theme_path
 
 
 def add_functions_to_context(app, pagename, templatename, context, doctree):
@@ -37,12 +48,22 @@ def add_functions_to_context(app, pagename, templatename, context, doctree):
 
         return str(soup)
 
+    def insert_background_images(html, img_src):
+        soup = bs(html, 'html.parser')
+
+        for div in soup.select('div.sectionwrapper-1'):
+            div['style'] = f"background-image: linear-gradient(rgba(26, 100, 143, 0.85), rgba(26, 100, 143, 0.85)), url({img_src});"
+
+        return str(soup)
+
+    context['insert_background_images'] = insert_background_images
     context['bootstrapify'] = bootstrapify
     context['denest_sections'] = denest_sections
 
 
 def setup(app: Sphinx):
     app.require_sphinx('3.5')
+    app.add_html_theme('sphinx_pythia_theme', get_html_theme_path())
     app.connect('html-page-context', add_functions_to_context)
 
     return {

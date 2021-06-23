@@ -232,11 +232,12 @@ div.document.onepager {
 
   div.sectionwrapper-1 {
     // Photo by Jeff Stapleton from Pexels
-    background-image: linear-gradient(
-        map-get(ncar.$colors, 'blue-alpha'),
-        map-get(ncar.$colors, 'blue-alpha')
-      ),
-      url(../images/backgrounds/pexels-jeff-stapleton-5792818.jpg);
+    background-color: map-get(ncar.$colors, 'blue-alpha');
+    // background-image: linear-gradient(
+    //     map-get(ncar.$colors, 'blue-alpha'),
+    //     map-get(ncar.$colors, 'blue-alpha')
+    //   ),
+    //   url(../images/backgrounds/pexels-jeff-stapleton-5792818.jpg);
     background-size: cover;
     background-position: center center;
     color: $light;

@@ -1,5 +1,10 @@
 {# Master template for simple pages. Modified from Sphinx basic/page.html #}
 {%- extends "layout.html" %}
 {%- block body %}
-{{ bootstrapify(denest_sections(body)) }}
+{%- set new_body = bootstrapify(denest_sections(body)) %}
+{%- if theme_banner_background %}
+{{ insert_background_images(new_body, theme_banner_background) }}
+{%- else %}
+{{ new_body }}
+{%- endif %}
 {%- endblock %}

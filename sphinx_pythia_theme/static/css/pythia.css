@@ -10816,7 +10816,7 @@ div.document.onepager {
   padding: 0;
 }
 div.document.onepager div.sectionwrapper-1 {
-  background-image: linear-gradient(rgba(26, 100, 143, 0.85), rgba(26, 100, 143, 0.85)), url(../images/backgrounds/pexels-jeff-stapleton-5792818.jpg);
+  background-color: rgba(26, 100, 143, 0.85);
   background-size: cover;
   background-position: center center;
   color: #f8f9fa;
