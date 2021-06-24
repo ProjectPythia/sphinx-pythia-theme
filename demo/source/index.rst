@@ -22,7 +22,7 @@ deserunt mollit anim id est laborum.
 
    .. cssclass:: btn btn-primary btn-lg
 
-      `legere primo capitulo <chapter1.html>`_
+      `legere librum <book/title.html>`_
 
 Card 2
 ------
@@ -68,6 +68,4 @@ deserunt mollit anim id est laborum.
 .. toctree::
    :hidden:
 
-   chapter1
-   chapter2
-   chapter3
+   book/title

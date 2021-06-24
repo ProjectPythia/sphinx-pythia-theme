@@ -69,24 +69,31 @@ html_static_path = ['_static']
 html_theme_options = {
     'onepagers': {
         'index': {
-            'background': '_static/background.jpg',
+            'background': 'background.jpg',
             'attribution': 'Photo by Jeff Stapleton from Pexels',
+        },
+        'book/title': {
+            'background': 'background.jpg',
         },
     },
     'navbar': {
-        'Card 1': 'index.html#card-1',
-        'Card 2': 'index.html#card-2',
-        'Card 3': 'index.html#card-3',
-        'Card 4': 'index.html#card-4',
-        'Github': 'https://github.com',
+        'internal': {
+            'Card 1': 'index#card-1',
+            'Card 2': 'index#card-2',
+            'Card 3': 'index#card-3',
+            'Card 4': 'index#card-4',
+        },
+        'external': {
+            'Github': 'https://github.com',
+        },
     },
     'logobar': {
-        'steampunk-wings': '_static/steampunk-wings-logo.jpg',
-        'horse': '_static/horse-logo2.jpg',
-        'globe-compass': '_static/globe-compass-logo.jpg',
+        'steampunk-wings': 'steampunk-wings-logo.jpg',
+        'horse': 'horse-logo2.jpg',
+        'globe-compass': 'globe-compass-logo.jpg',
     },
     'sponsor': {
         'text': 'This material is based upon work supported by the National Science Foundation under Grant No. XXXXXXX. Any opinions, findings, and conclusions or recommendations expressed in this material are those of the author(s) and do not necessarily reflect the views of the National Science Foundation.',
-        'logo': '_static/sponsor.png',
+        'logo': 'sponsor.png',
     },
 }

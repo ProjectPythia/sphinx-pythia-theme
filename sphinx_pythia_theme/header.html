@@ -14,11 +14,31 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarNavDropdown">
       <ul class="navbar-nav">
-{%- for item in theme_navbar %}
+{%- if 'internal' in theme_navbar %}
+  {%- for item in theme_navbar['internal'] %}
+    {%- set docname = theme_navbar['internal'][item] %}
+    {%- if '#' in docname %}
+      {%- set docname, anchor = docname.split('#') %}
+    {%- else %}
+      {%- set anchor = '' %}
+    {%- endif %}
+    {%- if anchor %}
+      {%- set url = pathto(docname).replace('#', '') + '#' + anchor %}
+    {%- else %}
+      {%- set url = pathto(docname).replace('#', '') %}
+    {%- endif %}
         <li class="nav-item">
-          <a class="nav-link" href="{{ theme_navbar[item] }}">{{ item }}</a>
+          <a class="nav-link" href="{{ url }}">{{ item }}</a>
         </li>
-{%- endfor %}
+  {%- endfor %}
+{%- endif %}
+{%- if 'external' in theme_navbar %}
+  {%- for item in theme_navbar['external'] %}
+        <li class="nav-item">
+          <a class="nav-link" href="{{ theme_navbar['external'][item] }}">{{ item }}</a>
+        </li>
+  {%- endfor %}
+{%- endif %}
       </ul>
     </div>
   </div>

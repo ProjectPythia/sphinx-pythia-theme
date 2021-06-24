@@ -51,8 +51,10 @@ def add_functions_to_context(app, pagename, templatename, context, doctree):
     def insert_background_images(html, img_src, attribution=None):
         soup = bs(html, 'html.parser')
 
+        img_url = context['pathto']('_static/' + img_src, 1)
+
         for div in soup.select('div.sectionwrapper-1'):
-            div['style'] = f"background-image: linear-gradient(rgba(26, 100, 143, 0.85), rgba(26, 100, 143, 0.85)), url({img_src});"
+            div['style'] = f"background-image: linear-gradient(rgba(26, 100, 143, 0.85), rgba(26, 100, 143, 0.85)), url({img_url});"
 
             if attribution:
                 span = soup.new_tag('span')
