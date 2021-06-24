@@ -69,7 +69,7 @@ html_static_path = ['_static']
 html_theme_options = {
     'onepagers': {
         'index': {
-            'background': '/_static/background.jpg',
+            'background': '_static/background.jpg',
             'attribution': 'Photo by Jeff Stapleton from Pexels',
         },
     },
@@ -81,12 +81,12 @@ html_theme_options = {
         'Github': 'https://github.com',
     },
     'logobar': {
-        'steampunk-wings': '/_static/steampunk-wings-logo.jpg',
-        'horse': '/_static/horse-logo2.jpg',
-        'globe-compass': '/_static/globe-compass-logo.jpg',
+        'steampunk-wings': '_static/steampunk-wings-logo.jpg',
+        'horse': '_static/horse-logo2.jpg',
+        'globe-compass': '_static/globe-compass-logo.jpg',
     },
     'sponsor': {
         'text': 'This material is based upon work supported by the National Science Foundation under Grant No. XXXXXXX. Any opinions, findings, and conclusions or recommendations expressed in this material are those of the author(s) and do not necessarily reflect the views of the National Science Foundation.',
-        'logo': '/_static/sponsor.png',
+        'logo': '_static/sponsor.png',
     },
 }
