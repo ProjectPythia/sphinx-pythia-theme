@@ -10,15 +10,17 @@ mattis velit. Class aptent taciti sociosqu ad litora torquent per conubia nostra
 inceptos himenaeos. Praesent ut sem malesuada, vestibulum libero sit amet, accumsan dui.
 Proin et fermentum metus. Aenean vitae nisi et mi mollis posuere in eget massa.
 
-.. container:: d-flex justify-content-center py-4
+.. raw:: html
 
-   .. cssclass:: btn btn-light btn-lg text-primary
+   <span class="d-flex justify-content-center py-4">
+   <a href="contents.html" role="button" class="btn btn-light btn-lg text-primary">Mensam de Contentis in Eodem</a>
+   </span>
 
-      `Ire Primo Capitulo <chapter1.html>`_
 
 .. toctree::
    :hidden:
 
+   contents
    chapter1
    chapter2
    chapter3
