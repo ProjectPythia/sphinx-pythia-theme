@@ -8,7 +8,6 @@
 {%- set render_onepager = (pagename in theme_onepagers) %}
 {%- set render_sidebar = (not embedded) and (not theme_nosidebar|tobool) and
                          (sidebars != []) and (not render_onepager) %}
-{%- set render_relations = (not render_onepager) %}
 {%- set url_root = pathto('', 1) %}
 {%- if url_root == '#' %}{% set url_root = '' %}{% endif %}
 {%- if not embedded and docstitle %}
