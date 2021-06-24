@@ -73,10 +73,10 @@ html_theme_options = {
         'index',
     ],
     'nav_bar': {
-        'Card 1': '/index.html#card-1',
-        'Card 2': '/index.html#card-2',
-        'Card 3': '/index.html#card-3',
-        'Card 4': '/index.html#card-4',
+        'Card 1': 'index.html#card-1',
+        'Card 2': 'index.html#card-2',
+        'Card 3': 'index.html#card-3',
+        'Card 4': 'index.html#card-4',
         'Github': 'https://github.com',
     },
     'logos_bar': {
