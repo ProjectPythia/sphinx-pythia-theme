@@ -64,28 +64,29 @@ html_favicon = '_static/favicon.ico'
 # relative to this directory. They are copied after the builtin static files,
 # so a file named "default.css" will overwrite the builtin "default.css".
 html_static_path = ['_static']
-# html_css_files = ['custom.css']
-# html_js_files = ['custom.js']
 
 # HTML Theme-specific Options
 html_theme_options = {
-    'onepagers': [
-        'index',
-    ],
-    'nav_bar': {
-        'Card 1': '/index.html#card-1',
-        'Card 2': '/index.html#card-2',
-        'Card 3': '/index.html#card-3',
-        'Card 4': '/index.html#card-4',
+    'onepagers': {
+        'index': {
+            'background': '/_static/background.jpg',
+            'attribution': 'Photo by Jeff Stapleton from Pexels',
+        },
+    },
+    'navbar': {
+        'Card 1': 'index.html#card-1',
+        'Card 2': 'index.html#card-2',
+        'Card 3': 'index.html#card-3',
+        'Card 4': 'index.html#card-4',
         'Github': 'https://github.com',
     },
-    'logos_bar': {
+    'logobar': {
         'steampunk-wings': '/_static/steampunk-wings-logo.jpg',
         'horse': '/_static/horse-logo2.jpg',
         'globe-compass': '/_static/globe-compass-logo.jpg',
     },
-    'banner_background': '/_static/background.jpg',
-    'banner_background_attribution': 'Photo by Jeff Stapleton from Pexels',
-    'sponsor_text': 'This material is based upon work supported by the National Science Foundation under Grant No. XXXXXXX. Any opinions, findings, and conclusions or recommendations expressed in this material are those of the author(s) and do not necessarily reflect the views of the National Science Foundation.',
-    'sponsor_logo': '/_static/sponsor.png',
+    'sponsor': {
+        'text': 'This material is based upon work supported by the National Science Foundation under Grant No. XXXXXXX. Any opinions, findings, and conclusions or recommendations expressed in this material are those of the author(s) and do not necessarily reflect the views of the National Science Foundation.',
+        'logo': '/_static/sponsor.png',
+    },
 }
