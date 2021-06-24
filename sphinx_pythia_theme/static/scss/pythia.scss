@@ -77,6 +77,13 @@ section > p {
 
 // SPHINX BASE LAYOUT ---------------------------------------------------------
 
+.btn {
+  a.reference {
+    text-decoration: inherit;
+    color: inherit;
+  }
+}
+
 div.admonition {
   padding: 0.6rem;
   border-width: 1px;
