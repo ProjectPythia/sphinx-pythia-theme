@@ -14,9 +14,6 @@
 # documentation root, use os.path.abspath to make it absolute, like shown here.
 #
 import datetime
-import os
-import shutil
-import sys
 
 # -- Project information -----------------------------------------------------
 
