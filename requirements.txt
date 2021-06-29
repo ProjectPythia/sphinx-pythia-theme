@@ -1,2 +1,3 @@
-Sphinx
 bs4
+libsass
+Sphinx
