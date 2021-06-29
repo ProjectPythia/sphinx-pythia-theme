@@ -2,15 +2,30 @@ import os
 from pathlib import Path
 
 from bs4 import BeautifulSoup as bs
+# import sass
 from sphinx.application import Sphinx
 
 __version__ = '0.0.2'
+__dir__ = Path(__file__).parent
 
 
 def get_html_theme_path():
     """Return list of HTML theme paths."""
-    theme_path = os.path.abspath(Path(__file__).parent)
+    theme_path = os.path.abspath(__dir__)
     return theme_path
+
+
+# def compile_scss(app, config):
+#     source_dir = os.path.abspath(os.path.join(__dir__, 'static', 'scss'))
+#     source_filename = os.path.join(source_dir, 'pythia.scss')
+
+#     output_dir = os.path.abspath(os.path.join(__dir__, 'static', 'css'))
+#     if not os.path.isdir(output_dir):
+#         os.mkdir(output_dir)
+#     output_filename = os.path.join(output_dir, 'pythia.css')
+#     output_string = sass.compile(filename=source_filename)
+#     with open(output_filename, 'w') as f:
+#         f.write(output_string)
 
 
 def add_functions_to_context(app, pagename, templatename, context, doctree):
@@ -48,30 +63,41 @@ def add_functions_to_context(app, pagename, templatename, context, doctree):
 
         return str(soup)
 
-    def insert_background_images(html, img_src, attribution=None):
+    def set_background(html, image_src=None, image_attr=None, overlay_clr=None):
         soup = bs(html, 'html.parser')
 
-        img_url = context['pathto']('_static/' + img_src, 1)
+        if not image_src and not overlay_clr:
+            return str(soup)
+
+        image_url = context['pathto']('_static/' + image_src, 1) if image_src else None
+        overlay = str(overlay_clr) if overlay_clr else None
 
         for div in soup.select('div.sectionwrapper-1'):
-            div['style'] = f"background-image: linear-gradient(rgba(26, 100, 143, 0.85), rgba(26, 100, 143, 0.85)), url({img_url});"
+            if overlay and image_url:
+                _style = f"background-image: linear-gradient({overlay}, {overlay}), url({image_url});"
+            elif overlay:
+                _style = f"background-color: {overlay};"
+            else:
+                _style = f"background-image: url({image_url});"
+            div['style'] = _style
 
-            if attribution:
+            if image_url and image_attr:
                 span = soup.new_tag('span')
                 span['class'] = ['background-attribution']
-                span.string = str(attribution)
+                span.string = str(image_attr)
                 div.append(span)
 
         return str(soup)
 
-    context['insert_background_images'] = insert_background_images
     context['bootstrapify'] = bootstrapify
     context['denest_sections'] = denest_sections
+    context['set_background'] = set_background
 
 
 def setup(app: Sphinx):
     app.require_sphinx('3.5')
     app.add_html_theme('sphinx_pythia_theme', get_html_theme_path())
+    # app.connect('build-finished', compile_scss)
     app.connect('html-page-context', add_functions_to_context)
 
     return {
