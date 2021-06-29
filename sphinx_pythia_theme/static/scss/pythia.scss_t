@@ -40,7 +40,7 @@ $navbar-height: 56px;
 $offset-height: $navbar-height + rem2px(2rem);
 $sidebar-width: 300px;
 
-@import '../bootstrap/scss/bootstrap';
+@import '../bootstrap/scss/bootstrap.scss';
 @import '../basic.css';
 
 $document-width: map-get($container-max-widths, 'lg');
