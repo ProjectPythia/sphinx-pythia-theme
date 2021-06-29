@@ -40,6 +40,11 @@ $navbar-height: 56px;
 $offset-height: $navbar-height + rem2px(2rem);
 $sidebar-width: 300px;
 
+// CUSTOM THEME VARIABLES
+{%- for var in theme_style %}
+${{var}}: {{ theme_style[var] }};
+{%- endfor %}
+
 @import '../bootstrap/scss/bootstrap.scss';
 @import '../basic.css';
 
