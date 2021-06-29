@@ -1,4 +1,3 @@
-import os
 from setuptools import setup, find_packages
 
 from sphinx_pythia_theme import __version__
