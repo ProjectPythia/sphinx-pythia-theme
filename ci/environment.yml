@@ -1,0 +1,7 @@
+name: sphinx-pythia-theme
+dependencies:
+  - bs4
+  - pip
+  - Sphinx
+  - pip:
+    - libsass
