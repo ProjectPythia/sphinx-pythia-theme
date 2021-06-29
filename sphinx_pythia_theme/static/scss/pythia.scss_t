@@ -1,6 +1,30 @@
-@use 'ncar';
+@function rem2px($size) {
+  @return $size / 1rem * 16px;
+}
 
-$primary: map-get(ncar.$colors, 'blue');
+$body-font: 'Poppins', sans-serif;
+$headings-font: 'Poppins', sans-serif;
+$footnote-font: 'Cormorant', serif;
+
+$green-color: rgb(0, 121, 124);
+$lighter-green-color: rgb(40, 147, 157);
+$lightest-green-color: rgb(64, 193, 172);
+$blue-color: rgb(26, 101, 143);
+$lighter-blue-color: rgb(0, 127, 163);
+$lightest-blue-color: rgb(0, 193, 213);
+$deep-blue-color: rgb(1, 33, 105);
+$highlight-green-color: rgb(168, 199, 0);
+$cool-gray-11-color: rgb(83, 86, 90);
+$cool-gray-7-color: rgb(151, 153, 155);
+$cool-gray-4-color: rgb(187, 188, 188);
+$cool-gray-1-color: rgb(217, 217, 214);
+$background-blue-1-color: rgb(195, 215, 238);
+$background-blue-2-color: rgb(206, 217, 229);
+$background-blue-3-color: rgb(219, 226, 233);
+
+$primary: rgb(26, 101, 143);
+$accent: rgb(1, 33, 105);
+$overlay: rgba(26, 101, 143, 0.85);
 
 $display-font-sizes: (
   1: 5rem,
@@ -11,17 +35,14 @@ $display-font-sizes: (
   6: 1rem,
 );
 
-@import '../bootstrap/scss/bootstrap';
-@import '../basic.css';
-
-@function rem2px($size) {
-  @return $size / 1rem * 16px;
-}
-
 $brand-img-height: 30px;
 $navbar-height: 56px;
 $offset-height: $navbar-height + rem2px(2rem);
 $sidebar-width: 300px;
+
+@import '../bootstrap/scss/bootstrap';
+@import '../basic.css';
+
 $document-width: map-get($container-max-widths, 'lg');
 
 // GENERAL HTML ELEMENTS ------------------------------------------------------
@@ -57,7 +78,7 @@ a.navbar-brand img {
 }
 
 body {
-  font-family: map-get(ncar.$fonts, 'body'), sans-serif;
+  font-family: $body-font, sans-serif;
 }
 
 i.bi:before {
@@ -160,7 +181,7 @@ div.document {
   div.section-title {
     padding: 0 4rem 0.1rem 0;
     margin: 0 0 1.6rem 0;
-    border-bottom: 2px solid map-get(ncar.$colors, 'deep-blue');
+    border-bottom: 2px solid $accent;
   }
 
   div.sphinxsidebar {
@@ -176,7 +197,7 @@ div.document {
 
     .form-control {
       border: 1px solid $gray-400;
-      font-family: map-get(ncar.$fonts, 'body'), sans-serif;
+      font-family: $body-font;
     }
 
     .form-control::placeholder {
@@ -208,7 +229,7 @@ div.document {
 
 div.footer {
   color: $light;
-  font-family: map-get(ncar.$fonts, 'footnote');
+  font-family: $footnote-font;
 
   div.logos-bar {
     background-color: $white;
@@ -238,7 +259,7 @@ div.document.onepager {
   padding: 0;
 
   div.sectionwrapper-1 {
-    background-color: map-get(ncar.$colors, 'blue-alpha');
+    background-color: $overlay;
     background-size: cover;
     background-position: center center;
     color: $light;
@@ -283,7 +304,7 @@ div.document.onepager {
   div.section-title {
     padding: 0 4rem 1rem 4rem;
     margin-bottom: 3rem;
-    border-bottom: 2px solid map-get(ncar.$colors, 'deep-blue');
+    border-bottom: 2px solid $accent;
   }
 
   p {
