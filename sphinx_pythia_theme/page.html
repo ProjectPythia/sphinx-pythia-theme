@@ -5,18 +5,21 @@
 {%- if pagename in theme_onepagers %}
   {%- if 'background' in theme_onepagers[pagename] %}
     {%- set background_image = theme_onepagers[pagename]['background'] %}
+  {%- else %}
+    {%- set background_image = none %}
   {%- endif %}
   {%- if background_image and 'attribution' in theme_onepagers[pagename] %}
-    {%- set background_attribution =  theme_onepagers[pagename]['attribution'] %}
+    {%- set background_attribution = theme_onepagers[pagename]['attribution'] %}
+  {%- else %}
+    {%- set background_attribution = none %}
+  {%- endif %}
+  {%- if 'color' in theme_onepagers[pagename] %}
+    {%- set background_color = theme_onepagers[pagename]['color'] %}
+  {%- else %}
+    {%- set background_color = none %}
   {%- endif %}
 {%- endif %}
 {%- block body %}
 {%- set _body = bootstrapify(denest_sections(body)) %}
-{%- if background_image and background_attribution %}
-{{ insert_background_images(_body, background_image, background_attribution) }}
-{%- elif background_image %}
-{{ insert_background_images(_body, background_image) }}
-{%- else %}
-{{ _body }}
-{%- endif %}
+{{ set_background(_body, image_src=background_image, image_attr=background_attribution, overlay_clr=background_color) }}
 {%- endblock body %}
