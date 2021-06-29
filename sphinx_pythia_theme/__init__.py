@@ -2,7 +2,7 @@ import os
 from pathlib import Path
 
 from bs4 import BeautifulSoup as bs
-# import sass
+import sass
 from sphinx.application import Sphinx
 
 __version__ = '0.0.2'
@@ -15,17 +15,23 @@ def get_html_theme_path():
     return theme_path
 
 
-# def compile_scss(app, config):
-#     source_dir = os.path.abspath(os.path.join(__dir__, 'static', 'scss'))
-#     source_filename = os.path.join(source_dir, 'pythia.scss')
+def compile_scss(app, config):
+    build_dir = Path(app.outdir)
+    try:
+        static_dir = app.config.html_static_path[0]
+    except (AttributeError, IndexError):
+        static_dir = ''
+    source_dir = build_dir / static_dir / 'scss'
+    source_fn = os.path.abspath(source_dir / 'pythia.scss')
 
-#     output_dir = os.path.abspath(os.path.join(__dir__, 'static', 'css'))
-#     if not os.path.isdir(output_dir):
-#         os.mkdir(output_dir)
-#     output_filename = os.path.join(output_dir, 'pythia.css')
-#     output_string = sass.compile(filename=source_filename)
-#     with open(output_filename, 'w') as f:
-#         f.write(output_string)
+    output_dir = build_dir / static_dir / 'css'
+    if not os.path.isdir(output_dir):
+        os.mkdir(output_dir)
+    output_fn = os.path.abspath(output_dir / 'pythia.css')
+
+    output_string = sass.compile(filename=source_fn)
+    with open(output_fn, 'w') as f:
+        f.write(output_string)
 
 
 def add_functions_to_context(app, pagename, templatename, context, doctree):
@@ -97,7 +103,7 @@ def add_functions_to_context(app, pagename, templatename, context, doctree):
 def setup(app: Sphinx):
     app.require_sphinx('3.5')
     app.add_html_theme('sphinx_pythia_theme', get_html_theme_path())
-    # app.connect('build-finished', compile_scss)
+    app.connect('build-finished', compile_scss)
     app.connect('html-page-context', add_functions_to_context)
 
     return {
