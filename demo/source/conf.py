@@ -64,13 +64,17 @@ html_static_path = ['_static']
 
 # HTML Theme-specific Options
 html_theme_options = {
+    'style': {
+        'primary': 'green',
+    },
     'onepagers': {
         'index': {
             'background': 'background.jpg',
             'attribution': 'Photo by Jeff Stapleton from Pexels',
+            'color': 'rgba(0, 255, 0, 0.85)'
         },
         'book/title': {
-            'background': 'background.jpg',
+            'color': 'rgb(255, 0, 0)',
         },
     },
     'navbar': {
