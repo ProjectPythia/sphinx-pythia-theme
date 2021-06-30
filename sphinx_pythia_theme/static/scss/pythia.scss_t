@@ -22,10 +22,6 @@ $background-blue-1-color: rgb(195, 215, 238);
 $background-blue-2-color: rgb(206, 217, 229);
 $background-blue-3-color: rgb(219, 226, 233);
 
-$primary: $blue-color;
-$accent: $deep-blue-color;
-$overlay: rgba($blue-color, 0.85);
-
 $display-font-sizes: (
   1: 5rem,
   2: 3rem,
@@ -35,12 +31,15 @@ $display-font-sizes: (
   6: 1rem,
 );
 
+// CUSTOM THEME VARIABLES
+$primary: $blue-color;
+$accent: $deep-blue-color;
+$overlay: rgba($blue-color, 0.85);
 $brand-img-height: 30px;
 $navbar-height: 56px;
-$offset-height: $navbar-height + rem2px(2rem);
 $sidebar-width: 300px;
 
-// CUSTOM THEME VARIABLES
+// CUSTOM THEME VARIABLE OVERRIDES
 {%- for var in theme_style %}
 ${{var}}: {{ theme_style[var] }};
 {%- endfor %}
@@ -48,6 +47,7 @@ ${{var}}: {{ theme_style[var] }};
 @import '../bootstrap/scss/bootstrap.scss';
 @import '../basic.css';
 
+$offset-height: $navbar-height + rem2px(2rem);
 $document-width: map-get($container-max-widths, 'lg');
 
 // GENERAL HTML ELEMENTS ------------------------------------------------------
