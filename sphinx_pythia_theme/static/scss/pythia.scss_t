@@ -22,9 +22,9 @@ $background-blue-1-color: rgb(195, 215, 238);
 $background-blue-2-color: rgb(206, 217, 229);
 $background-blue-3-color: rgb(219, 226, 233);
 
-$primary: rgb(26, 101, 143);
-$accent: rgb(1, 33, 105);
-$overlay: rgba(26, 101, 143, 0.85);
+$primary: $blue-color;
+$accent: $deep-blue-color;
+$overlay: rgba($blue-color, 0.85);
 
 $display-font-sizes: (
   1: 5rem,
