@@ -3,3 +3,15 @@
 {%- block header %}
 {% include "header.html" %}
 {% endblock %}
+
+{% block docs_main %}
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+  {% block docs_body %}
+  {{ super() }}
+  {% endblock %}
+</main>
+{% endblock %}
+
+{% block footer %}
+{% include "footer.html" %}
+{% endblock %}

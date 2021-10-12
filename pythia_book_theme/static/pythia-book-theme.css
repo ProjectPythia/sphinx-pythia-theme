@@ -1,1 +1,16 @@
-@import 'sphinx-book-theme.css'
+@import 'sphinx-book-theme.css';
+
+#banner {
+  margin-top: var(--pst-header-height);
+}
+
+.topnav {
+  min-height: var(--pst-header-height);
+  max-height: var(--pst-header-height);
+  height: var(--pst-header-height);
+  z-index: 5000;
+}
+
+.topbar {
+  top: var(--pst-header-height);
+}
