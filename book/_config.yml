@@ -109,7 +109,8 @@ sphinx:
     language: en
     html_extra_path:
       - images/badge.svg
-
+    html_theme: pythia_book_theme
+    html_theme_path: ../
 
   extra_extensions:
     - sphinx_click.ext
