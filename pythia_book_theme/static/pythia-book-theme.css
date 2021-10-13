@@ -1,8 +1,8 @@
 @import 'sphinx-book-theme.css';
 
-/***********************************
- * SPHINX BOOK THEME MODIFICATIONS *
- ***********************************/
+/**********************************************************
+ * Modifications required for Pythia Book Theme additions *
+ **********************************************************/
 
 #banner {
   margin-top: var(--pst-header-height);
@@ -22,4 +22,17 @@
 
 .topbar {
   top: var(--pst-header-height);
+}
+
+/**********************************
+ * Modifications just for styling *
+ **********************************/
+
+.topbar-main button:focus {
+  outline: none;
+}
+
+.form-control:focus {
+  outline: none;
+  box-shadow: none;
 }
