@@ -1,7 +1,15 @@
 @import 'sphinx-book-theme.css';
 
+/***********************************
+ * SPHINX BOOK THEME MODIFICATIONS *
+ ***********************************/
+
 #banner {
   margin-top: var(--pst-header-height);
+}
+
+#site-navigation {
+  top: var(--pst-header-height);
 }
 
 .topnav {
