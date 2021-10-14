@@ -13,7 +13,7 @@
   height: calc(100vh - var(--pst-header-height)) !important;
 }
 
-.topnav {
+.domnav {
   min-height: var(--pst-header-height);
   max-height: var(--pst-header-height);
   height: var(--pst-header-height);
@@ -35,4 +35,11 @@
 .form-control:focus {
   outline: none;
   box-shadow: none;
+}
+
+.bd-toc nav>.nav {
+  border-left: 1px solid #eee;
+  border-bottom: 1px solid #eee;
+  border-bottom-left-radius: 6px;
+  padding-bottom: 0.5em;
 }
