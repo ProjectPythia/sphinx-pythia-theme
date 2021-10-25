@@ -40,6 +40,10 @@
 .bd-toc nav>.nav {
   border-left: 1px solid #eee;
   border-bottom: 1px solid #eee;
-  border-bottom-left-radius: 6px;
+  border-radius: 0 0 0 6px;
   padding-bottom: 0.5em;
+}
+
+.card-header {
+  padding: 0.5em 0.75em;
 }
