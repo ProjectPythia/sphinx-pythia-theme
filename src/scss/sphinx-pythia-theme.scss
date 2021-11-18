@@ -100,7 +100,7 @@ pre {
 // SPECIAL ELEMENTS ----------------------------------------------------------
 
 #banner {
-  margin-top: var(--pst-header-height);
+  margin-top: var(--pst-header-height) !important;
 }
 
 #site-navigation {
