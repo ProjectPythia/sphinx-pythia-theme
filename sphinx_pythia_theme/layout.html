@@ -1,16 +1,71 @@
-{% extends "sphinx_book_theme/layout.html" %}
+{%- extends "sphinx_book_theme/layout.html" %}
+
+{%- if theme_page_layouts and pagename in theme_page_layouts %}
+{%- set page_layout = theme_page_layouts[pagename] %}
+{%- else %}
+{%- set page_layout = "default" %}
+{%- endif %}
 
 {%- block header %}
 {% include "header.html" %}
+{%- endblock %}
+
+{%- block docs_sidebar %}
+{% if page_layout == "default" %}
+{{ super() }}
+{% endif %}
 {% endblock %}
 
-{% block docs_main %}
-<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+{%- block content %}
+    <div class="container-fluid" id="banner"></div>
+
+    {% block docs_navbar %}
+    <nav class="navbar navbar-light navbar-expand-lg bg-light fixed-top bd-navbar" id="navbar-main">
+      {%- include "docs-navbar.html" %}
+    </nav>
+    {% endblock %}
+
+    <div class="container-fluid">
+      <div class="row">
+          {% block docs_sidebar %}
+          {{ super() }}
+          {% endblock %}
+
+          {% block docs_toc %}
+          {{ super() }}
+          {% endblock %}
+
+          {% block docs_main %}
+{% if page_layout == "banner" %}
+<main class="col overflow-auto banner-main" role="main">
+{% else %}
+<main class="col py-md-2 pl-md-4 bd-content overflow-auto" role="main">
+{% endif %}
   {% block docs_body %}
+  {% if page_layout == "banner" %}
+  <div id="main-content" class="row">
+    <div class="col-12 banner-col">
+    {{ super.super() }}
+    {% if theme_show_prev_next %}
+      {% include "_templates/prev-next.html" %}
+    {% endif %}
+    </div>
+  </div>
+  {% else %}
   {{ super() }}
+  {% endif %}
   {% endblock %}
 </main>
-{% endblock %}
+          {% endblock %}
+
+      </div>
+    </div>
+
+  {%- block scripts_end %}
+  {{ _webpack.body_post() }}
+  {%- endblock %}
+
+{%- endblock %}
 
 {% block footer %}
 {% include "footer.html" %}

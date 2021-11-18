@@ -1,0 +1,9 @@
+{# Master template for simple pages. Modified from Sphinx basic/page.html #}
+{%- extends "layout.html" %}
+{%- block body %}
+{% if page_layout == "banner" %}
+{{ apply_banner_layout(body) }}
+{% else %}
+{{ body }}
+{% endif %}
+{%- endblock %}
