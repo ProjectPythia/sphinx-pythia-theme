@@ -36,15 +36,15 @@ class Banner(Directive):
     """
 
     option_spec = {
-        'image': directives.uri,
-        'color': directives.unchanged,
+        "image": directives.uri,
+        "color": directives.unchanged,
     }
 
     def run(self):
-        if (not self.state.document.settings.raw_enabled):
+        if not self.state.document.settings.raw_enabled:
             raise self.warning('"%s" directive disabled.' % self.name)
-        options = ' '.join(f'{str(k)}="{str(v)}"' for k,v in self.options.items())
-        text = f'<banner {options} />'
-        attributes = {'format': 'html'}
-        node = nodes.raw('', text, **attributes)
+        options = " ".join(f'{str(k)}="{str(v)}"' for k, v in self.options.items())
+        text = f"<banner {options} />"
+        attributes = {"format": "html"}
+        node = nodes.raw("", text, **attributes)
         return [node]

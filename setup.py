@@ -40,9 +40,9 @@ setup(
     install_requires=[
         "sphinx-book-theme>=0.1.7",
     ],
-    entry_points = {
-        'sphinx.html_themes': [
-            'sphinx_pythia_theme = sphinx_pythia_theme',
+    entry_points={
+        "sphinx.html_themes": [
+            "sphinx_pythia_theme = sphinx_pythia_theme",
         ]
     },
     packages=find_packages(),
