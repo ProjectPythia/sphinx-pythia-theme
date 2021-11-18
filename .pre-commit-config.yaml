@@ -1,0 +1,41 @@
+exclude: >
+    (?x)^(
+      \.vscode/settings\.json|
+    )$
+repos:
+
+  - repo: git://github.com/pre-commit/pre-commit-hooks
+    rev: v4.0.1
+    hooks:
+    - id: check-json
+    - id: check-yaml
+    - id: end-of-file-fixer
+    - id: trailing-whitespace
+
+  - repo: https://github.com/PyCQA/flake8
+    rev: 4.0.1
+    hooks:
+    - id: flake8
+
+  - repo: https://github.com/psf/black
+    rev: 21.11b1
+    hooks:
+    - id: black
+
+  - repo: https://github.com/mgedmin/check-manifest
+    rev: "0.47"
+    hooks:
+    - id: check-manifest
+
+  - repo: https://github.com/executablebooks/web-compile
+    rev: v0.2.2
+    hooks:
+      - id: web-compile
+        args: [--config=.web-compile-config.yml]
+        files: >-
+            (?x)^(
+                web-compile-config.yml|
+                src/.*|
+                sphinx_pythia_theme/static/.*|
+                sphinx_pythia_theme/theme.conf
+            )$

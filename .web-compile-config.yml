@@ -1,0 +1,10 @@
+web-compile:
+  sass:
+    files:
+      src/scss/sphinx-pythia-theme.scss: sphinx_pythia_theme/static/sphinx-pythia-theme.min.css
+    precision: 5
+    sourcemap: false
+    format: compressed
+  js:
+    files:
+      src/js/sphinx-pythia-theme.js: sphinx_pythia_theme/static/sphinx-pythia-theme.min.js
