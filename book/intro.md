@@ -1,5 +1,9 @@
 # Books with Jupyter <img src="images/logo-square.svg" width=40 />
 
+:::{banner}
+:color: rgba(0,0,255,0.3)
+:::
+
 ```{only} html
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.2561065.svg)](https://doi.org/10.5281/zenodo.2561065)
 [![Jupyter Book Badge](images/badge.svg)](https://jupyterbook.org)
@@ -9,7 +13,6 @@ Jupyter Book is an open source project for building beautiful,
 publication-quality books and documents from computational material.
 
 Here are some of the features of Jupyter Book:
-
 
 :::{panels}
 :container: +full-width text-center
