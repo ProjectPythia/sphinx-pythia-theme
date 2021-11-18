@@ -11,13 +11,13 @@
 {%- endblock %}
 
 {%- block content %}
-  <div class="container-fluid p-0" id="banner"></div>
+  <div class="container-fluid" id="banner"></div>
 
   {%- block docs_navbar %}
   {{ super() }}
   {%- endblock %}
 
-  <div class="container-fluid">
+  <div class="container-fluid p-0">
     <div class="row">
       {%- block docs_sidebar %}
       {%- if page_layout == "default" %}
