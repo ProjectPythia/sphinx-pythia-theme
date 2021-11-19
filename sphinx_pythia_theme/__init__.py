@@ -1,7 +1,11 @@
+from os import makedirs
+from pathlib import Path
+from shutil import copy
+
 from bs4 import BeautifulSoup as bs
 from sphinx.application import Sphinx
 
-from .banners import Banner
+from .banner import Banner
 
 __version__ = "0.1.0"
 
@@ -55,6 +59,17 @@ def add_functions_to_context(app, pagename, templatename, context, doctree):
             s.extract()
             if d is None:
                 continue
+
+            if image:
+                conf_dir = Path(app.confdir)
+                out_dir = Path(app.outdir)
+                old_img = conf_dir / image
+                if old_img.is_file():
+                    new_dir = out_dir / "_images"
+                    makedirs(new_dir, exist_ok=True)
+                    new_img = Path(new_dir) / old_img.name
+                    copy(old_img, new_img)
+                    image = str(Path("_images") / old_img.name)
 
             if image and color:
                 style = (
