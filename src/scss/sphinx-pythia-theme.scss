@@ -94,7 +94,7 @@ pre {
 
 // SPECIAL ELEMENTS ----------------------------------------------------------
 
-#banner {
+#attention {
   margin-top: var(--pst-header-height) !important;
 }
 
@@ -307,8 +307,7 @@ div.footer {
 
 // BANNER DOCUMENT -----------------------------------------------------------
 
-div.document.onepager {
-  margin-top: $navbar-height;
+main.banner-main {
   padding: 0;
 
   div.sectionwrapper-1 {
@@ -320,10 +319,10 @@ div.document.onepager {
     color: $light;
   }
 
-  div.sectionwrapper-1:after {
-    content: 'Photo by Jeff Stapleton from Pexels';
-    float: right;
-    margin-top: -1.6rem;
+  div.sectionwrapper-1 div.section-banner-caption {
+    position: absolute;
+    right: 0;
+    bottom: 0;
     font-size: 0.8rem;
     opacity: 0.6;
   }

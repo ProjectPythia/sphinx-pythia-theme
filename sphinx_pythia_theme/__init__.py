@@ -1,7 +1,7 @@
 from bs4 import BeautifulSoup as bs
 from sphinx.application import Sphinx
 
-from .banner import Banner
+from .banners import Banner
 
 __version__ = "0.1.0"
 
@@ -49,6 +49,7 @@ def add_functions_to_context(app, pagename, templatename, context, doctree):
         for s in soup.find_all("banner"):
             image = s.get("image", None)
             color = s.get("color", None)
+            caption = s.get("caption", None)
 
             d = s.find_parent("div", ["sectionwrapper-1", "sectionwrapper-2"])
             s.extract()
@@ -68,6 +69,11 @@ def add_functions_to_context(app, pagename, templatename, context, doctree):
 
             if style:
                 d["style"] = style
+
+            if caption:
+                cd = soup.new_tag("div", **{"class": "section-banner-caption"})
+                cd.string = caption
+                d.append(cd)
 
         return str(soup)
 

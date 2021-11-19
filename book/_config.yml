@@ -7,12 +7,6 @@ email: kpaul@ucar.edu
 description: >- # this means to ignore newlines until "baseurl:"
   This is an example book built with Jupyter Books.
 
-exclude_patterns: [file-types/include-rst.rst]
-
-# Bibliography settings
-bibtex_bibfiles:
-  - references.bib
-
 execute:
   execute_notebooks: cache
 
@@ -50,58 +44,8 @@ parse:
     - smartquotes
     - substitution
 
-latex:
-  latex_engine: xelatex
-  latex_documents:
-    targetname: book.tex
-
 sphinx:
   config:
-    nb_custom_formats:
-      .Rmd:
-        - jupytext.reads
-        - fmt: Rmd
-    bibtex_reference_style: author_year  # or label, super, \supercite
-    mathjax3_config:
-      TeX:
-        Macros:
-          "N": "\\mathbb{N}"
-          "floor": ["\\lfloor#1\\rfloor", 1]
-          "bmat": ["\\left[\\begin{array}"]
-          "emat": ["\\end{array}\\right]"]
-    latex_elements:
-        preamble: |
-          \newcommand\N{\mathbb{N}}
-          \newcommand\floor[1]{\lfloor#1\rfloor}
-          \newcommand{\bmat}{\left[\begin{array}}
-          \newcommand{\emat}{\end{array}\right]}
-    intersphinx_mapping:
-      ebp:
-        - "https://executablebooks.org/en/latest/"
-        - null
-      myst-parser:
-        - "https://myst-parser.readthedocs.io/en/latest/"
-        - null
-      myst-nb:
-        - "https://myst-nb.readthedocs.io/en/latest/"
-        - null
-      sphinx:
-        - "https://www.sphinx-doc.org/en/master"
-        - null
-      nbformat:
-        - "https://nbformat.readthedocs.io/en/latest"
-        - null
-      sphinx-panels:
-        - https://sphinx-panels.readthedocs.io/en/sphinx-book-theme/
-        - null
-    rediraffe_branch: 'master'
-    rediraffe_redirects:
-      content-types/index.md: file-types/index.md
-      content-types/markdown.md: file-types/markdown.md
-      content-types/notebooks.ipynb: file-types/notebooks.ipynb
-      content-types/myst-notebooks.md: file-types/myst-notebooks.md
-      content-types/jupytext.md: file-types/jupytext.Rmd
-      content-types/restructuredtext.md: file-types/restructuredtext.md
     language: en
     html_extra_path:
       - images/badge.svg
@@ -109,7 +53,7 @@ sphinx:
     html_theme_path: ../
     html_theme_options:
       page_layouts:
-        intro: banner
+        index: banner
 
   local_extensions:
     sphinx_pythia_theme: ../
@@ -117,4 +61,3 @@ sphinx:
   extra_extensions:
     - sphinx_click.ext
     - sphinx_inline_tabs
-    - sphinxext.rediraffe
