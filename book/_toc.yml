@@ -1,5 +1,5 @@
 format: jb-book
 root: index
-chapters:
-- file: page1
-- file: page2
+# chapters:
+# - file: page1
+# - file: page2
