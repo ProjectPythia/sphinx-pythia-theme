@@ -1,4 +1,4 @@
-@import '../sphinx-book-theme.css';
+@import 'sphinx-book-theme.css';
 @import 'colors';
 @import 'fonts';
 
@@ -10,11 +10,10 @@
   @return $size / 1rem * 16px;
 }
 
-$brand-img-height: 30px;
 $navbar-height: var(--pst-header-height);
 $offset-height: $navbar-height + rem2px(2rem);
 $sidebar-width: 300px;
-$document-width: var(--breakpoint-lg);
+$document-width: calc(0.5 * (var(--breakpoint-md) + var(--breakpoint-lg)));
 
 // BOOTSTRAP OVERRIDES --------------------------------------------------------
 
@@ -40,6 +39,11 @@ $document-width: var(--breakpoint-lg);
 
 .display-6 {
   font-size: 1rem;
+}
+
+.row {
+  margin-left: 0;
+  margin-right: 0;
 }
 
 // GENERAL HTML ELEMENTS ------------------------------------------------------
@@ -70,7 +74,6 @@ a.headerlink:hover {
 }
 
 a.navbar-brand img {
-  height: $brand-img-height;
   vertical-align: middle;
 }
 
@@ -79,10 +82,18 @@ body {
   font-family: $pythia-body-font, sans-serif;
 }
 
+h1, h2, h3, h4, h5, h6 {
+  color: inherit;
+}
+
 i.fab::before,
 i.far::before,
 i.fas::before {
   line-height: inherit;
+}
+
+p {
+  color: inherit;
 }
 
 pre {
@@ -101,12 +112,6 @@ pre {
 #site-navigation {
   top: var(--pst-header-height) !important;
   height: calc(100vh - var(--pst-header-height)) !important;
-}
-
-#main-content {
-  h1, h2, h3, h4, h5 {
-    color: $black;
-  }
 }
 
 // PYTHIA THEME ELEMENTS -----------------------------------------------------
@@ -202,7 +207,7 @@ pre {
 
 // DEFAULT DOCUMENT ----------------------------------------------------------
 
-div.document {
+main {
   padding: 2rem 0 0 0;
   background-color: $light;
 
@@ -311,20 +316,19 @@ main.banner-main {
   padding: 0;
 
   div.sectionwrapper-1 {
-    // Photo by Jeff Stapleton from Pexels
-    background-image: linear-gradient($pythia-blue-alpha,$pythia-blue-alpha),
-      url(../images/backgrounds/pexels-jeff-stapleton-5792818.jpg);
+    position: relative;
     background-size: cover;
     background-position: center center;
     color: $light;
-  }
 
-  div.sectionwrapper-1 div.section-banner-caption {
-    position: absolute;
-    right: 0;
-    bottom: 0;
-    font-size: 0.8rem;
-    opacity: 0.6;
+    div.section-banner-caption {
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      font-size: 0.8rem;
+      opacity: 0.6;
+      padding-right: 0.5rem;
+    }
   }
 
   div.sectionwrapper-2 {
