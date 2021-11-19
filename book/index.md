@@ -2,7 +2,7 @@
 
 :::{banner}
 :color: rgba(0,0,255,0.3)
-:image: images/backgrounds/pexels-jeff-stapleton-5792818.jpg
+:image: images/pexels-jeff-stapleton-5792818.jpg
 :caption: Photo by Jeff Stapleton from Pexels
 :::
 
