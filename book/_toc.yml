@@ -1,5 +1,13 @@
 format: jb-book
 root: index
-# chapters:
-# - file: page1
-# - file: page2
+parts:
+  - chapters:
+    - file: this-theme
+
+  - caption: Reference
+    chapters:
+      - file: kitchen-sink/index
+        sections:
+          - file: kitchen-sink/paragraph-markup
+          - file: kitchen-sink/api
+          - file: kitchen-sink/lists-and-tables
