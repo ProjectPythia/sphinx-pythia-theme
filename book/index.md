@@ -1,7 +1,7 @@
 # Sphinx Pythia Theme
 
 :::{banner}
-:color: rgba(0,0,255,0.3)
+:color: rgba(40,40,60,0.8)
 :image: images/pexels-jeff-stapleton-5792818.jpg
 :caption: Photo by Jeff Stapleton from Pexels
 :::
@@ -27,4 +27,4 @@ One new feature is the use of alternate layouts  for main pages, such as
 the **banner** layout.  The banner layout converts all *titles* and *sections*
 (i.e., `#` and `##` blocks) into *banners* that are full-width, have plenty
 of padding (to separate them from the other content), and allow you to specify
-background colors and images for the banner section.
+background colors and images for the banner sections.
