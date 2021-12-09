@@ -4,6 +4,7 @@
 
 :root {
   --primary: $pythia-blue;
+  --tabs-size-label: 0.8rem !important;
 }
 
 @function rem2px($size) {
@@ -174,6 +175,16 @@ pre {
   }
 }
 
+.tabbed-content {
+  box-shadow: 0 -.0625rem var(--tabs-color-overline) !important;
+  padding-bottom: 0 !important;
+}
+
+.tabbed-set>label {
+  padding: 0 1rem !important;
+  margin: 0;
+}
+
 .topbar {
   top: var(--pst-header-height);
 }
@@ -297,6 +308,7 @@ main.banner-main {
     background-size: cover;
     background-position: center center;
     color: $light;
+    background-color: $gray-700;
 
     div.section-banner-caption {
       position: absolute;
