@@ -49,6 +49,11 @@ sphinx:
     html_theme: sphinx_pythia_theme
     html_theme_path: ../
     html_theme_options:
+      domnav_links:
+        - content: Theme
+          url: '/this-theme'
+        - content: GitHub
+          url: https://github.com/ProjectPythia/sphinx-pythia-theme
       page_layouts:
         index: banner
 
