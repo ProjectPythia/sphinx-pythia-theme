@@ -61,15 +61,7 @@ def add_functions_to_context(app, pagename, templatename, context, doctree):
                 continue
 
             if image:
-                conf_dir = Path(app.confdir)
-                out_dir = Path(app.outdir)
-                old_img = conf_dir / image
-                if old_img.is_file():
-                    new_dir = out_dir / "_images"
-                    makedirs(new_dir, exist_ok=True)
-                    new_img = Path(new_dir) / old_img.name
-                    copy(old_img, new_img)
-                    image = str(Path("_images") / old_img.name)
+                image = copy_image(app, image)
 
             if image and color:
                 style = (
@@ -95,9 +87,42 @@ def add_functions_to_context(app, pagename, templatename, context, doctree):
     context["apply_banner_layout"] = apply_banner_layout
 
 
+def copy_image(app, image):
+    conf_dir = Path(app.confdir)
+    out_dir = Path(app.outdir)
+    old_img = conf_dir / image
+    if old_img.is_file():
+        new_dir = out_dir / "_images"
+        makedirs(new_dir, exist_ok=True)
+        new_img = Path(new_dir) / old_img.name
+        copy(old_img, new_img)
+        return str(Path("_images") / old_img.name)
+
+
+def copy_config_images(app):
+    if hasattr(app.config, "html_theme_options"):
+        config = app.config.html_theme_options
+    else:
+        return
+
+    if "footer" in config:
+        footer_config = config["footer"]
+
+        if "logos" in footer_config:
+            for key in footer_config["logos"]:
+                image = footer_config["logos"][key]
+                footer_config["logos"][key] = copy_image(app, image)
+
+        if "acknowledgement" in footer_config:
+            if "image" in footer_config["acknowledgement"]:
+                image = footer_config["acknowledgement"]["image"]
+                footer_config["acknowledgement"]["image"] = copy_image(app, image)
+
+
 def setup(app: Sphinx):
     app.require_sphinx("3.5")
     app.add_directive("banner", Banner)
+    app.connect("builder-inited", copy_config_images)
     app.connect("html-page-context", add_functions_to_context)
 
     return {

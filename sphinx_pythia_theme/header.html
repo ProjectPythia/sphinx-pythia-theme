@@ -8,8 +8,8 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarNavDropdown">
       <ul class="navbar-nav">
-        {% if theme_domnav_links %}
-        {% for link in theme_domnav_links %}
+        {% if theme_domnav %}
+        {% for link in theme_domnav %}
         <li class="nav-item">
           <a class="nav-link" href={{ link['url'] }}>{{ link['content'] }}</a>
         </li>

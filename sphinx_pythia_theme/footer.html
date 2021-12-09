@@ -1,13 +1,13 @@
 <div class="footer" role="contentinfo">
-  {%- if theme_logobar %}
-  <div class="container-fluid logos-bar">
+  {%- if theme_footer and 'logos' in theme_footer %}
+  <div class="container-fluid logobar">
     <div class="container">
       <div class="row d-flex flex-wrap align-items-center">
-        {%- for key in theme_logobar %}
-        <div class="d-flex col-lg-3 col-md-4 col-sm-6 p-3 mx-auto">
+        {%- for key in theme_footer['logos'] %}
+        <div class="d-flex col-lg-3 col-md-4 col-sm-6 p-2 mx-auto">
           <img
             alt="{{ key }}"
-            src="{{ pathto('_static/' + theme_logobar[key], 1) }}"
+            src="{{ pathto(theme_footer['logos'][key], 1) }}"
             style="width: 100%"
           />
         </div>
@@ -45,15 +45,15 @@
       </div>
     </div>
   </div>
-  {%- if theme_sponsor %}
-    {%- if 'text' in theme_sponsor %}
-  <div class="container-fluid sponsor">
+  {%- if theme_footer and 'acknowledgement' in theme_footer %}
+    {%- if 'content' in theme_footer['acknowledgement'] %}
+  <div class="container-fluid acknowledgement">
     <div class="container">
       <div class="row">
-        <div class="col">{{ theme_sponsor['text'] }}</div>
-      {%- if 'logo' in theme_sponsor %}
+        <div class="col">{{ theme_footer['acknowledgement']['content'] }}</div>
+      {%- if 'image' in theme_footer['acknowledgement'] %}
         <div class="col-auto">
-          <img src="{{ pathto('_static/' + theme_sponsor['logo'], 1) }}" />
+          <img src="{{ pathto(theme_footer['acknowledgement']['image'], 1) }}" />
         </div>
       {%- endif %}
       </div>

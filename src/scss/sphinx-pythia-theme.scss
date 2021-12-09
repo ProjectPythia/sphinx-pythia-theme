@@ -275,25 +275,27 @@ main {
 
 div.footer {
   color: $light;
+  font-size: 0.8rem;
   font-family: $pythia-footnote-font;
 
-  div.logos-bar {
-    background-color: $white;
+  div.logobar {
+    background-color: $gray-200;
   }
 
   div.infobar {
-    background-color: $dark;
-    padding-top: 1rem;
-    padding-bottom: 1rem;
+    color: $gray-400;
+    background-color: $gray-800;
+    padding-top: 0.4rem;
+    padding-bottom: 0.4rem;
   }
 
-  div.sponsor {
-    background-color: $gray-800;
+  div.acknowledgement {
+    background-color: $gray-700;
     padding-top: 1rem;
     padding-bottom: 1rem;
 
     img {
-      height: 80px;
+      height: 60px;
     }
   }
 }
