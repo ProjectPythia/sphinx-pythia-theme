@@ -1,3 +1,5 @@
+exclude book
+recursive-exclude book *
 exclude docs
 recursive-exclude docs *
 exclude src
@@ -15,6 +17,7 @@ recursive-include ci *.yml
 include sphinx_pythia_theme/theme.conf
 recursive-include sphinx_pythia_theme *.html
 recursive-include sphinx_pythia_theme/static *.js *.png *.css *.svg
+recursive-include sphinx_pythia_theme/_templates *.html
 
 global-exclude .DS_Store
 global-exclude *.pyc
