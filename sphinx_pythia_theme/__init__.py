@@ -7,7 +7,7 @@ from sphinx.application import Sphinx
 
 from .banner import Banner
 
-__version__ = "0.1.0"
+__version__ = "2021.12.0"
 
 
 def add_functions_to_context(app, pagename, templatename, context, doctree):
