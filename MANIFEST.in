@@ -1,5 +1,5 @@
-exclude book
-recursive-exclude book *
+exclude docs
+recursive-exclude docs *
 exclude src
 recursive-exclude src *
 
