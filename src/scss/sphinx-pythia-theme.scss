@@ -155,8 +155,23 @@ pre {
   box-shadow: none;
 }
 
-.prev-next-info {
-  font-size: 0.8rem;
+.prev-next-area {
+  margin: 0;
+
+  i {
+    font-size: 0.9rem;
+    color: $gray-600;
+  }
+
+  a {
+    // text-decoration: none;
+
+    p.prev-next-title {
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: $gray-600;
+    }
+  }
 }
 
 .topbar {
@@ -171,7 +186,7 @@ pre {
 
 main {
   padding: 2rem 0 0 0;
-  background-color: $light;
+  background-color: $white;
 
   div.sectionwrapper-1,
   div.sectionwrapper-2 {
