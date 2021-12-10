@@ -3,4 +3,4 @@
 _build
 __pycache__
 *.egg-info
-kitchen-sink/
+kitchen-sink
