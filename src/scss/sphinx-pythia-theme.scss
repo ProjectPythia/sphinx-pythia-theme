@@ -43,8 +43,8 @@ $document-width: calc(0.5 * (var(--breakpoint-md) + var(--breakpoint-lg)));
 }
 
 .row {
-  margin-left: 0;
-  margin-right: 0;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
 }
 
 // GENERAL HTML ELEMENTS ------------------------------------------------------
