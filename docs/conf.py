@@ -4,12 +4,8 @@
 # list see the documentation:
 # https://www.sphinx-doc.org/en/master/usage/configuration.html
 
-# import os
-# import sys
 from pathlib import Path
 from urllib import request
-
-# sys.path.append(os.path.abspath("../"))
 
 # -- Project information -----------------------------------------------------
 
@@ -34,7 +30,7 @@ extensions = [
     "sphinx_click.ext",
     "sphinx_inline_tabs",
     "sphinx_panels",
-    "sphinx_pythia_theme",
+    # "sphinx_pythia_theme",
 ]
 
 # Add any paths that contain templates here, relative to this directory.
@@ -77,7 +73,6 @@ panels_add_bootstrap_css = False
 # -- Options for HTML output -------------------------------------------------
 
 html_theme = "sphinx_pythia_theme"
-# html_theme_path = ["../"]
 html_logo = "images/dummy_logo_dark.svg"
 html_title = "Sphinx Pythia Theme"
 html_copy_source = True
@@ -114,7 +109,7 @@ html_theme_options = {
     "show_toc_level": 2,
     "domnav": [
         {
-            "content": "Theme",
+            "content": "Documentation",
             "url": "/this-theme",
         },
         {

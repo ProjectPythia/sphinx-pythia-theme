@@ -19,7 +19,6 @@ setup(
     url="https://github.com/ProjectPythia/sphinx-pythia-theme",
     project_urls={
         "Documentation": "https://projectpythia.org",
-        "Funding": "https://projectpythia.org/about",
         "Source": "https://github.com/ProjectPythia/sphinx-pythia-theme",
         "Tracker": "https://github.com/ProjectPythia/sphinx-pythia-theme/issues",
     },

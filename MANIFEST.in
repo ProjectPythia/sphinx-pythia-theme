@@ -7,16 +7,16 @@ recursive-exclude src *
 
 exclude .flake8
 exclude .pre-commit-config.yaml
+exclude .web-compile-config.yml
+recursive-exclude ci *.yml
 
 include LICENSE
 include MANIFEST.in
 include README.md
-include .web-compile-config.yml
-recursive-include ci *.yml
 
 include sphinx_pythia_theme/theme.conf
-recursive-include sphinx_pythia_theme *.html
-recursive-include sphinx_pythia_theme/static *.js *.png *.css *.svg
+recursive-include sphinx_pythia_theme *.html *.py
+recursive-include sphinx_pythia_theme/static *.js *.css
 recursive-include sphinx_pythia_theme/_templates *.html
 
 global-exclude .DS_Store

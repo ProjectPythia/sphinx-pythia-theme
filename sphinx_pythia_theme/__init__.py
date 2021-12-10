@@ -1,6 +1,6 @@
-from os import makedirs
+import os
+import shutil
 from pathlib import Path
-from shutil import copy
 
 from bs4 import BeautifulSoup as bs
 from sphinx.application import Sphinx
@@ -8,6 +8,12 @@ from sphinx.application import Sphinx
 from .banner import Banner
 
 __version__ = "2021.12.0"
+
+
+def get_html_theme_path():
+    """Return list of HTML theme paths."""
+    theme_path = os.path.abspath(Path(__file__).parent)
+    return theme_path
 
 
 def add_functions_to_context(app, pagename, templatename, context, doctree):
@@ -93,9 +99,9 @@ def copy_image(app, image):
     old_img = conf_dir / image
     if old_img.is_file():
         new_dir = out_dir / "_images"
-        makedirs(new_dir, exist_ok=True)
+        os.makedirs(new_dir, exist_ok=True)
         new_img = Path(new_dir) / old_img.name
-        copy(old_img, new_img)
+        shutil.copy(old_img, new_img)
         return str(Path("_images") / old_img.name)
     else:
         raise FileNotFoundError(f"Image file not found: {old_img}")
@@ -123,6 +129,7 @@ def copy_config_images(app):
 
 def setup(app: Sphinx):
     app.require_sphinx("3.5")
+    app.add_html_theme("sphinx_pythia_theme", get_html_theme_path())
     app.add_directive("banner", Banner)
     app.connect("builder-inited", copy_config_images)
     app.connect("html-page-context", add_functions_to_context)
