@@ -2,7 +2,7 @@
 # Book settings
 title: ""
 logo: images/dummy_logo_dark.svg
-author: Project Pythia Community
+author: The Project Pythia Community
 email: kpaul@ucar.edu
 description: >- # this means to ignore newlines until "baseurl:"
   This is an example book built with Jupyter Books.
@@ -47,10 +47,9 @@ parse:
 sphinx:
   config:
     html_theme: sphinx_pythia_theme
-    html_theme_path: ../
     html_theme_options:
       domnav:
-        - content: Theme
+        - content: Documentation
           url: '/this-theme'
         - content: GitHub
           url: https://github.com/ProjectPythia/sphinx-pythia-theme
@@ -64,9 +63,6 @@ sphinx:
         acknowledgement:
           content: This material is based upon work supported by the National Science Foundation under Grant Nos. 2026863 and 2026899. Any opinions, findings, and conclusions or recommendations expressed in this material are those of the author(s) and do not necessarily reflect the views of the National Science Foundation.
           image: images/nsf-logo.png
-
-  local_extensions:
-    sphinx_pythia_theme: ../
 
   extra_extensions:
     - sphinx_click.ext

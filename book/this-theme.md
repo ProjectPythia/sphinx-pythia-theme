@@ -4,7 +4,8 @@ The Sphinx Pythia Theme is a [Sphinx Theme](https://www.sphinx-doc.org/en/master
 that inherits directly from the [Sphinx Book Theme](https://sphinx-book-theme.readthedocs.io/en/latest/)
 used by the amazing [Jupyter Book project](https://jupyterbook.org/intro.html).  As a result, the
 Sphinx Pythia Theme, through the Sphinx Book Theme, inherits from the awesome
-[PyData Sphinx Theme](), which provides a great deal of functionality.
+[PyData Sphinx Theme](https://pydata-sphinx-theme.readthedocs.io/),
+which provides a great deal of functionality.
 
 On top of all of these amazing themes, the Sphinx Pythia theme add a few simple changes.
 
@@ -156,7 +157,7 @@ section.
 
 ::::{tabbed} reStructuredText
 
-```resttructuredtext
+```rst
 .. banner:
    color: rgba(40,40,60,0.8)
    image: images/pexels-jeff-stapleton-5792818.jpg
