@@ -97,6 +97,8 @@ def copy_image(app, image):
         new_img = Path(new_dir) / old_img.name
         copy(old_img, new_img)
         return str(Path("_images") / old_img.name)
+    else:
+        raise FileNotFoundError(f"Image file not found: {old_img}")
 
 
 def copy_config_images(app):
