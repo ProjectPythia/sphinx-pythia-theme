@@ -39,7 +39,7 @@
         {%- if page_layout == "banner" %}
         <div id="main-content" class="row">
           <div class="col-12 banner-col">
-          {{ super.super() }}
+          {{ apply_banner_layout(super.super()) }}
           </div>
         </div>
         {%- else %}
