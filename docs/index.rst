@@ -29,12 +29,5 @@ the **banner** layout.  The banner layout converts all *titles* and *sections*
 of padding (to separate them from the other content), and allow you to specify
 background colors and images for the banner sections.
 
-.. toctree::
-   :maxdepth: 2
-   :hidden:
-
-   this-theme
-   kitchen-sink/index
-
 .. |jbook| image:: images/badge.svg
    :target: https://jupyterbook.org
