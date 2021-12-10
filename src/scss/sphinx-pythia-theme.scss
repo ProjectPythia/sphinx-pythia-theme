@@ -182,15 +182,16 @@ pre {
 
 .tabbed-set>label {
   padding: 0 1rem !important;
-  margin: 0;
+  margin: 0 !important;
 }
 
 .topbar {
-  top: var(--pst-header-height);
+  top: var(--pst-header-height) !important;
+  padding: 0 !important;
 }
 
 .topbar-main button:focus {
-  outline: none;
+  outline: none !important;
 }
 
 // DEFAULT DOCUMENT ----------------------------------------------------------

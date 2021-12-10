@@ -49,6 +49,7 @@ intersphinx_mapping = {
     "python": ("https://docs.python.org/3.8", None),
     "sphinx": ("https://www.sphinx-doc.org/en/master", None),
 }
+
 nitpick_ignore = [
     ("py:class", "docutils.nodes.document"),
     ("py:class", "docutils.parsers.rst.directives.body.Sidebar"),
@@ -70,6 +71,8 @@ myst_enable_extensions = [
     "linkify",
     "substitution",
 ]
+
+panels_add_bootstrap_css = False
 
 # -- Options for HTML output -------------------------------------------------
 
