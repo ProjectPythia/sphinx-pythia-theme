@@ -4,12 +4,12 @@
 # list see the documentation:
 # https://www.sphinx-doc.org/en/master/usage/configuration.html
 
-import os
-import sys
+# import os
+# import sys
 from pathlib import Path
 from urllib import request
 
-sys.path.append(os.path.abspath("../"))
+# sys.path.append(os.path.abspath("../"))
 
 # -- Project information -----------------------------------------------------
 
@@ -77,7 +77,7 @@ panels_add_bootstrap_css = False
 # -- Options for HTML output -------------------------------------------------
 
 html_theme = "sphinx_pythia_theme"
-html_theme_path = ["../"]
+# html_theme_path = ["../"]
 html_logo = "images/dummy_logo_dark.svg"
 html_title = "Sphinx Pythia Theme"
 html_copy_source = True
