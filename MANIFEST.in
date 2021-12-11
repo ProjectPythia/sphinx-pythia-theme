@@ -1,7 +1,23 @@
+exclude book
+recursive-exclude book *
+exclude docs
+recursive-exclude docs *
+exclude src
+recursive-exclude src *
+
+exclude .flake8
+exclude .pre-commit-config.yaml
+exclude .web-compile-config.yml
+recursive-exclude ci *.yml
+
 include LICENSE
+include MANIFEST.in
 include README.md
-recursive-include sphinx_pythia_theme *
+
+include sphinx_pythia_theme/theme.conf
+recursive-include sphinx_pythia_theme *.html *.py
+recursive-include sphinx_pythia_theme/static *.js *.css
+recursive-include sphinx_pythia_theme/_templates *.html
 
 global-exclude .DS_Store
 global-exclude *.pyc
-exclude demo

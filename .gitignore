@@ -1,6 +1,6 @@
-.DS_Store
-.vscode/
-build/
-*.egg-info/
-__pycache__/
-*.pyc
+.vscode
+/build
+_build
+__pycache__
+*.egg-info
+kitchen-sink

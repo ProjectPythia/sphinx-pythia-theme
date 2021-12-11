@@ -1,19 +1,30 @@
-import os
 from setuptools import setup, find_packages
+from pathlib import Path
 
-from sphinx_pythia_theme import __version__
 
-with open('README.md', 'rt') as fobj:
-    long_description = fobj.read()
+lines = Path("sphinx_pythia_theme").joinpath("__init__.py")
+for line in lines.read_text().split("\n"):
+    if line.startswith("__version__ ="):
+        version = line.split(" = ")[-1].strip('"')
+        break
+
 
 setup(
     name="sphinx-pythia-theme",
-    version=__version__,
-    description="Sphinx Pythia Theme.",
-    long_description=long_description,
+    version=version,
+    description="Sphinx Pythia Theme",
+    long_description=Path("./README.md").read_text(),
+    long_description_content_type="text/markdown",
+    license="Apache 2.0",
     url="https://github.com/ProjectPythia/sphinx-pythia-theme",
+    project_urls={
+        "Documentation": "https://projectpythia.org",
+        "Source": "https://github.com/ProjectPythia/sphinx-pythia-theme",
+        "Tracker": "https://github.com/ProjectPythia/sphinx-pythia-theme/issues",
+    },
     author="Kevin Paul",
     author_email="kpaul@ucar.edu",
+    keywords="reproducible science environments scholarship notebook",
     classifiers=[
         "Development Status :: 3 - Alpha",
         "Environment :: Web Environment",
@@ -25,13 +36,12 @@ setup(
         "Topic :: Internet",
         "Topic :: Software Development :: Documentation",
     ],
-
     install_requires=[
-        "setuptools",
+        "sphinx-book-theme>=0.1.7",
     ],
-    entry_points = {
-        'sphinx.html_themes': [
-            'sphinx_pythia_theme = sphinx_pythia_theme',
+    entry_points={
+        "sphinx.html_themes": [
+            "sphinx_pythia_theme = sphinx_pythia_theme",
         ]
     },
     packages=find_packages(),

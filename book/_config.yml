@@ -1,0 +1,70 @@
+#######################################################################################
+# Book settings
+title: ""
+logo: images/dummy_logo_dark.svg
+author: The Project Pythia Community
+email: kpaul@ucar.edu
+description: >- # this means to ignore newlines until "baseurl:"
+  This is an example book built with Jupyter Books.
+
+execute:
+  execute_notebooks: cache
+
+html:
+  favicon: images/favicon.ico
+  home_page_in_navbar: false
+  use_edit_page_button: true
+  use_repository_button: true
+  use_issues_button: true
+  baseurl: https://jupyterbook.org/
+
+repository:
+  url: https://github.com/executablebooks/jupyter-book
+  branch: master
+  path_to_book: docs
+
+launch_buttons:
+  notebook_interface: "classic" # The interface interactive links will activate ["classic", "jupyterlab"]
+  binderhub_url: "https://mybinder.org"
+  colab_url: "https://colab.research.google.com"
+  thebe: true
+
+parse:
+  myst_substitutions:
+    sub3: My _global_ value!
+  myst_enable_extensions:  # default extensions to enable in the myst parser. See https://myst-parser.readthedocs.io/en/latest/using/syntax-optional.html
+    - amsmath
+    - colon_fence
+    - deflist
+    - dollarmath
+    - html_admonition
+    - html_image
+    - linkify
+    - replacements
+    - smartquotes
+    - substitution
+
+sphinx:
+  config:
+    html_theme: sphinx_pythia_theme
+    html_theme_options:
+      domnav:
+        - content: Documentation
+          url: '/this-theme'
+        - content: GitHub
+          url: https://github.com/ProjectPythia/sphinx-pythia-theme
+      page_layouts:
+        index: banner
+      footer:
+        logos:
+          NCAR: images/NCAR-contemp-logo-blue.svg
+          Unidata: images/Unidata_logo_horizontal_1200x300.svg
+          UAlbany: images/UAlbany-A2-logo-purple-gold.svg
+        acknowledgement:
+          content: This material is based upon work supported by the National Science Foundation under Grant Nos. 2026863 and 2026899. Any opinions, findings, and conclusions or recommendations expressed in this material are those of the author(s) and do not necessarily reflect the views of the National Science Foundation.
+          image: images/nsf-logo.png
+
+  extra_extensions:
+    - sphinx_click.ext
+    - sphinx_inline_tabs
+    - sphinx.ext.autodoc
