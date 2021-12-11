@@ -36,18 +36,19 @@ templates_path = ["_templates"]
 extensions = [
     "ablog",
     "myst_nb",
+    "sphinx_click.ext",
+    "sphinx_comments",
+    "sphinx_copybutton",
+    "sphinx_design",
+    "sphinx_external_toc",
+    "sphinx_inline_tabs",
+    "sphinx_panels",
+    "sphinx_thebe",
+    "sphinx_togglebutton",
     "sphinx.ext.autodoc",
     "sphinx.ext.intersphinx",
     "sphinx.ext.viewcode",
-    "sphinx_copybutton",
-    "sphinx_external_toc",
-    "sphinx_design",
-    "sphinx_thebe",
-    "sphinx_togglebutton",
     "sphinxext.opengraph",
-    "sphinx_click.ext",
-    "sphinx_inline_tabs",
-    "sphinx_panels",
 ]
 
 comments_config = {"hypothesis": False, "utterances": False}

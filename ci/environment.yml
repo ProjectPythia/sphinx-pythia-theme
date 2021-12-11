@@ -3,9 +3,9 @@ channels:
   - conda-forge
   - defaults
 dependencies:
-  - jupyter-book
   - pip
   - pip:
+    - ablog
+    - jupyter-book
     - sphinx-click
     - sphinx-inline-tabs
-    - sphinxext-rediraffe
