@@ -1,0 +1,6 @@
+.vscode
+/build
+_build
+__pycache__
+*.egg-info
+kitchen-sink

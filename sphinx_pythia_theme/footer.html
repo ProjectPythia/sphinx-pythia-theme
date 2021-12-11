@@ -1,0 +1,64 @@
+<div class="footer" role="contentinfo">
+  {%- if theme_footer and 'logos' in theme_footer %}
+  <div class="container-fluid logobar">
+    <div class="container">
+      <div class="row d-flex flex-wrap align-items-center">
+        {%- for key in theme_footer['logos'] %}
+        <div class="d-flex col-lg-3 col-md-4 col-sm-6 p-2 mx-auto">
+          <img
+            alt="{{ key }}"
+            src="{{ pathto(theme_footer['logos'][key], 1) }}"
+            style="width: 100%"
+          />
+        </div>
+        {%- endfor %}
+      </div>
+    </div>
+  </div>
+  {%- endif %}
+  <div class="container-fluid infobar">
+    <div class="container">
+      <div class="d-flex justify-content-center">
+        <p class="m-0">
+          {%- if show_copyright %}
+            {%- if hasdoc('copyright') %}
+              {%- trans path=pathto('copyright'), copyright=copyright|e %}&#169;
+          <a href="{{ path }}">Copyright</a> {{ copyright }}.
+              {%- endtrans %}
+            {%- else %}
+              {%- trans copyright=copyright|e %}&#169;
+          Copyright {{ copyright }}.
+              {%- endtrans %}
+            {%- endif %}
+          {%- endif %}
+          {%- if last_updated %}
+            {%- trans last_updated=last_updated|e %}
+          Last updated on {{ last_updated }}.
+            {%- endtrans %}
+          {%- endif %}
+          {%- if show_sphinx %}
+            {%- trans sphinx_version=sphinx_version|e %}
+          Created using&nbsp;<a href="https://www.sphinx-doc.org/">Sphinx</a>&nbsp;{{ sphinx_version }}.
+            {%- endtrans %}
+          {%- endif %}
+        </p>
+      </div>
+    </div>
+  </div>
+  {%- if theme_footer and 'acknowledgement' in theme_footer %}
+    {%- if 'content' in theme_footer['acknowledgement'] %}
+  <div class="container-fluid acknowledgement">
+    <div class="container">
+      <div class="row">
+        <div class="col">{{ theme_footer['acknowledgement']['content'] }}</div>
+      {%- if 'image' in theme_footer['acknowledgement'] %}
+        <div class="col-auto">
+          <img src="{{ pathto(theme_footer['acknowledgement']['image'], 1) }}" />
+        </div>
+      {%- endif %}
+      </div>
+    </div>
+  </div>
+    {%- endif %}
+  {%- endif %}
+</div>

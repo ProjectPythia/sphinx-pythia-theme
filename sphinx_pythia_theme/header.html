@@ -1,0 +1,21 @@
+<nav class="domnav navbar navbar-expand-md fixed-top navbar-dark bg-dark shadow">
+  <div class="container-fluid">
+    {% if logo %}
+    <a class="navbar-brand" href="{{ pathto('index') }}"><img src="{{ pathto('_static/' + logo, 1) }}" class="logo" alt="logo"></a>
+    {% endif %}
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+      <ul class="navbar-nav">
+        {% if theme_domnav %}
+        {% for link in theme_domnav %}
+        <li class="nav-item">
+          <a class="nav-link" href={{ link['url'] }}>{{ link['content'] }}</a>
+        </li>
+        {% endfor %}
+        {% endif %}
+      </ul>
+    </div>
+  </div>
+</nav>
