@@ -1,4 +1,4 @@
-name: pythia-book-theme
+name: sphinx-pythia-theme
 channels:
   - conda-forge
   - defaults
