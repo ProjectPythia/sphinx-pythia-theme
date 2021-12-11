@@ -8,4 +8,5 @@ dependencies:
     - ablog
     - jupyter-book
     - sphinx-click
+    - sphinx-design
     - sphinx-inline-tabs
