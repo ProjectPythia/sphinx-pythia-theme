@@ -18,7 +18,7 @@ jobs:
         python-version: 3.8
     - uses: pre-commit/action@v2.0.0
 
-  docs:
+  book:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
@@ -31,6 +31,8 @@ jobs:
         python -m pip install --upgrade pip
         pip install jupyter-book ablog sphinx-click sphinx-inline-tabs
         pip install -e .
+    - name: Download kitchen sink
+      run: python book/getkitchensink.py book
     - name: Build documentation
       run: jupyter-book build book
 
