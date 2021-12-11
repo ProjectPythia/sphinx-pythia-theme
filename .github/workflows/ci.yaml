@@ -38,7 +38,7 @@ jobs:
 
   publish:
     name: Publish to PyPI
-    needs: [pre-commit, docs]
+    needs: [pre-commit, book]
     if: github.event_name == 'push' && startsWith(github.event.ref, 'refs/tags')
     runs-on: ubuntu-latest
     steps:
