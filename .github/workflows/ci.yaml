@@ -54,14 +54,6 @@ jobs:
     - name: Build documentation
       run: >
         sphinx-build -b html docs docs/_build/html -w warnings.txt
-    - name: Check that there are no unexpected warnings
-      shell: python
-      run: |
-        from pathlib import Path
-        text = Path("./warnings.txt").read_text().strip()
-        print("\n=== Sphinx Warnings ===\n\n" + text)  # Print just for reference so we can look at the logs
-        unexpected = [ii for ii in text.split("\n") if "kitchen-sink" not in ii]
-        assert len(unexpected) == 0
 
   publish:
     name: Publish to PyPI
