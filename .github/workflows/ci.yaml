@@ -1,5 +1,5 @@
 # Taken from the sphinx-book-theme repository and modified
-name: continuous-integration
+name: CI
 
 on:
   push:
@@ -33,7 +33,7 @@ jobs:
         pip install sphinx-click sphinx-inline-tabs sphinxext-rediraffe
         pip install -e .
     - name: Build documentation
-      run: jupyter-book build docs
+      run: jupyter-book build book
 
   publish:
     name: Publish to PyPI
