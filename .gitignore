@@ -1,6 +1,0 @@
-.DS_Store
-.vscode/
-build/
-*.egg-info/
-__pycache__/
-*.pyc

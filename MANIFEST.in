@@ -1,7 +1,0 @@
-include LICENSE
-include README.md
-recursive-include sphinx_pythia_theme *
-
-global-exclude .DS_Store
-global-exclude *.pyc
-exclude demo
