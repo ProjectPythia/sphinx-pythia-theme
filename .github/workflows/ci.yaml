@@ -9,16 +9,9 @@ on:
   pull_request:
 
 jobs:
-  pre-commit:
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v1
-    - uses: actions/setup-python@v1
-      with:
-        python-version: 3.8
-    - uses: pre-commit/action@v2.0.0
 
-  docs:
+  book:
+    name: Build Jupyter Book
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
@@ -29,15 +22,34 @@ jobs:
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
-        pip install jupyter-book
-        pip install sphinx-click sphinx-inline-tabs sphinxext-rediraffe
+        pip install -r requirements.txt
         pip install -e .
+    - name: Download kitchen sink
+      run: python book/getkitchensink.py book
     - name: Build documentation
       run: jupyter-book build book
 
+  docs:
+    name: Build Sphinx Docs
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: 3.8
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+        pip install -e .
+    - name: Build documentation
+      run: >
+        sphinx-build -b html docs docs/_build/html -w warnings.txt
+
   publish:
     name: Publish to PyPI
-    needs: [pre-commit, docs]
+    needs: [docs, book]
     if: github.event_name == 'push' && startsWith(github.event.ref, 'refs/tags')
     runs-on: ubuntu-latest
     steps:
@@ -55,4 +67,4 @@ jobs:
         uses: pypa/gh-action-pypi-publish@v1.1.0
         with:
           user: __token__
-          password: ${{ secrets.PYPI_KEY }}
+          password: ${{ secrets.PYPI_TOKEN }}
