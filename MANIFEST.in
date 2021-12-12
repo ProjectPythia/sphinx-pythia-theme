@@ -7,7 +7,9 @@ recursive-exclude src *
 
 exclude .flake8
 exclude .pre-commit-config.yaml
+exclude .readthedocs.yaml
 exclude .web-compile-config.yml
+exclude requirements.txt
 recursive-exclude ci *.yml
 
 include LICENSE
