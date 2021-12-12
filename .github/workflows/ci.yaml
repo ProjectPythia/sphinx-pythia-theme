@@ -22,7 +22,7 @@ jobs:
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
-        pip install jupyter-book ablog sphinx-click sphinx-design sphinx-inline-tabs sphinxext-opengraph
+        pip install -r requirements.txt
         pip install -e .
     - name: Download kitchen sink
       run: python book/getkitchensink.py book
@@ -41,7 +41,7 @@ jobs:
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
-        pip install jupyter-book ablog sphinx-click sphinx-design sphinx-inline-tabs sphinxext-opengraph
+        pip install -r requirements.txt
         pip install -e .
     - name: Build documentation
       run: >
@@ -49,7 +49,7 @@ jobs:
 
   publish:
     name: Publish to PyPI
-    needs: [pre-commit, book]
+    needs: [docs, book]
     if: github.event_name == 'push' && startsWith(github.event.ref, 'refs/tags')
     runs-on: ubuntu-latest
     steps:
