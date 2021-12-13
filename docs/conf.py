@@ -120,7 +120,7 @@ html_theme_options = {
     "logo_only": True,
     "show_toc_level": 2,
     "domnav": [
-        {"content": "Documentation", "url": "/this-theme"},
+        {"content": "Documentation", "url": "this-theme"},
         {
             "content": "GitHub",
             "url": "https://github.com/ProjectPythia/sphinx-pythia-theme",

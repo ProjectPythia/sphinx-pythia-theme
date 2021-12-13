@@ -10,8 +10,13 @@
       <ul class="navbar-nav">
         {% if theme_domnav %}
         {% for link in theme_domnav %}
+        {% if hasdoc(link['url']) %}
+        {% set href = pathto(link['url']) %}
+        {% else %}
+        {% set href = link['url'] %}
+        {% endif %}
         <li class="nav-item">
-          <a class="nav-link" href={{ link['url'] }}>{{ link['content'] }}</a>
+          <a class="nav-link" href="{{ href }}">{{ link['content'] }}</a>
         </li>
         {% endfor %}
         {% endif %}
