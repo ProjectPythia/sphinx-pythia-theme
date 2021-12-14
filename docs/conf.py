@@ -39,7 +39,6 @@ extensions = [
     "sphinx_click.ext",
     "sphinx_comments",
     "sphinx_copybutton",
-    "sphinx_design",
     "sphinx_external_toc",
     "sphinx_inline_tabs",
     "sphinx_panels",
