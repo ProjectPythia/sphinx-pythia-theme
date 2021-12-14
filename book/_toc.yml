@@ -6,8 +6,4 @@ parts:
 
   - caption: Reference
     chapters:
-      - file: kitchen-sink/index
-        sections:
-          - file: kitchen-sink/paragraph-markup
-          - file: kitchen-sink/api
-          - file: kitchen-sink/lists-and-tables
+    - file: kitchen-sink/index
