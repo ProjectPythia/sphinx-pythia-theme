@@ -3,18 +3,15 @@
 @import 'fonts';
 
 :root {
-  --primary: red;
-  --pst-color-link: red;
+  --pst-primary-color: 26, 101, 143;
+  --pst-color-link: 26, 101, 143;
+  --pst-color-headerlink: 173, 181, 189;
   --tabs-size-label: 0.8rem !important;
 }
 
-@function rem2px($size) {
-  @return $size / 1rem * 16px;
-}
-
 $navbar-height: var(--pst-header-height);
-$offset-height: $navbar-height + rem2px(5rem);
-$sidebar-width: 300px;
+$scroll-padding-top: 128px;
+$sidebar-width: 100px;
 $document-width: calc(0.5 * (var(--breakpoint-md) + var(--breakpoint-lg)));
 
 // BOOTSTRAP OVERRIDES --------------------------------------------------------
@@ -50,25 +47,17 @@ $document-width: calc(0.5 * (var(--breakpoint-md) + var(--breakpoint-lg)));
 
 // GENERAL HTML ELEMENTS ------------------------------------------------------
 
-:target:before {
-  content: '';
-  display: block;
-  height: $offset-height;
-  margin-top: -$offset-height;
-}
-
 a.badge {
   text-decoration: none;
 }
 
 a.headerlink {
   text-decoration: none;
-  color: transparent;
-  position: absolute;
 }
 
 a.headerlink:hover {
   color: $gray-500;
+  background-color: transparent;
 }
 
 a.navbar-brand img {
@@ -86,6 +75,7 @@ h1, h2, h3, h4, h5, h6 {
 
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: $scroll-padding-top;
 }
 
 i.fab::before,
