@@ -37,7 +37,10 @@ background colors and images for the banner sections.
 
 ## Documentation
 
+
+:::{rst-class} text-center
 Click the button below to look at the Sphinx Pythia Theme documentation.
+:::
 
 <span class="d-flex justify-content-center py-4">
   <a href="/about.html" role="button" class="btn btn-primary btn-lg">
