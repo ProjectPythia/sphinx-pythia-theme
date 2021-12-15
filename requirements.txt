@@ -1,5 +1,8 @@
 ablog
+folium
 jupyter-book
+matplotlib
+pandas
 sphinx-click
 sphinx-inline-tabs
 sphinxext-opengraph
