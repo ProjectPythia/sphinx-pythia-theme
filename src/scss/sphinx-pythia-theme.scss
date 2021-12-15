@@ -249,7 +249,7 @@ p {
 .thebe-launch-button {
   height: 2.2em !important;
   font-size: .8em !important;
-  border: 1px rgba(var(--spt-color-gray-600), 1) solid !important;
+  border: 1px solid rgba(var(--spt-color-gray-600), 1) !important;
   border-radius: 4px !important;
   color: rgba(var(--spt-color-gray-600), 1);
 }
@@ -265,7 +265,7 @@ p {
 
 // DEFAULT DOCUMENT ----------------------------------------------------------
 
-main {
+main.bd-content {
   padding: 2rem 0 0 0;
   background-color: white;
 
@@ -297,7 +297,7 @@ main {
   div.section-title {
     padding: 0 4rem 0.1rem 0;
     margin: 0 0 1.6rem 0;
-    border-bottom: 2px solid rgba(var(--spt-color-deep-blue), 1);
+    border-bottom: 2px solid rgba( var(--spt-color-deep-blue), 1);
   }
 
   div.sphinxsidebar {
@@ -425,7 +425,7 @@ main.banner-main {
   div.section-title {
     padding: 0 4rem 1rem 4rem;
     margin-bottom: 3rem;
-    border-bottom: 2px solid rbga(var(--sbt-color-deep-blue), 1);
+    border-bottom: 2px solid rgba(var(--spt-color-deep-blue), 1);
   }
 
   p {
