@@ -189,3 +189,33 @@ mute the background image as you see fit.
    If you do not use an ``rgba`` color with some level of transparency (the alpha component
    of the ``rgba`` value), any background image you set will be hidden behind an opaque
    overlay!  Use transparency appropriately.
+
+Because *banner* pages require significant changes to the default Sphinx/Docutils layout,
+you need to declare which pages (by document name) will have the *banner* layout.  To do
+this, you need to declare the ``page_layouts`` option in the ``html_theme_options``.
+
+.. tabbed:: Sphinx
+
+   .. code-block:: python
+
+      html_theme_options = {
+          'page_layouts': {
+              'index': 'banner',
+          }
+      }
+
+.. tabbed:: Jupyter Book
+
+   .. code-block:: yaml
+
+      sphinx:
+        config:
+          html_theme_options:
+            page_layouts:
+              index: banner
+
+The key (e.g., ``index`` in the above example) indicates the page name, and the value
+(e.g., ``banner`` in the above example) indicates the page layout to use for the given
+document name.  By default, any pages not listed in the ``page_layouts`` option will
+have the ``default`` page layout, which corresponds to the typical layout of any
+Jupyter Book page.
