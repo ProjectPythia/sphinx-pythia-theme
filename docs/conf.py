@@ -147,4 +147,4 @@ html_theme_options = {
 
 # ==============================================================================
 
-subprocess.run([sys.executable, "../book/getkitchensink.py", "."])
+subprocess.run([sys.executable, "../book/getreferences.py", "./reference"])
