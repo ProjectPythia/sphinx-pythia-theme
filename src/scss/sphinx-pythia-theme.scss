@@ -56,9 +56,9 @@ $document-width: calc(0.5 * (var(--breakpoint-md) + var(--breakpoint-lg)));
   margin-top: -$offset-height;
 }
 
-a {
-  color: inherit;
-}
+// a {
+//   color: inherit;
+// }
 
 a.badge {
   text-decoration: none;
