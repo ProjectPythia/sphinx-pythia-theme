@@ -1,15 +1,38 @@
 @import 'sphinx-book-theme.css';
-@import 'colors';
-@import 'fonts';
 
 :root {
-  --pst-color-primary: 26, 101, 143;
-  --pst-color-primary-hover: 46, 121, 163;
+  --spt-font-body: 'Poppins';
+  --spt-font-headings: 'Poppins';
+  --spt-font-footnote: 'Cormorant';
+
+  --spt-color-gray-100: 248, 249, 250;
+  --spt-color-gray-200: 233, 236, 239;
+  --spt-color-gray-300: 222, 226, 230;
+  --spt-color-gray-400: 206, 212, 218;
+  --spt-color-gray-500: 173, 181, 189;
+  --spt-color-gray-600: 108, 117, 125;
+  --spt-color-gray-700: 73, 80, 87;
+  --spt-color-gray-800: 52, 58, 64;
+  --spt-color-gray-900: 33, 37, 41;
+  --spt-color-light: var(--spt-color-gray-100);
+  --spt-color-dark: var(--spt-color-gray-800);
+  --spt-color-green: 0, 121, 124;
+  --spt-color-green-lighter: 20, 141, 144;
+  --spt-color-green-lightest: 130, 231, 234;
+  --spt-color-blue: 26, 101, 143;
+  --spt-color-blue-lighter: 46, 121, 163;
+  --spt-color-blue-lightest: 156, 191, 213;
+  --spt-color-deep-blue: 1, 33, 105;
+  --spt-color-green-highlight: 168, 199, 0;
+
+  --pst-color-primary: var(--spt-color-blue);
+  --pst-color-primary-hover: var(--spt-color-blue-lighter);
   --pst-color-link: var(--pst-color-primary);
-  --pst-color-headerlink: 173, 181, 189;
+  --pst-color-headerlink: var(--spt-color-gray-500);
+
   --tabs-size-label: 0.8rem !important;
   --tabs-color-label-active: rgba(var(--pst-color-primary), 1) !important;
-  --tabs-color-label-inactive: rgb(156, 191, 213) !important;
+  --tabs-color-label-inactive: rgba(var(--spt-color-blue-lightest), 1) !important;
 }
 
 $navbar-height: var(--pst-header-height);
@@ -77,7 +100,7 @@ a.headerlink {
 }
 
 a.headerlink:hover {
-  color: $gray-500;
+  color: rgba(var(--spt-color-gray-500), 1);
   background-color: transparent;
 }
 
@@ -87,7 +110,7 @@ a.navbar-brand img {
 
 body {
   padding-top: 0;
-  font-family: $pythia-body-font, sans-serif;
+  font-family: var(--spt-font-body), sans-serif;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -107,13 +130,6 @@ i.fas::before {
 
 p {
   color: inherit;
-}
-
-pre {
-  border: 1px solid $gray-300;
-  border-radius: 4px;
-  background-color: $gray-200;
-  padding: 0.5rem 0.65rem;
 }
 
 // SPECIAL ELEMENTS ----------------------------------------------------------
@@ -168,6 +184,34 @@ pre {
   padding: 0.5em 0.75em;
 }
 
+.cell .cell_input,
+.cell .cell_output {
+  padding: 0 !important;
+}
+
+.cell .cell_input {
+  border: 1px solid rgba(var(--spt-color-gray-300), 1) !important;
+  border-radius: 4px !important;
+  border-left-color: rgba(var(--pst-color-primary), 1) !important;
+  border-left-width: medium !important;
+  background-color: rgba(var(--spt-color-gray-200), 1) !important;
+
+  pre {
+    border: none !important;
+    background-color: rgba(var(--spt-color-gray-200), 1) !important;
+  }
+}
+
+.cell .cell_output {
+  border: none !important;
+
+  pre {
+    border: 1px solid rgba(var(--spt-color-gray-300), 1) !important;
+    border-radius: 4px !important;
+    background-color: rgba(var(--spt-color-gray-200), 1) !important;
+  }
+}
+
 .form-control:focus {
   outline: none;
   box-shadow: none;
@@ -178,7 +222,7 @@ pre {
 
   i {
     font-size: 0.9rem;
-    color: $gray-600;
+    color: rgba(var(--spt-color-gray-600), 1);
   }
 
   a {
@@ -187,7 +231,7 @@ pre {
     p.prev-next-title {
       font-size: 0.8rem;
       font-weight: 600;
-      color: $gray-600;
+      color: rgba(var(--spt-color-gray-600), 1);
     }
   }
 }
@@ -205,9 +249,9 @@ pre {
 .thebe-launch-button {
   height: 2.2em !important;
   font-size: .8em !important;
-  border: 1px $gray-600 solid !important;
+  border: 1px rgba(var(--spt-color-gray-600), 1) solid !important;
   border-radius: 4px !important;
-  color: $gray-600;
+  color: rgba(var(--spt-color-gray-600), 1);
 }
 
 .topbar {
@@ -223,11 +267,11 @@ pre {
 
 main {
   padding: 2rem 0 0 0;
-  background-color: $white;
+  background-color: white;
 
   div.sectionwrapper-1,
   div.sectionwrapper-2 {
-    color: $dark;
+    color: rgba(var(--spt-color-dark), 1);
   }
 
   div.section-1,
@@ -253,11 +297,11 @@ main {
   div.section-title {
     padding: 0 4rem 0.1rem 0;
     margin: 0 0 1.6rem 0;
-    border-bottom: 2px solid $pythia-deep-blue;
+    border-bottom: 2px solid rgba(var(--spt-color-deep-blue), 1);
   }
 
   div.sphinxsidebar {
-    color: $dark;
+    color: rgba(var(--spt-color-dark), 1);
     display: block;
     width: $sidebar-width;
     position: fixed;
@@ -268,18 +312,18 @@ main {
     font-weight: 200;
 
     .form-control {
-      border: 1px solid $gray-400;
-      font-family: $pythia-body-font, sans-serif;
+      border: 1px solid rgba(var(--spt-color-gray-400), 1);
+      font-family: var(--spt-font-body), sans-serif;
     }
 
     .form-control::placeholder {
-      color: $gray-500;
+      color: rgba(var(--spt-color-gray-500), 1);
     }
 
     .highlight-link {
       text-align: right;
       font-size: 0.75rem;
-      color: $gray-500;
+      color: rgba(var(--spt-color-gray-500), 1);
     }
 
     div.sphinxsidebarwrapper {
@@ -300,23 +344,23 @@ main {
 }
 
 div.footer {
-  color: $light;
+  color: rgba(var(--spt-color-light), 1);
   font-size: 0.8rem;
-  font-family: $pythia-footnote-font;
+  font-family: var(--spt-font-footnote);
 
   div.logobar {
-    background-color: $gray-200;
+    background-color: rgba(var(--spt-color-gray-200), 1);
   }
 
   div.infobar {
-    color: $gray-400;
-    background-color: $dark;
+    color: rgba(var(--spt-color-gray-400), 1);
+    background-color: rgba(var(--spt-color-dark), 1);
     padding-top: 0.4rem;
     padding-bottom: 0.4rem;
   }
 
   div.acknowledgement {
-    background-color: $gray-700;
+    background-color: rgba(var(--spt-color-gray-700), 1);
     padding-top: 1rem;
     padding-bottom: 1rem;
 
@@ -335,8 +379,8 @@ main.banner-main {
     position: relative;
     background-size: cover;
     background-position: center center;
-    color: $light;
-    background-color: $gray-700;
+    color: rgba(var(--spt-color-light), 1);
+    background-color: rgba(var(--spt-color-gray-700), 1);
 
     div.section-banner-caption {
       position: absolute;
@@ -349,12 +393,12 @@ main.banner-main {
   }
 
   div.sectionwrapper-2 {
-    color: $dark;
-    background-color: $light;
+    color: rgba(var(--spt-color-dark), 1);
+    background-color: rgba(var(--spt-color-light), 1);
   }
 
   div.sectionwrapper-2:nth-child(even) {
-    background-color: $gray-300;
+    background-color: rgba(var(--spt-color-gray-300), 1);
   }
 
   div.section-1,
@@ -381,7 +425,7 @@ main.banner-main {
   div.section-title {
     padding: 0 4rem 1rem 4rem;
     margin-bottom: 3rem;
-    border-bottom: 2px solid $pythia-deep-blue;
+    border-bottom: 2px solid rbga(var(--sbt-color-deep-blue), 1);
   }
 
   p {
