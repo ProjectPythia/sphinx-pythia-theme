@@ -106,6 +106,7 @@ html_theme = "sphinx_pythia_theme"
 html_title = "Sphinx Pythia Theme"
 
 html_theme_options = {
+    "repository_url": "https://github.com/ProjectPythia/sphinx-pythia-theme",
     "launch_buttons": {
         "binderhub_url": "https://mybinder.org",
         "colab_url": "https://colab.research.google.com/",
@@ -119,7 +120,7 @@ html_theme_options = {
     "logo_only": True,
     "show_toc_level": 2,
     "domnav": [
-        {"content": "Documentation", "url": "this-theme"},
+        {"content": "Documentation", "url": "#documentation"},
         {
             "content": "GitHub",
             "url": "https://github.com/ProjectPythia/sphinx-pythia-theme",
@@ -144,6 +145,13 @@ html_theme_options = {
         },
     },
 }
+
+blog_path = "reference/blog"
+blog_post_pattern = "reference/blog/*.md"
+blog_baseurl = "https://sphinx-pythia-theme.readthedocs.io"
+fontawesome_included = True
+post_auto_image = 1
+post_auto_excerpt = 2
 
 # ==============================================================================
 
