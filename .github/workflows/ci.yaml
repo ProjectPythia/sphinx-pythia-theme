@@ -25,7 +25,7 @@ jobs:
         pip install -r requirements.txt
         pip install -e .
     - name: Download kitchen sink
-      run: python book/getkitchensink.py book
+      run: python book/getreferences.py book/references
     - name: Build documentation
       run: jupyter-book build book
 
