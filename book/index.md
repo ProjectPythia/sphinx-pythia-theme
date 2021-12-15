@@ -37,7 +37,6 @@ background colors and images for the banner sections.
 
 ## Documentation
 
-
 :::{rst-class} text-center
 Click the button below to look at the Sphinx Pythia Theme documentation.
 :::
