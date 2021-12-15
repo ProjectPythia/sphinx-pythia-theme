@@ -6,6 +6,10 @@
 {%- set page_layout = "default" %}
 {%- endif %}
 
+{% block body_tag %}
+<body data-spy="scroll" data-target="#bd-toc-nav" data-offset="132">
+{%- endblock %}
+
 {%- block header %}
 {% include "header.html" %}
 {%- endblock %}
