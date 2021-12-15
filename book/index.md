@@ -15,6 +15,12 @@ The Sphinx Pythia Theme inherits from the Sphinx Book Theme, which is used
 by default in Jupyter Books.  It can be used on its own, outside of a Jupyter
 Book, however, just like the Sphinx Book Theme, itself.
 
+<span class="d-flex justify-content-center py-4">
+  <a href="/about.html" role="button" class="btn btn-light btn-lg">
+    Read more about the Sphinx Pythia Theme
+  </a>
+</span>
+
 ## Beyond Sphinx Book Theme
 
 The Sphinx Pythia Theme adds some new features to the existing features
@@ -28,3 +34,13 @@ the **banner** layout.  The banner layout converts all *titles* and *sections*
 (i.e., `#` and `##` blocks) into *banners* that are full-width, have plenty
 of padding (to separate them from the other content), and allow you to specify
 background colors and images for the banner sections.
+
+## Documentation
+
+Click the button below to look at the Sphinx Pythia Theme documentation.
+
+<span class="d-flex justify-content-center py-4">
+  <a href="/about.html" role="button" class="btn btn-primary btn-lg">
+    Read the documentation
+  </a>
+</span>
