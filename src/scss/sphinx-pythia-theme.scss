@@ -3,7 +3,8 @@
 @import 'fonts';
 
 :root {
-  --primary: $pythia-blue;
+  --primary: red;
+  --pst-color-link: red;
   --tabs-size-label: 0.8rem !important;
 }
 
@@ -12,7 +13,7 @@
 }
 
 $navbar-height: var(--pst-header-height);
-$offset-height: $navbar-height + rem2px(2rem);
+$offset-height: $navbar-height + rem2px(5rem);
 $sidebar-width: 300px;
 $document-width: calc(0.5 * (var(--breakpoint-md) + var(--breakpoint-lg)));
 
@@ -56,10 +57,6 @@ $document-width: calc(0.5 * (var(--breakpoint-md) + var(--breakpoint-lg)));
   margin-top: -$offset-height;
 }
 
-// a {
-//   color: inherit;
-// }
-
 a.badge {
   text-decoration: none;
 }
@@ -85,6 +82,10 @@ body {
 
 h1, h2, h3, h4, h5, h6 {
   color: inherit;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 i.fab::before,
