@@ -2,8 +2,12 @@ format: jb-book
 root: index
 parts:
   - chapters:
-    - file: this-theme
+    - file: about
 
   - caption: Reference
     chapters:
-    - file: kitchen-sink/index
+    - file: reference/special-theme-elements
+    - file: reference/kitchen-sink/index
+    - file: reference/notebooks
+    - file: reference/thebe
+    - file: reference/blog
