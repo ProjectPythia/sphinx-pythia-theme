@@ -3,10 +3,13 @@
 @import 'fonts';
 
 :root {
-  --pst-primary-color: 26, 101, 143;
-  --pst-color-link: 26, 101, 143;
+  --pst-color-primary: 26, 101, 143;
+  --pst-color-primary-hover: 46, 121, 163;
+  --pst-color-link: var(--pst-color-primary);
   --pst-color-headerlink: 173, 181, 189;
   --tabs-size-label: 0.8rem !important;
+  --tabs-color-label-active: rgba(var(--pst-color-primary), 1) !important;
+  --tabs-color-label-inactive: rgb(156, 191, 213) !important;
 }
 
 $navbar-height: var(--pst-header-height);
@@ -15,6 +18,24 @@ $sidebar-width: 100px;
 $document-width: calc(0.5 * (var(--breakpoint-md) + var(--breakpoint-lg)));
 
 // BOOTSTRAP OVERRIDES --------------------------------------------------------
+
+.bg-primary,
+.btn-primary {
+  background-color: rgba(var(--pst-color-primary), 1);
+}
+
+.btn-primary:hover {
+  background-color: rgba(var(--pst-color-primary-hover), 1);
+}
+
+.btn-primary,
+.btn-outline-primary {
+  border-color: rgba(var(--pst-color-primary), 1);
+}
+
+.btn-outline-primary {
+  color: rgba(var(--pst-color-primary), 1);
+}
 
 .display-1 {
   font-size: 5rem;
@@ -179,6 +200,14 @@ pre {
 .tabbed-set>label {
   padding: 0 1rem !important;
   margin: 0 !important;
+}
+
+.thebe-launch-button {
+  height: 2.2em !important;
+  font-size: .8em !important;
+  border: 1px $gray-600 solid !important;
+  border-radius: 4px !important;
+  color: $gray-600;
 }
 
 .topbar {
