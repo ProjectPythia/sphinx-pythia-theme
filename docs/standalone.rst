@@ -13,3 +13,8 @@ Sections in the *Standalone* layout have nice spacing and decorations to make th
 stand out, without conforming to the *Banner* style layout.  Background colors are
 not changed and spacing is meant to imply that the section content is intended to be
 read as a single page.
+
+Subsections
+^^^^^^^^^^^
+
+And subsections are displayed like this!
