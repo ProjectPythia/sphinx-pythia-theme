@@ -126,7 +126,10 @@ html_theme_options = {
             "url": "https://github.com/ProjectPythia/sphinx-pythia-theme",
         },
     ],
-    "page_layouts": {"index": "banner"},
+    "page_layouts": {
+        "index": "banner",
+        "standalone": "standalone",
+    },
     "footer": {
         "logos": {
             "NCAR": "images/NCAR-contemp-logo-blue.svg",

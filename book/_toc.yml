@@ -3,6 +3,7 @@ root: index
 parts:
   - chapters:
     - file: about
+    - file: standalone
 
   - caption: Reference
     chapters:
