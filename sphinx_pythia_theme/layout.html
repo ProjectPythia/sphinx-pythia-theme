@@ -6,12 +6,16 @@
 {%- set page_layout = "default" %}
 {%- endif %}
 
+{% block body_tag %}
+<body data-spy="scroll" data-target="#bd-toc-nav" data-offset="132">
+{%- endblock %}
+
 {%- block header %}
 {% include "header.html" %}
 {%- endblock %}
 
 {%- block content %}
-  <div class="container-fluid" id="attention"></div>
+  <div class="container-fluid" id="banner"></div>
 
   {%- block docs_navbar %}
   {{ super() }}
@@ -32,14 +36,19 @@
       {%- block docs_main %}
       {%- if page_layout == "banner" %}
       <main class="col overflow-auto banner-main" role="main">
+      {%- elif page_layout == "standalone" %}
+      <main class="col overflow-auto standalone-main" role="main">
       {%- else %}
       <main class="col py-md-2 pl-md-4 bd-content overflow-auto" role="main">
       {%- endif %}
         {%- block docs_body %}
-        {%- if page_layout == "banner" %}
+        {%- if page_layout == "banner" or page_layout == "standalone" %}
         <div id="main-content" class="row">
           <div class="col-12 banner-col">
           {{ apply_banner_layout(super.super()) }}
+          {% if theme_show_prev_next and page_layout == "standalone" %}
+          {% include "_templates/prev-next.html" %}
+          {% endif %}
           </div>
         </div>
         {%- else %}

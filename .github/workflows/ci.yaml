@@ -10,7 +10,7 @@ on:
 
 jobs:
 
-  book:
+  jupyterbook:
     name: Build Jupyter Book
     runs-on: ubuntu-latest
     steps:
@@ -24,12 +24,12 @@ jobs:
         python -m pip install --upgrade pip
         pip install -r requirements.txt
         pip install -e .
-    - name: Download kitchen sink
-      run: python book/getkitchensink.py book
-    - name: Build documentation
-      run: jupyter-book build book
+    - name: Download references from Sphinx Book Theme
+      run: python docs/getreferences.py docs/references
+    - name: Build Jupyter Book
+      run: jupyter-book build docs
 
-  docs:
+  sphinx:
     name: Build Sphinx Docs
     runs-on: ubuntu-latest
     steps:
@@ -43,13 +43,12 @@ jobs:
         python -m pip install --upgrade pip
         pip install -r requirements.txt
         pip install -e .
-    - name: Build documentation
-      run: >
-        sphinx-build -b html docs docs/_build/html -w warnings.txt
+    - name: Build Sphinx documentation
+      run: sphinx-build -b html docs docs/_build/html
 
   publish:
     name: Publish to PyPI
-    needs: [docs, book]
+    needs: [jupyterbook, sphinx]
     if: github.event_name == 'push' && startsWith(github.event.ref, 'refs/tags')
     runs-on: ubuntu-latest
     steps:

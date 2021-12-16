@@ -1,0 +1,17 @@
+#banner {
+  margin-top: var(--pst-header-height) !important;
+}
+
+#site-navigation {
+  top: var(--pst-header-height) !important;
+  height: calc(100vh - var(--pst-header-height)) !important;
+}
+
+.topbar {
+  top: var(--pst-header-height) !important;
+  padding: 0 !important;
+}
+
+.topbar-main button:focus {
+  outline: none !important;
+}

@@ -1,0 +1,25 @@
+.cell .cell_input,
+.cell .cell_output {
+  padding: 0 !important;
+}
+
+.cell .cell_input {
+  border: 1px solid rgba(var(--spt-color-gray-300), 1) !important;
+  border-radius: 4px !important;
+  border-left-color: rgba(var(--pst-color-primary), 1) !important;
+  border-left-width: medium !important;
+  background-color: rgba(var(--spt-color-gray-200), 1) !important;
+  pre {
+    border: none !important;
+    background-color: rgba(var(--spt-color-gray-200), 1) !important;
+  }
+}
+
+.cell .cell_output {
+  border: none !important;
+  pre {
+    border: 1px solid rgba(var(--spt-color-gray-300), 1) !important;
+    border-radius: 4px !important;
+    background-color: rgba(var(--spt-color-gray-200), 1) !important;
+  }
+}

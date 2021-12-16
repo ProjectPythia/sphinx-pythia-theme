@@ -23,7 +23,7 @@ execution_in_temp = False
 execution_timeout = 30
 
 external_toc_exclude_missing = False
-external_toc_path = "../book/_toc.yml"
+external_toc_path = "_toc.yml"
 
 pygments_style = "sphinx"
 
@@ -39,7 +39,6 @@ extensions = [
     "sphinx_click.ext",
     "sphinx_comments",
     "sphinx_copybutton",
-    "sphinx_design",
     "sphinx_external_toc",
     "sphinx_inline_tabs",
     "sphinx_panels",
@@ -87,6 +86,10 @@ numfig = True
 
 panels_add_bootstrap_css = False
 
+source_suffix = {
+    ".rst": "restructuredtext",
+}
+
 thebe_config = {
     "repository_url": "https://github.com/binder-examples/jupyter-stacks-datascience",
     "repository_branch": "master",
@@ -107,6 +110,7 @@ html_theme = "sphinx_pythia_theme"
 html_title = "Sphinx Pythia Theme"
 
 html_theme_options = {
+    "repository_url": "https://github.com/ProjectPythia/sphinx-pythia-theme",
     "launch_buttons": {
         "binderhub_url": "https://mybinder.org",
         "colab_url": "https://colab.research.google.com/",
@@ -120,13 +124,16 @@ html_theme_options = {
     "logo_only": True,
     "show_toc_level": 2,
     "domnav": [
-        {"content": "Documentation", "url": "this-theme"},
+        {"content": "Documentation", "url": "#documentation"},
         {
             "content": "GitHub",
             "url": "https://github.com/ProjectPythia/sphinx-pythia-theme",
         },
     ],
-    "page_layouts": {"index": "banner"},
+    "page_layouts": {
+        "index": "banner",
+        "standalone": "standalone",
+    },
     "footer": {
         "logos": {
             "NCAR": "images/NCAR-contemp-logo-blue.svg",
@@ -146,6 +153,13 @@ html_theme_options = {
     },
 }
 
+blog_path = "reference/blog"
+blog_post_pattern = "reference/blog/*.md"
+blog_baseurl = "https://sphinx-pythia-theme.readthedocs.io"
+fontawesome_included = True
+post_auto_image = 1
+post_auto_excerpt = 2
+
 # ==============================================================================
 
-subprocess.run([sys.executable, "../book/getkitchensink.py", "."])
+subprocess.run([sys.executable, "getreferences.py", "./reference"])

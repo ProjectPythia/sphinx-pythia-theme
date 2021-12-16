@@ -1,0 +1,26 @@
+
+.bd-toc nav>.nav {
+  border-left: 1px solid #eee;
+  border-bottom: 1px solid #eee;
+  border-radius: 0 0 0 6px;
+  padding-bottom: 0.5em;
+}
+
+.bd-sidebar .nav li>a {
+  padding-top: 0.1rem;
+  padding-bottom: 0.1rem;
+}
+
+.prev-next-area {
+  margin: 0;
+  border-top: 1px solid rgba(var(--spt-color-gray-300), 1);
+  i {
+    font-size: 1.1rem;
+    color: rgba(var(--spt-color-gray-600), 1);
+  }
+  a p.prev-next-title {
+    font-size: 1rem;
+    font-weight: 600;
+    color: rgba(var(--spt-color-gray-600), 1);
+  }
+}

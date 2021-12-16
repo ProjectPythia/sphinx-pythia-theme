@@ -1,121 +1,57 @@
 @import 'sphinx-book-theme.css';
-@import 'colors';
-@import 'fonts';
 
 :root {
-  --primary: $pythia-blue;
+  --spt-font-body: 'Poppins';
+  --spt-font-headings: 'Poppins';
+  --spt-font-footnote: 'Cormorant';
+
+  --spt-color-gray-100: 248, 249, 250;
+  --spt-color-gray-200: 233, 236, 239;
+  --spt-color-gray-300: 222, 226, 230;
+  --spt-color-gray-400: 206, 212, 218;
+  --spt-color-gray-500: 173, 181, 189;
+  --spt-color-gray-600: 108, 117, 125;
+  --spt-color-gray-700: 73, 80, 87;
+  --spt-color-gray-800: 52, 58, 64;
+  --spt-color-gray-900: 33, 37, 41;
+  --spt-color-light: var(--spt-color-gray-100);
+  --spt-color-dark: var(--spt-color-gray-800);
+  --spt-color-green: 0, 121, 124;
+  --spt-color-green-lighter: 20, 141, 144;
+  --spt-color-green-lightest: 130, 231, 234;
+  --spt-color-blue: 26, 101, 143;
+  --spt-color-blue-lighter: 46, 121, 163;
+  --spt-color-blue-lightest: 156, 191, 213;
+  --spt-color-deep-blue: 1, 33, 105;
+  --spt-color-green-highlight: 168, 199, 0;
+
+  --pst-color-primary: var(--spt-color-blue);
+  --pst-color-primary-hover: var(--spt-color-blue-lighter);
+  --pst-color-link: var(--pst-color-primary);
+  --pst-color-headerlink: var(--spt-color-gray-500);
+
   --tabs-size-label: 0.8rem !important;
+  --tabs-color-label-active: rgba(var(--pst-color-primary), 1) !important;
+  --tabs-color-label-inactive: rgba(var(--spt-color-blue-lightest), 1) !important;
 }
 
-@function rem2px($size) {
-  @return $size / 1rem * 16px;
-}
-
-$navbar-height: var(--pst-header-height);
-$offset-height: $navbar-height + rem2px(2rem);
-$sidebar-width: 300px;
 $document-width: calc(0.5 * (var(--breakpoint-md) + var(--breakpoint-lg)));
 
-// BOOTSTRAP OVERRIDES --------------------------------------------------------
+@import "general";
+@import "bootstrap4";
+@import "fontawesome";
+@import "sphinx-basic-theme";
+@import "pydata-sphinx-theme";
+@import "sphinx-book-theme";
+@import "myst";
+@import "sphinx-panels";
+@import "sphinx-thebe";
 
-.display-1 {
-  font-size: 5rem;
-}
+// ===========================================================================
+// PYTHIA THEME ==============================================================
+// ===========================================================================
 
-.display-2 {
-  font-size: 3rem;
-}
-
-.display-3 {
-  font-size: 2rem;
-}
-
-.display-4 {
-  font-size: 1.6667rem;
-}
-
-.display-5 {
-  font-size: 1.3333rem;
-}
-
-.display-6 {
-  font-size: 1rem;
-}
-
-.row {
-  margin-left: 0 !important;
-  margin-right: 0 !important;
-}
-
-// GENERAL HTML ELEMENTS ------------------------------------------------------
-
-:target:before {
-  content: '';
-  display: block;
-  height: $offset-height;
-  margin-top: -$offset-height;
-}
-
-a {
-  color: inherit;
-}
-
-a.badge {
-  text-decoration: none;
-}
-
-a.headerlink {
-  text-decoration: none;
-  color: transparent;
-  position: absolute;
-}
-
-a.headerlink:hover {
-  color: $gray-500;
-}
-
-a.navbar-brand img {
-  vertical-align: middle;
-}
-
-body {
-  padding-top: 0;
-  font-family: $pythia-body-font, sans-serif;
-}
-
-h1, h2, h3, h4, h5, h6 {
-  color: inherit;
-}
-
-i.fab::before,
-i.far::before,
-i.fas::before {
-  line-height: inherit;
-}
-
-p {
-  color: inherit;
-}
-
-pre {
-  border: 1px solid $gray-300;
-  border-radius: 4px;
-  background-color: $gray-200;
-  padding: 0.5rem 0.65rem;
-}
-
-// SPECIAL ELEMENTS ----------------------------------------------------------
-
-#attention {
-  margin-top: var(--pst-header-height) !important;
-}
-
-#site-navigation {
-  top: var(--pst-header-height) !important;
-  height: calc(100vh - var(--pst-header-height)) !important;
-}
-
-// PYTHIA THEME ELEMENTS -----------------------------------------------------
+// HEADER --------------------------------------------------------------------
 
 .domnav {
   min-height: var(--pst-header-height);
@@ -123,86 +59,19 @@ pre {
   height: var(--pst-header-height);
   z-index: 5000;
 }
-
 .banner-col {
   padding: 0;
 }
 
-.banner-col div.full-width,
-.banner-col div.full_width {
-  width: 100% !important;
-}
+// STANDALONE LAYOUT ---------------------------------------------------------
 
-.banner-col .docutils.container {
-  padding-left: 0.5em;
-  padding-right: 0.5em;
-}
-
-// BOOK THEME ELEMENTS -------------------------------------------------------
-
-.bd-toc nav>.nav {
-  border-left: 1px solid #eee;
-  border-bottom: 1px solid #eee;
-  border-radius: 0 0 0 6px;
-  padding-bottom: 0.5em;
-}
-
-.card-header {
-  padding: 0.5em 0.75em;
-}
-
-.form-control:focus {
-  outline: none;
-  box-shadow: none;
-}
-
-.prev-next-area {
-  margin: 0;
-
-  i {
-    font-size: 0.9rem;
-    color: $gray-600;
-  }
-
-  a {
-    // text-decoration: none;
-
-    p.prev-next-title {
-      font-size: 0.8rem;
-      font-weight: 600;
-      color: $gray-600;
-    }
-  }
-}
-
-.tabbed-content {
-  box-shadow: 0 -.0625rem var(--tabs-color-overline) !important;
-  padding-bottom: 0 !important;
-}
-
-.tabbed-set>label {
-  padding: 0 1rem !important;
-  margin: 0 !important;
-}
-
-.topbar {
-  top: var(--pst-header-height) !important;
-  padding: 0 !important;
-}
-
-.topbar-main button:focus {
-  outline: none !important;
-}
-
-// DEFAULT DOCUMENT ----------------------------------------------------------
-
-main {
+main.standalone-main {
   padding: 2rem 0 0 0;
-  background-color: $white;
+  background-color: white;
 
   div.sectionwrapper-1,
   div.sectionwrapper-2 {
-    color: $dark;
+    color: rgba(var(--spt-color-dark), 1);
   }
 
   div.section-1,
@@ -212,10 +81,12 @@ main {
     padding-bottom: 1rem;
     max-width: $document-width;
 
-    h3,
-    h4,
-    h5,
-    h6 {
+    h6, .h6, h5, .h5, h4, .h4, h3, .h3, h2, .h2, h1, .h1 {
+      margin-top: 0;
+      margin-bottom: 0.5rem;
+    }
+
+    h3, .h3, h4, .h4, h5, .h5, h6, .h6 {
       padding: 1rem 0;
     }
   }
@@ -228,80 +99,11 @@ main {
   div.section-title {
     padding: 0 4rem 0.1rem 0;
     margin: 0 0 1.6rem 0;
-    border-bottom: 2px solid $pythia-deep-blue;
-  }
-
-  div.sphinxsidebar {
-    color: $dark;
-    display: block;
-    width: $sidebar-width;
-    position: fixed;
-    top: $navbar-height;
-    margin: 0;
-    padding: 2rem 0 0 2rem;
-    font-size: 0.8rem;
-    font-weight: 200;
-
-    .form-control {
-      border: 1px solid $gray-400;
-      font-family: $pythia-body-font, sans-serif;
-    }
-
-    .form-control::placeholder {
-      color: $gray-500;
-    }
-
-    .highlight-link {
-      text-align: right;
-      font-size: 0.75rem;
-      color: $gray-500;
-    }
-
-    div.sphinxsidebarwrapper {
-      a {
-        text-decoration: none;
-      }
-
-      h6 {
-        font-weight: 400;
-      }
-
-      ul {
-        list-style: none;
-        padding: 0;
-      }
-    }
+    border-bottom: 2px solid rgba( var(--spt-color-deep-blue), 1);
   }
 }
 
-div.footer {
-  color: $light;
-  font-size: 0.8rem;
-  font-family: $pythia-footnote-font;
-
-  div.logobar {
-    background-color: $gray-200;
-  }
-
-  div.infobar {
-    color: $gray-400;
-    background-color: $dark;
-    padding-top: 0.4rem;
-    padding-bottom: 0.4rem;
-  }
-
-  div.acknowledgement {
-    background-color: $gray-700;
-    padding-top: 1rem;
-    padding-bottom: 1rem;
-
-    img {
-      height: 60px;
-    }
-  }
-}
-
-// BANNER DOCUMENT -----------------------------------------------------------
+// BANNER LAYOUT -------------------------------------------------------------
 
 main.banner-main {
   padding: 0;
@@ -310,8 +112,8 @@ main.banner-main {
     position: relative;
     background-size: cover;
     background-position: center center;
-    color: $light;
-    background-color: $gray-700;
+    color: rgba(var(--spt-color-light), 1);
+    background-color: rgba(var(--spt-color-gray-700), 1);
 
     div.section-banner-caption {
       position: absolute;
@@ -324,12 +126,12 @@ main.banner-main {
   }
 
   div.sectionwrapper-2 {
-    color: $dark;
-    background-color: $light;
+    color: rgba(var(--spt-color-dark), 1);
+    background-color: rgba(var(--spt-color-light), 1);
   }
 
   div.sectionwrapper-2:nth-child(even) {
-    background-color: $gray-300;
+    background-color: rgba(var(--spt-color-gray-300), 1);
   }
 
   div.section-1,
@@ -356,12 +158,41 @@ main.banner-main {
   div.section-title {
     padding: 0 4rem 1rem 4rem;
     margin-bottom: 3rem;
-    border-bottom: 2px solid $pythia-deep-blue;
+    border-bottom: 2px solid rgba(var(--spt-color-deep-blue), 1);
   }
 
   p {
     font-size: 1.25rem;
     font-weight: 300;
+  }
+}
+
+// FOOTER --------------------------------------------------------------------
+
+div.footer {
+  color: rgba(var(--spt-color-light), 1);
+  font-size: 0.8rem;
+  font-family: var(--spt-font-footnote);
+
+  div.logobar {
+    background-color: rgba(var(--spt-color-gray-200), 1);
+  }
+
+  div.infobar {
+    color: rgba(var(--spt-color-gray-400), 1);
+    background-color: rgba(var(--spt-color-dark), 1);
+    padding-top: 0.4rem;
+    padding-bottom: 0.4rem;
+  }
+
+  div.acknowledgement {
+    background-color: rgba(var(--spt-color-gray-700), 1);
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+
+    img {
+      height: 60px;
+    }
   }
 }
 

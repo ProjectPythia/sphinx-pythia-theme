@@ -4,7 +4,7 @@ title: ""
 logo: images/dummy_logo_dark.svg
 author: The Project Pythia Community
 email: kpaul@ucar.edu
-description: >- # this means to ignore newlines until "baseurl:"
+description: >- # this means to ignore newlines
   This is an example book built with Jupyter Books.
 
 execute:
@@ -19,7 +19,7 @@ html:
   baseurl: https://jupyterbook.org/
 
 repository:
-  url: https://github.com/executablebooks/jupyter-book
+  url: https://github.com/ProjectPythia/sphinx-pythia-theme
   branch: master
   path_to_book: docs
 
@@ -50,7 +50,7 @@ sphinx:
     html_theme_options:
       domnav:
         - content: Documentation
-          url: '/this-theme'
+          url: 'index#documentation'
         - content: GitHub
           url: https://github.com/ProjectPythia/sphinx-pythia-theme
       page_layouts:
@@ -63,8 +63,16 @@ sphinx:
         acknowledgement:
           content: This material is based upon work supported by the National Science Foundation under Grant Nos. 2026863 and 2026899. Any opinions, findings, and conclusions or recommendations expressed in this material are those of the author(s) and do not necessarily reflect the views of the National Science Foundation.
           image: images/nsf-logo.png
+    blog_path: reference/blog
+    blog_post_pattern: "reference/blog/*.md"
+    blog_baseurl: "https://sphinx-pythia-theme.readthedocs.io"
+    fontawesome_included: True
+    post_auto_image: 1
+    post_auto_excerpt: 2
 
   extra_extensions:
+    - ablog
     - sphinx_click.ext
     - sphinx_inline_tabs
     - sphinx.ext.autodoc
+    - sphinx.ext.intersphinx
