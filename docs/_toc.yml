@@ -1,0 +1,14 @@
+format: jb-book
+root: index
+parts:
+  - chapters:
+    - file: about
+    - file: standalone
+
+  - caption: Reference
+    chapters:
+    - file: reference/special-theme-elements
+    - file: reference/kitchen-sink/index
+    - file: reference/notebooks
+    - file: reference/thebe
+    - file: reference/blog

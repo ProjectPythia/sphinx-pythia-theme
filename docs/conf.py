@@ -23,7 +23,7 @@ execution_in_temp = False
 execution_timeout = 30
 
 external_toc_exclude_missing = False
-external_toc_path = "../book/_toc.yml"
+external_toc_path = "_toc.yml"
 
 pygments_style = "sphinx"
 
