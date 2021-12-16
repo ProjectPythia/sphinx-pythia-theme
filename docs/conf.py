@@ -86,6 +86,10 @@ numfig = True
 
 panels_add_bootstrap_css = False
 
+source_suffix = {
+    ".rst": "restructuredtext",
+}
+
 thebe_config = {
     "repository_url": "https://github.com/binder-examples/jupyter-stacks-datascience",
     "repository_branch": "master",
@@ -158,4 +162,4 @@ post_auto_excerpt = 2
 
 # ==============================================================================
 
-subprocess.run([sys.executable, "../book/getreferences.py", "./reference"])
+subprocess.run([sys.executable, "getreferences.py", "./reference"])

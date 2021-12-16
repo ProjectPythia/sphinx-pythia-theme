@@ -7,6 +7,7 @@ parts:
 
   - caption: Reference
     chapters:
+    - file: references
     - file: reference/special-theme-elements
     - file: reference/kitchen-sink/index
     - file: reference/notebooks

@@ -4,7 +4,7 @@ title: ""
 logo: images/dummy_logo_dark.svg
 author: The Project Pythia Community
 email: kpaul@ucar.edu
-description: >- # this means to ignore newlines until "baseurl:"
+description: >- # this means to ignore newlines
   This is an example book built with Jupyter Books.
 
 execute:
@@ -19,7 +19,7 @@ html:
   baseurl: https://jupyterbook.org/
 
 repository:
-  url: https://github.com/executablebooks/jupyter-book
+  url: https://github.com/ProjectPythia/sphinx-pythia-theme
   branch: master
   path_to_book: docs
 
