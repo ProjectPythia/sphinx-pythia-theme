@@ -1,0 +1,14 @@
+a.headerlink {
+  text-decoration: none;
+}
+
+a.headerlink:hover {
+  color: rgba(var(--spt-color-gray-500), 1);
+  background-color: transparent;
+}
+
+div.highlight pre {
+  border: 1px solid rgba(var(--spt-color-gray-300), 1) !important;
+  border-radius: 4px !important;
+  background-color: rgba(var(--spt-color-gray-200), 1) !important;
+}

@@ -35,115 +35,23 @@
   --tabs-color-label-inactive: rgba(var(--spt-color-blue-lightest), 1) !important;
 }
 
-$navbar-height: var(--pst-header-height);
-$scroll-padding-top: 128px;
-$sidebar-width: 100px;
 $document-width: calc(0.5 * (var(--breakpoint-md) + var(--breakpoint-lg)));
 
-// BOOTSTRAP OVERRIDES --------------------------------------------------------
+@import "general";
+@import "bootstrap4";
+@import "fontawesome";
+@import "sphinx-basic-theme";
+@import "pydata-sphinx-theme";
+@import "sphinx-book-theme";
+@import "myst";
+@import "sphinx-panels";
+@import "sphinx-thebe";
 
-.bg-primary,
-.btn-primary {
-  background-color: rgba(var(--pst-color-primary), 1);
-}
+// ===========================================================================
+// PYTHIA THEME ==============================================================
+// ===========================================================================
 
-.btn-primary:hover {
-  background-color: rgba(var(--pst-color-primary-hover), 1);
-}
-
-.btn-primary,
-.btn-outline-primary {
-  border-color: rgba(var(--pst-color-primary), 1);
-}
-
-.btn-outline-primary {
-  color: rgba(var(--pst-color-primary), 1);
-}
-
-.display-1 {
-  font-size: 5rem;
-}
-
-.display-2 {
-  font-size: 3rem;
-}
-
-.display-3 {
-  font-size: 2rem;
-}
-
-.display-4 {
-  font-size: 1.6667rem;
-}
-
-.display-5 {
-  font-size: 1.3333rem;
-}
-
-.display-6 {
-  font-size: 1rem;
-}
-
-.row {
-  margin-left: 0 !important;
-  margin-right: 0 !important;
-}
-
-// GENERAL HTML ELEMENTS ------------------------------------------------------
-
-a.badge {
-  text-decoration: none;
-}
-
-a.headerlink {
-  text-decoration: none;
-}
-
-a.headerlink:hover {
-  color: rgba(var(--spt-color-gray-500), 1);
-  background-color: transparent;
-}
-
-a.navbar-brand img {
-  vertical-align: middle;
-}
-
-body {
-  padding-top: 0;
-  font-family: var(--spt-font-body), sans-serif;
-}
-
-h1, h2, h3, h4, h5, h6 {
-  color: inherit;
-}
-
-html {
-  scroll-behavior: smooth;
-  scroll-padding-top: $scroll-padding-top;
-}
-
-i.fab::before,
-i.far::before,
-i.fas::before {
-  line-height: inherit;
-}
-
-p {
-  color: inherit;
-}
-
-// SPECIAL ELEMENTS ----------------------------------------------------------
-
-#attention {
-  margin-top: var(--pst-header-height) !important;
-}
-
-#site-navigation {
-  top: var(--pst-header-height) !important;
-  height: calc(100vh - var(--pst-header-height)) !important;
-}
-
-// PYTHIA THEME ELEMENTS -----------------------------------------------------
+// HEADER --------------------------------------------------------------------
 
 .domnav {
   min-height: var(--pst-header-height);
@@ -151,121 +59,13 @@ p {
   height: var(--pst-header-height);
   z-index: 5000;
 }
-
 .banner-col {
   padding: 0;
 }
 
-.banner-col div.full-width,
-.banner-col div.full_width {
-  width: 100% !important;
-}
+// STANDALONE LAYOUT ---------------------------------------------------------
 
-.banner-col .docutils.container {
-  padding-left: 0.5em;
-  padding-right: 0.5em;
-}
-
-// BOOK THEME ELEMENTS -------------------------------------------------------
-
-.bd-toc nav>.nav {
-  border-left: 1px solid #eee;
-  border-bottom: 1px solid #eee;
-  border-radius: 0 0 0 6px;
-  padding-bottom: 0.5em;
-}
-
-.bd-sidebar .nav li>a {
-  padding-top: 0.1rem;
-  padding-bottom: 0.1rem;
-}
-
-.card-header {
-  padding: 0.5em 0.75em;
-}
-
-.cell .cell_input,
-.cell .cell_output {
-  padding: 0 !important;
-}
-
-.cell .cell_input {
-  border: 1px solid rgba(var(--spt-color-gray-300), 1) !important;
-  border-radius: 4px !important;
-  border-left-color: rgba(var(--pst-color-primary), 1) !important;
-  border-left-width: medium !important;
-  background-color: rgba(var(--spt-color-gray-200), 1) !important;
-
-  pre {
-    border: none !important;
-    background-color: rgba(var(--spt-color-gray-200), 1) !important;
-  }
-}
-
-.cell .cell_output {
-  border: none !important;
-
-  pre {
-    border: 1px solid rgba(var(--spt-color-gray-300), 1) !important;
-    border-radius: 4px !important;
-    background-color: rgba(var(--spt-color-gray-200), 1) !important;
-  }
-}
-
-.form-control:focus {
-  outline: none;
-  box-shadow: none;
-}
-
-.prev-next-area {
-  margin: 0;
-
-  i {
-    font-size: 0.9rem;
-    color: rgba(var(--spt-color-gray-600), 1);
-  }
-
-  a {
-    // text-decoration: none;
-
-    p.prev-next-title {
-      font-size: 0.8rem;
-      font-weight: 600;
-      color: rgba(var(--spt-color-gray-600), 1);
-    }
-  }
-}
-
-.tabbed-content {
-  box-shadow: 0 -.0625rem var(--tabs-color-overline) !important;
-  padding-bottom: 0 !important;
-}
-
-.tabbed-set>label {
-  padding: 0 1rem !important;
-  margin: 0 !important;
-}
-
-.thebe-launch-button {
-  height: 2.2em !important;
-  font-size: .8em !important;
-  border: 1px solid rgba(var(--spt-color-gray-600), 1) !important;
-  border-radius: 4px !important;
-  color: rgba(var(--spt-color-gray-600), 1);
-}
-
-.topbar {
-  top: var(--pst-header-height) !important;
-  padding: 0 !important;
-}
-
-.topbar-main button:focus {
-  outline: none !important;
-}
-
-// DEFAULT DOCUMENT ----------------------------------------------------------
-
-main.bd-content {
+main.standalone-main {
   padding: 2rem 0 0 0;
   background-color: white;
 
@@ -299,78 +99,9 @@ main.bd-content {
     margin: 0 0 1.6rem 0;
     border-bottom: 2px solid rgba( var(--spt-color-deep-blue), 1);
   }
-
-  div.sphinxsidebar {
-    color: rgba(var(--spt-color-dark), 1);
-    display: block;
-    width: $sidebar-width;
-    position: fixed;
-    top: $navbar-height;
-    margin: 0;
-    padding: 2rem 0 0 2rem;
-    font-size: 0.8rem;
-    font-weight: 200;
-
-    .form-control {
-      border: 1px solid rgba(var(--spt-color-gray-400), 1);
-      font-family: var(--spt-font-body), sans-serif;
-    }
-
-    .form-control::placeholder {
-      color: rgba(var(--spt-color-gray-500), 1);
-    }
-
-    .highlight-link {
-      text-align: right;
-      font-size: 0.75rem;
-      color: rgba(var(--spt-color-gray-500), 1);
-    }
-
-    div.sphinxsidebarwrapper {
-      a {
-        text-decoration: none;
-      }
-
-      h6 {
-        font-weight: 400;
-      }
-
-      ul {
-        list-style: none;
-        padding: 0;
-      }
-    }
-  }
 }
 
-div.footer {
-  color: rgba(var(--spt-color-light), 1);
-  font-size: 0.8rem;
-  font-family: var(--spt-font-footnote);
-
-  div.logobar {
-    background-color: rgba(var(--spt-color-gray-200), 1);
-  }
-
-  div.infobar {
-    color: rgba(var(--spt-color-gray-400), 1);
-    background-color: rgba(var(--spt-color-dark), 1);
-    padding-top: 0.4rem;
-    padding-bottom: 0.4rem;
-  }
-
-  div.acknowledgement {
-    background-color: rgba(var(--spt-color-gray-700), 1);
-    padding-top: 1rem;
-    padding-bottom: 1rem;
-
-    img {
-      height: 60px;
-    }
-  }
-}
-
-// BANNER DOCUMENT -----------------------------------------------------------
+// BANNER LAYOUT -------------------------------------------------------------
 
 main.banner-main {
   padding: 0;
@@ -431,6 +162,35 @@ main.banner-main {
   p {
     font-size: 1.25rem;
     font-weight: 300;
+  }
+}
+
+// FOOTER --------------------------------------------------------------------
+
+div.footer {
+  color: rgba(var(--spt-color-light), 1);
+  font-size: 0.8rem;
+  font-family: var(--spt-font-footnote);
+
+  div.logobar {
+    background-color: rgba(var(--spt-color-gray-200), 1);
+  }
+
+  div.infobar {
+    color: rgba(var(--spt-color-gray-400), 1);
+    background-color: rgba(var(--spt-color-dark), 1);
+    padding-top: 0.4rem;
+    padding-bottom: 0.4rem;
+  }
+
+  div.acknowledgement {
+    background-color: rgba(var(--spt-color-gray-700), 1);
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+
+    img {
+      height: 60px;
+    }
   }
 }
 
