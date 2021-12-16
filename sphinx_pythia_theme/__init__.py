@@ -7,7 +7,7 @@ from sphinx.application import Sphinx
 
 from .banner import Banner
 
-__version__ = "2021.12.2"
+__version__ = "2021.12.4"
 
 
 def get_html_theme_path():
