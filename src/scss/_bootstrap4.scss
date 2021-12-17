@@ -38,14 +38,21 @@ div.admonition.alert-danger {
 .btn-primary {
   background-color: rgba(var(--pst-color-primary), 1) !important;
   border-color: rgba(var(--pst-color-primary), 1) !important;
-  :hover {
-    background-color: rgba(var(--pst-color-primary-hover), 1) !important;
-  }
+}
+
+.btn-primary:hover {
+  background-color: rgba(var(--pst-color-primary-hover), 1) !important;
 }
 
 .btn-outline-primary {
   border-color: rgba(var(--pst-color-primary), 1) !important;
   color: rgba(var(--pst-color-primary), 1) !important;
+}
+
+.btn-outline-primary:hover,
+.show>.btn-outline-primary.dropdown-toggle {
+  background-color: rgba(var(--pst-color-primary), 1) !important;
+  color: white !important;
 }
 
 .btn-link {
