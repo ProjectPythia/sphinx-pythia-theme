@@ -63,7 +63,7 @@ jobs:
           P=sphinx_pythia_theme
           V1=$(pip install ${P}== 2>&1 | head -n1 | rev | cut -d" " -f1 | rev | tr -d ")")
           V2=$(python -c "import ${P} as p; print(p.__version__)")
-          is_good=$(python -c "from pkg_resources import parse_version as pv; print('pv(${V2}') > pv('${V1}'))")
+          is_good=$(python -c "from pkg_resources import parse_version as pv; print(pv('${V2}') > pv('${V1}'))")
           if [ "${is_good}" == "False" ]
           then
             echo "The version of your source is '${V2}'."
