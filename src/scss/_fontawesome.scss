@@ -1,5 +1,8 @@
-i.fab::before,
-i.far::before,
-i.fas::before {
-  line-height: inherit;
+i.fab,
+i.far,
+i.fas {
+  font-size: 70%;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
 }
