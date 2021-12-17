@@ -2,6 +2,11 @@ i.fab,
 i.far,
 i.fas {
   font-size: 70%;
+}
+
+a.headerlink i.fab,
+a.headerlink i.far,
+a.headerlink i.fas {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
