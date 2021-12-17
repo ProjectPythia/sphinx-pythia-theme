@@ -66,11 +66,10 @@ jobs:
           is_good=$(python -c "from pkg_resources import parse_version as pv; print(pv('${V2}') > pv('${V1}'))")
           if [ "${is_good}" == "False" ]
           then
-            b=$(tput bold)
-            echo -e "${b}The version of your source is '${V2}'."
-            echo -e "${b}The latest version on PyPI is '${V1}'."
-            echo -e "${b}To release this code, you will need to update your"
-            echo -e "${b}source version to something greater than '${V1}'."
+            echo -e "\e[1mThe version of your source is '${V2}'.\e[0m"
+            echo -e "\e[1mThe latest version on PyPI is '${V1}'.\e[0m"
+            echo -e "\e[1mTo release this code, you will need to update your\e[0m"
+            echo -e "\e[1msource version to something greater than '${V1}'.\e[0m"
             exit 1
           fi
 
