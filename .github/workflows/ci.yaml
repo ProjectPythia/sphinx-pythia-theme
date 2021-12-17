@@ -46,6 +46,24 @@ jobs:
     - name: Build Sphinx documentation
       run: sphinx-build -b html docs docs/_build/html
 
+  releasable:
+    name: Check if version needs updating
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout source
+        uses: actions/checkout@v2
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.8
+      - name: Install local package
+        run: pip install -e .
+      - name: Check if source version already exists on PyPI
+        run: |
+          P=sphinx_pythia_theme
+          V=$(pip install ${P}== 2>&1 | head -n1 | rev | cut -d" " -f1 | rev | tr -d ")")
+          python -c "import sys; import ${P} as p; from pkg_resources import parse_version as v; sys.exit(not (v('${V}')<v(p.__version__)))"
+
   publish:
     name: Publish to PyPI
     needs: [jupyterbook, sphinx]
