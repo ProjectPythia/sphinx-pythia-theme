@@ -9,6 +9,7 @@ exclude .flake8
 exclude .pre-commit-config.yaml
 exclude .readthedocs.yaml
 exclude .web-compile-config.yml
+exclude pyproject.toml
 exclude requirements.txt
 recursive-exclude ci *.yml
 

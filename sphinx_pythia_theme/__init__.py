@@ -3,11 +3,12 @@ import shutil
 from pathlib import Path
 
 from bs4 import BeautifulSoup as bs
+from setuptools_scm import get_version
 from sphinx.application import Sphinx
 
 from .banner import Banner
 
-__version__ = "2021.12.6"
+__version__ = get_version()
 
 
 def get_html_theme_path():
