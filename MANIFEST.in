@@ -15,6 +15,7 @@ recursive-exclude ci *.yml
 include LICENSE
 include MANIFEST.in
 include README.md
+include pyproject.toml
 
 include sphinx_pythia_theme/theme.conf
 recursive-include sphinx_pythia_theme *.html *.py
