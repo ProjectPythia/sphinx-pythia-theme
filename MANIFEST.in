@@ -9,13 +9,13 @@ exclude .flake8
 exclude .pre-commit-config.yaml
 exclude .readthedocs.yaml
 exclude .web-compile-config.yml
-exclude pyproject.toml
 exclude requirements.txt
 recursive-exclude ci *.yml
 
 include LICENSE
 include MANIFEST.in
 include README.md
+include pyproject.toml
 
 include sphinx_pythia_theme/theme.conf
 recursive-include sphinx_pythia_theme *.html *.py
