@@ -3,7 +3,6 @@ folium
 jupyter-book
 matplotlib
 pandas
-setuptools-scm
 sphinx-click
 sphinx-inline-tabs
 sphinxext-opengraph
