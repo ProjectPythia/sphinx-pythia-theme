@@ -1,14 +1,17 @@
 import os
 import shutil
 from pathlib import Path
+from pkg_resources import get_distribution, DistributionNotFound
 
 from bs4 import BeautifulSoup as bs
-from setuptools_scm import get_version
 from sphinx.application import Sphinx
 
 from .banner import Banner
 
-__version__ = get_version()
+try:
+    __version__ = get_distribution(__name__).version
+except DistributionNotFound:
+    __version__ = "0.0.0"
 
 
 def get_html_theme_path():
