@@ -1,0 +1,12 @@
+<ul id="navbar-main-elements" class="navbar-nav">
+  {% for navbar_link in theme_navbar_links %}
+  <li class="nav-item">
+    <a class="nav-link nav-internal" href="{{ navbar_link.url }}">{{ _(navbar_link.name) }}</a>
+  </li>
+  {% endfor %}
+  {% for external_link in theme_external_links %}
+  <li class="nav-item">
+    <a class="nav-link nav-external" href="{{ external_link.url }}">{{ _(external_link.name) }}<i class="fas fa-external-link-alt"></i></a>
+  </li>
+  {% endfor %}
+</ul>
