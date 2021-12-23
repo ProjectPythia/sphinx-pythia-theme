@@ -9,7 +9,7 @@ import sys
 
 # -- Project information -----------------------------------------------------
 
-author = "The Project Pythia Community"
+author = "the Project Pythia Community"
 copyright = "2021"
 language = None
 
@@ -122,11 +122,16 @@ html_theme_options = {
     "use_repository_button": True,
     "use_download_button": True,
     "logo_only": True,
+    "logo_link": "https://sphinx-pythia-theme.readthedocs.io",
     "show_toc_level": 2,
-    "domnav": [
-        {"content": "Documentation", "url": "#documentation"},
+    "navbar_align": "left",
+    "use_toctree_nav": False,
+    "navbar_links": [
+        {"name": "Documentation", "url": "/index.html#documentation"},
+    ],
+    "external_links": [
         {
-            "content": "GitHub",
+            "name": "GitHub",
             "url": "https://github.com/ProjectPythia/sphinx-pythia-theme",
         },
     ],
@@ -134,23 +139,22 @@ html_theme_options = {
         "index": "banner",
         "standalone": "standalone",
     },
-    "footer": {
-        "logos": {
-            "NCAR": "images/NCAR-contemp-logo-blue.svg",
-            "Unidata": "images/Unidata_logo_horizontal_1200x300.svg",
-            "UAlbany": "images/UAlbany-A2-logo-purple-gold.svg",
-        },
-        "acknowledgement": {
-            "content": (
-                "This material is based upon work supported by the National "
-                "Science Foundation under Grant Nos. 2026863 and 2026899. Any "
-                "opinions, findings, and conclusions or recommendations expressed "
-                "in this material are those of the author(s) and do not necessarily "
-                "reflect the views of the National Science Foundation."
-            ),
-            "image": "images/nsf-logo.png",
-        },
+    "footer_logos": {
+        "NCAR": "_static/NCAR-contemp-logo-blue.svg",
+        "Unidata": "_static/Unidata_logo_horizontal_1200x300.svg",
+        "UAlbany": "_static/UAlbany-A2-logo-purple-gold.svg",
     },
+    "extra_footer": (
+        '<img src="_static/nsf-logo.png" style="float:left;width:60px;height:60px;margin-right:1rem;">'
+        "This material is based upon work supported by the National "
+        "Science Foundation under Grant Nos. 2026863 and 2026899. Any "
+        "opinions, findings, and conclusions or recommendations expressed "
+        "in this material are those of the author(s) and do not necessarily "
+        "reflect the views of the National Science Foundation."
+    ),
+    "extra_navbar": (
+        'Theme by <a href="https://projectpythia.org">Project Pythia</a>'
+    ),
 }
 
 blog_path = "reference/blog"
