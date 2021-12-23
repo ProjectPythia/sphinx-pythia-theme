@@ -1,0 +1,21 @@
+  <div class="container-fluid footer-info">
+    <div class="container">
+      <div class="d-flex justify-content-center">
+        <p class="py-1 m-0">
+        {%- if show_copyright %}
+          {%- if hasdoc('copyright') %}
+            {% trans path=pathto('copyright'), copyright=copyright|e %}<a href="{{ path }}">&copy;&nbsp;{{ copyright }}</a>.{% endtrans %}
+          {%- else %}
+            {% trans copyright=copyright|e %}&copy;&nbsp;{{ copyright }}.{% endtrans %}
+          {%- endif %}
+        {%- endif %}
+        {% if author %}
+          {{ translate('By') }} {{ author }}.
+        {% endif %}
+        {%- if last_updated %}
+          {% trans prefix=translate('Last updated on'), last_updated=last_updated|e %}{{ prefix }} {{ last_updated }}.{% endtrans %}
+        {%- endif %}
+        </p>
+      </div>
+    </div>
+  </div>

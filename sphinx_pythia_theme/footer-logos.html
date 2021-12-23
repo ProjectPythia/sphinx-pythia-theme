@@ -1,0 +1,11 @@
+{%- if theme_footer_logos %}
+  <div class="container-fluid footer-logos">
+    <div class="row d-flex flex-wrap align-items-center">
+      {%- for key in theme_footer_logos %}
+      <div class="d-flex col-lg-3 col-md-4 col-sm-6 p-2 mx-auto">
+        <img alt="{{ key }}" src="{{ pathto(theme_footer_logos[key], 1) }}" style="width: 100%">
+      </div>
+      {%- endfor %}
+    </div>
+  </div>
+{%- endif %}
