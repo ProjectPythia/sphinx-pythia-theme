@@ -55,15 +55,21 @@ $document-width: calc(0.5 * (var(--breakpoint-md) + var(--breakpoint-lg)));
 
 // HEADER --------------------------------------------------------------------
 
-.domnav {
+#shim {
+  padding: 0;
+  margin-top: var(--pst-header-height);
+}
+
+#navbar-main {
   min-height: var(--pst-header-height);
   max-height: var(--pst-header-height);
   height: var(--pst-header-height);
   z-index: 5000;
 }
-.banner-col {
-  padding: 0;
-}
+
+// .banner-col {
+//   padding: 0;
+// }
 
 // STANDALONE LAYOUT ---------------------------------------------------------
 
@@ -171,23 +177,30 @@ main.banner-main {
 
 // FOOTER --------------------------------------------------------------------
 
-div.footer {
+.footer {
   color: rgba(var(--spt-color-light), 1);
   font-size: 0.8rem;
   font-family: var(--spt-font-footnote);
+  padding: 0;
 
-  div.logobar {
+  p {
+    color: rgba(var(--spt-color-light), 1);
+    font-size: 0.8rem;
+    font-family: var(--spt-font-footnote);
+  }
+
+  .footer-logos {
     background-color: rgba(var(--spt-color-gray-200), 1);
   }
 
-  div.infobar {
+  .footer-info {
     color: rgba(var(--spt-color-gray-400), 1);
     background-color: rgba(var(--spt-color-dark), 1);
     padding-top: 0.4rem;
     padding-bottom: 0.4rem;
   }
 
-  div.acknowledgement {
+  .footer-extra {
     background-color: rgba(var(--spt-color-gray-700), 1);
     padding-top: 1rem;
     padding-bottom: 1rem;

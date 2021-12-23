@@ -5,6 +5,7 @@
 #site-navigation {
   top: var(--pst-header-height) !important;
   height: calc(100vh - var(--pst-header-height)) !important;
+  padding-top: 0;
 }
 
 .topbar {

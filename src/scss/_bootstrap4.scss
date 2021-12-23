@@ -38,10 +38,12 @@ div.admonition.alert-danger {
 .btn-primary {
   background-color: rgba(var(--pst-color-primary), 1) !important;
   border-color: rgba(var(--pst-color-primary), 1) !important;
+  color: white !important;
 }
 
 .btn-primary:hover {
   background-color: rgba(var(--pst-color-primary-hover), 1) !important;
+  color: white !important;
 }
 
 .btn-outline-primary {
@@ -58,10 +60,6 @@ div.admonition.alert-danger {
 .btn-link {
   color: rgba(var(--pst-color-primary), 1) !important;
 }
-
-// .card-header {
-//   padding: 0.5em 0.75em;
-// }
 
 .display-1 {
   font-size: 5rem !important;
@@ -107,4 +105,10 @@ a.badge {
 
 a.navbar-brand img {
   vertical-align: middle !important;
+}
+
+body>div.container-fluid,
+body>div.container-xl {
+  padding-right: 0;
+  padding-left: 0;
 }
