@@ -125,7 +125,6 @@ html_theme_options = {
     "logo_link": "https://sphinx-pythia-theme.readthedocs.io",
     "show_toc_level": 2,
     "navbar_align": "left",
-    "use_toctree_nav": False,
     "navbar_links": [
         {"name": "Documentation", "url": "/index.html#documentation"},
     ],
@@ -135,10 +134,6 @@ html_theme_options = {
             "url": "https://github.com/ProjectPythia/sphinx-pythia-theme",
         },
     ],
-    "page_layouts": {
-        "index": "banner",
-        "standalone": "standalone",
-    },
     "footer_logos": {
         "NCAR": "_static/NCAR-contemp-logo-blue.svg",
         "Unidata": "_static/Unidata_logo_horizontal_1200x300.svg",
