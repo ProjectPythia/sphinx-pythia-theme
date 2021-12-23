@@ -1,71 +1,36 @@
 {%- extends "sphinx_book_theme/layout.html" %}
 
-{%- if theme_page_layouts and pagename in theme_page_layouts %}
-{%- set page_layout = theme_page_layouts[pagename] %}
-{%- else %}
-{%- set page_layout = "default" %}
-{%- endif %}
-
-{% block body_tag %}
-<body data-spy="scroll" data-target="#bd-toc-nav" data-offset="132">
-{%- endblock %}
-
-{%- block header %}
-{% include "header.html" %}
+{%- block body_tag %}
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="132">
 {%- endblock %}
 
 {%- block content %}
-  <div class="container-fluid" id="banner"></div>
+<div class="container-fluid" id="shim"></div>
+{{ super() }}
+{%- endblock %}
 
-  {%- block docs_navbar %}
-  {{ super() }}
-  {%- endblock %}
-
-  <div class="container-fluid p-0">
-    <div class="row">
-      {%- block docs_sidebar %}
-      {%- if page_layout == "default" %}
-      {{ super() }}
-      {%- endif %}
-      {%- endblock %}
-
-      {%- block docs_toc %}
-      {{ super() }}
-      {%- endblock %}
-
-      {%- block docs_main %}
-      {%- if page_layout == "banner" %}
-      <main class="col overflow-auto banner-main" role="main">
-      {%- elif page_layout == "standalone" %}
-      <main class="col overflow-auto standalone-main" role="main">
-      {%- else %}
-      <main class="col py-md-2 pl-md-4 bd-content overflow-auto" role="main">
-      {%- endif %}
-        {%- block docs_body %}
-        {%- if page_layout == "banner" or page_layout == "standalone" %}
-        <div id="main-content" class="row">
-          <div class="col-12 banner-col">
-          {{ apply_banner_layout(super.super()) }}
-          {% if theme_show_prev_next and page_layout == "standalone" %}
-          {% include "_templates/prev-next.html" %}
-          {% endif %}
-          </div>
-        </div>
-        {%- else %}
-        {{ super() }}
-        {%- endif %}
-        {%- endblock %}
-      </main>
-      {%- endblock %}
-
+{%- block docs_main %}
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+  {% block docs_body %}
+  {% include "topbar.html" %}
+  <div id="main-content" class="row">
+    <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+      {{ super.super() }}
+      {% if theme_show_prev_next %}
+      {% include "_templates/prev-next.html" %}
+      {% endif %}
     </div>
   </div>
+  {% endblock %}
+</main>
+{%- endblock %}
 
-  {%- block scripts_end %}
-  {{ super() }}
-  {%- endblock %}
+{%- block docs_navbar %}
+<nav class="navbar navbar-dark navbar-expand-lg bg-dark fixed-top bd-navbar shadow" id="navbar-main">
+  {%- include "navbar.html" %}
+</nav>
 {%- endblock %}
 
 {%- block footer %}
-{% include "footer.html" %}
+{{ super.super() }}
 {%- endblock %}
