@@ -147,9 +147,7 @@ html_theme_options = {
         "in this material are those of the author(s) and do not necessarily "
         "reflect the views of the National Science Foundation."
     ),
-    "extra_navbar": (
-        'Theme by <a href="https://projectpythia.org">Project Pythia</a>'
-    ),
+    "extra_navbar": ('Theme by <a href="https://projectpythia.org">Project Pythia</a>'),
 }
 
 blog_path = "reference/blog"
