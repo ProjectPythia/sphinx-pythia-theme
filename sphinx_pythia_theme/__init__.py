@@ -1,4 +1,5 @@
 import os
+import re
 import shutil
 from pathlib import Path
 from pkg_resources import get_distribution, DistributionNotFound
@@ -21,80 +22,29 @@ def get_html_theme_path():
 
 
 def add_functions_to_context(app, pagename, templatename, context, doctree):
-    def _denest_sections(html):
-        soup = bs(html, "html.parser")
-        sections = []
-        for h1 in soup.find_all(["h1"]):
-            sections.append(h1.parent)
-            for child in h1.parent.children:
-                if (child.name == "section") or (
-                    child.name == "div" and "section" in child["class"]
-                ):
-                    sections.append(child.extract())
-        return "\n".join(str(s) for s in sections)
 
-    def apply_banner_layout(html):
-        html = _denest_sections(html)
+    def denest_sections(html):
         soup = bs(html, "html.parser")
 
-        # Insert Bootstrap classes into section divs
-        for s in soup.select("section,div.section"):
-            h = s.find(["h1", "h2", "h3", "h4", "h5", "h6"])
-            if not h:
-                continue
-
-            i = h.name[-1]
-
-            h["class"] = [f"display-{i}"] + h.get("class", [])
-
-            if h.name in ["h1", "h2"]:
-                s.wrap(
-                    soup.new_tag(
-                        "div", **{"class": f"container-fluid sectionwrapper-{i}"}
-                    )
-                )
-                s.wrap(soup.new_tag("div", **{"class": f"container section-{i}"}))
-
-            if h.name == "h2":
-                h.wrap(soup.new_tag("div", **{"class": "section-title-wrapper"}))
-                h.wrap(soup.new_tag("div", **{"class": "section-title"}))
-
-        # Process banner tags and modify section div styles
-        for s in soup.find_all("banner"):
-            image = s.get("image", None)
-            color = s.get("color", None)
-            caption = s.get("caption", None)
-
-            d = s.find_parent("div", ["sectionwrapper-1", "sectionwrapper-2"])
-            s.extract()
-            if d is None:
-                continue
-
-            if image:
-                image = copy_image(app, image)
-
-            if image and color:
-                style = (
-                    f"background-image: linear-gradient({color},{color}), url({image});"
-                )
-            elif image:
-                style = f"background-image: url({image});"
-            elif color:
-                style = f"background-color: {color};"
+        def parent_section(tag):
+            if tag.name != 'div': # must be a div
+                return False
+            elif not tag.has_attr('class') or 'section' not in tag['class']: # must match div.section
+                return False
+            elif not tag.find('div', {'class': 'section'}): # must contain a div.section
+                return False
             else:
-                style = None
+                return True
 
-            if style:
-                d["style"] = style
+        for s in soup.find_all(parent_section):
+            ss = [s]
+            for s_ in s.find_all('div', {'class': 'section'}, recursive=False):
+                ss.extend(['\n', s_.extract()])
+            s.replace_with(*ss)
 
-            if caption:
-                cd = soup.new_tag("div", **{"class": "section-banner-caption"})
-                cd.string = caption
-                d.append(cd)
+        return re.sub(r'\n+', '\n', str(soup))
 
-        return str(soup)
-
-    context["apply_banner_layout"] = apply_banner_layout
+    context["denest_sections"] = denest_sections
 
 
 def copy_image(app, image):

@@ -15,7 +15,7 @@
   {% include "topbar.html" %}
   <div id="main-content" class="row">
     <div class="col-12 col-md-9 pl-md-3 pr-md-0">
-      {{ super.super() }}
+      {{ denest_sections(super.super()) }}
       {% if theme_show_prev_next %}
       {% include "_templates/prev-next.html" %}
       {% endif %}
