@@ -1,10 +1,11 @@
+import copy
 import os
 import re
 import shutil
 from pathlib import Path
 from pkg_resources import get_distribution, DistributionNotFound
 
-from bs4 import BeautifulSoup as bs
+from bs4 import BeautifulSoup, NavigableString
 from sphinx.application import Sphinx
 
 from .banner import Banner
@@ -23,26 +24,42 @@ def get_html_theme_path():
 
 def add_functions_to_context(app, pagename, templatename, context, doctree):
 
-    def denest_sections(html):
-        soup = bs(html, "html.parser")
+    def _is_div_section(tag):
+        return tag.name == 'div' and tag.has_attr('class') and 'section' in tag['class']
 
-        def parent_section(tag):
-            if tag.name != 'div': # must be a div
-                return False
-            elif not tag.has_attr('class') or 'section' not in tag['class']: # must match div.section
-                return False
-            elif not tag.find('div', {'class': 'section'}): # must contain a div.section
-                return False
+    def _new_tag_like(tag):
+        if isinstance(tag, BeautifulSoup):
+            return BeautifulSoup()
+        elif isinstance(tag, NavigableString):
+            return copy.copy(tag)
+        else:
+            tag_copy = tag.find_parents()[-1].new_tag(tag.name)
+            tag_copy.attrs = copy.copy(tag.attrs)
+            return tag_copy
+
+    def _children_of(tag):
+        return [] if isinstance(tag, NavigableString) else tag.children
+
+    def _denest_sections_from(tag, maxdepth=2, _depth=1, order=True):
+        new_tag = _new_tag_like(tag)
+        new_tags = [new_tag]
+        for child in _children_of(tag):
+            if _is_div_section(child) and _is_div_section(tag) and _depth < maxdepth:
+                new_tags.extend(_denest_sections_from(child, maxdepth=maxdepth, _depth=_depth+1, order=order))
+                if order:
+                    new_tag = _new_tag_like(tag)
+                    del new_tag['id']
+                    new_tags.append(new_tag)
             else:
-                return True
+                new_tag.extend(_denest_sections_from(child, maxdepth=maxdepth, _depth=_depth, order=order))
+        return new_tags
 
-        for s in soup.find_all(parent_section):
-            ss = [s]
-            for s_ in s.find_all('div', {'class': 'section'}, recursive=False):
-                ss.extend(['\n', s_.extract()])
-            s.replace_with(*ss)
-
-        return re.sub(r'\n+', '\n', str(soup))
+    def denest_sections(html, maxdepth=2, preserve_order=True):
+        soup = BeautifulSoup(html, 'html.parser')
+        new_soup = _new_tag_like(soup)
+        for child in soup.children:
+            new_soup.extend(_denest_sections_from(child, maxdepth=maxdepth, order=preserve_order))
+        return str(new_soup)
 
     context["denest_sections"] = denest_sections
 
@@ -67,18 +84,19 @@ def copy_config_images(app):
     else:
         return
 
-    if "footer" in config:
-        footer_config = config["footer"]
+    if "footer_logos" in config:
+        logos_config = config["footer_logos"]
 
-        if "logos" in footer_config:
-            for key in footer_config["logos"]:
-                image = footer_config["logos"][key]
-                footer_config["logos"][key] = copy_image(app, image)
+        for key in logos_config:
+            image = logos_config[key]
+            logos_config[key] = copy_image(app, image)
 
-        if "acknowledgement" in footer_config:
-            if "image" in footer_config["acknowledgement"]:
-                image = footer_config["acknowledgement"]["image"]
-                footer_config["acknowledgement"]["image"] = copy_image(app, image)
+
+def fix_theme_options(app, pagename, templatename, context, doctree):
+    context["theme_denest_depth"] = int(context.get("theme_denest_depth", 2))
+
+    order = context.get("theme_denest_order", "True").lower()
+    context["theme_denest_order"] = False if order == "false" else True
 
 
 def setup(app: Sphinx):
@@ -86,6 +104,7 @@ def setup(app: Sphinx):
     app.add_html_theme("sphinx_pythia_theme", get_html_theme_path())
     app.add_directive("banner", Banner)
     app.connect("builder-inited", copy_config_images)
+    app.connect("html-page-context", fix_theme_options)
     app.connect("html-page-context", add_functions_to_context)
 
     return {
