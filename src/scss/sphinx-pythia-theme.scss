@@ -65,6 +65,8 @@ $document-width: calc(0.5 * (var(--breakpoint-md) + var(--breakpoint-lg)));
   max-height: var(--pst-header-height);
   height: var(--pst-header-height);
   z-index: 5000;
+  padding-left: 15px;
+  padding-right: 15px;
 }
 
 // FOOTER --------------------------------------------------------------------
