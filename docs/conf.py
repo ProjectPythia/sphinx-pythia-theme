@@ -110,6 +110,8 @@ html_theme = "sphinx_pythia_theme"
 html_title = "Sphinx Pythia Theme"
 
 html_theme_options = {
+    "github_url": "https://github.com/ProjectPythia/sphinx-pythia-theme",
+    "twitter_url": "https://twitter.com/project_pythia",
     "repository_url": "https://github.com/ProjectPythia/sphinx-pythia-theme",
     "launch_buttons": {
         "binderhub_url": "https://mybinder.org",
@@ -135,9 +137,9 @@ html_theme_options = {
         },
     ],
     "footer_logos": {
-        "NCAR": "_static/NCAR-contemp-logo-blue.svg",
-        "Unidata": "_static/Unidata_logo_horizontal_1200x300.svg",
-        "UAlbany": "_static/UAlbany-A2-logo-purple-gold.svg",
+        "NCAR": "images/NCAR-contemp-logo-blue.svg",
+        "Unidata": "images/Unidata_logo_horizontal_1200x300.svg",
+        "UAlbany": "images/UAlbany-A2-logo-purple-gold.svg",
     },
     "extra_footer": (
         '<img src="_static/nsf-logo.png" style="float:left;width:60px;height:60px;margin-right:1rem;">'
