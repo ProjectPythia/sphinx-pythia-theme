@@ -70,6 +70,118 @@ $document-width: calc(0.5 * (var(--breakpoint-md) + var(--breakpoint-lg)));
   }
 }
 
+#navbar-icon-links i:before {
+  color: var(--spt-color-light) !important;
+}
+
+// STANDALONE LAYOUT ---------------------------------------------------------
+
+main.standalone-main {
+  padding: 2rem 0 0 0;
+  background-color: white;
+
+  div.sectionwrapper-1,
+  div.sectionwrapper-2 {
+    color: rgba(var(--spt-color-dark), 1);
+  }
+
+  div.section-1,
+  div.section-2 {
+    position: relative;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    max-width: $document-width;
+
+    h6, .h6, h5, .h5, h4, .h4, h3, .h3, h2, .h2, h1, .h1 {
+      margin-top: 0;
+      margin-bottom: 0.5rem;
+    }
+
+    h3, .h3, h4, .h4, h5, .h5, h6, .h6 {
+      padding: 1rem 0;
+    }
+  }
+
+  div.section-title-wrapper {
+    display: flex;
+    justify-content: flex-start;
+  }
+
+  div.section-title {
+    padding: 0 4rem 0.1rem 0;
+    margin: 0 0 1.6rem 0;
+    border-bottom: 2px solid rgba( var(--spt-color-deep-blue), 1);
+  }
+}
+
+// BANNER LAYOUT -------------------------------------------------------------
+
+main.banner-main {
+  padding: 0 !important;
+
+  #main-content {
+    padding: 0 !important;
+  }
+
+  div.sectionwrapper-1 {
+    position: relative;
+    background-size: cover;
+    background-position: center center;
+    color: rgba(var(--spt-color-light), 1);
+    background-color: rgba(var(--spt-color-gray-700), 1);
+
+    div.section-banner-caption {
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      font-size: 0.8rem;
+      opacity: 0.6;
+      padding-right: 0.5rem;
+    }
+  }
+
+  div.sectionwrapper-2 {
+    color: rgba(var(--spt-color-dark), 1);
+    background-color: rgba(var(--spt-color-light), 1);
+  }
+
+  div.sectionwrapper-2:nth-child(even) {
+    background-color: rgba(var(--spt-color-gray-300), 1);
+  }
+
+  div.section-1,
+  div.section-2 {
+    position: relative;
+    padding-top: 7rem;
+    padding-bottom: 7rem;
+    max-width: $document-width;
+
+    h3,
+    h4,
+    h5,
+    h6 {
+      padding: 2rem 0 1rem 0;
+      text-align: center;
+    }
+  }
+
+  div.section-title-wrapper {
+    display: flex;
+    justify-content: center;
+  }
+
+  div.section-title {
+    padding: 0 4rem 1rem 4rem;
+    margin-bottom: 3rem;
+    border-bottom: 2px solid rgba(var(--spt-color-deep-blue), 1);
+  }
+
+  p {
+    font-size: 1.25rem;
+    font-weight: 300;
+  }
+}
+
 // FOOTER --------------------------------------------------------------------
 
 .footer {

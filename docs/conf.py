@@ -136,6 +136,9 @@ html_theme_options = {
             "url": "https://github.com/ProjectPythia/sphinx-pythia-theme",
         },
     ],
+    "page_layouts": {
+        "index": "banner",
+    },
     "footer_logos": {
         "NCAR": "images/NCAR-contemp-logo-blue.svg",
         "Unidata": "images/Unidata_logo_horizontal_1200x300.svg",
