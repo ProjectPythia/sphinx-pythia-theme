@@ -1,11 +1,10 @@
 import copy
 import os
-import re
 import shutil
 from pathlib import Path
 from pkg_resources import get_distribution, DistributionNotFound
 
-from bs4 import BeautifulSoup, NavigableString
+from bs4 import BeautifulSoup
 from sphinx.application import Sphinx
 
 from .banner import Banner
@@ -44,20 +43,19 @@ def fix_theme_options(app, pagename, templatename, context, doctree):
 
 
 def add_functions_to_context(app, pagename, templatename, context, doctree):
-
     def denest_sections(html, maxdepth=2, split=True):
         if maxdepth < 2:
             return html
 
-        soup = BeautifulSoup(html, 'html.parser')
+        soup = BeautifulSoup(html, "html.parser")
 
-        hnames = [f'h{i}' for i in range(2, maxdepth+1)]
+        hnames = [f"h{i}" for i in range(2, maxdepth + 1)]
         htags = soup.find_all(hnames)
         htags.sort(key=lambda x: x.name)
 
         for htag in htags:
 
-            div_section = htag.find_parent('div', {'class': 'section'})
+            div_section = htag.find_parent("div", {"class": "section"})
             if div_section is None:
                 continue
 
@@ -66,7 +64,7 @@ def add_functions_to_context(app, pagename, templatename, context, doctree):
             if split:
                 div_remainder = soup.new_tag(div_parent.name)
                 div_remainder.attrs = copy.copy(div_parent.attrs)
-                del div_remainder['id']
+                del div_remainder["id"]
                 remainder = [sibling for sibling in div_section.next_siblings]
                 div_remainder.extend(remainder)
 
