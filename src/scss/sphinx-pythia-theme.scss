@@ -61,12 +61,13 @@ $document-width: calc(0.5 * (var(--breakpoint-md) + var(--breakpoint-lg)));
 }
 
 #navbar-main {
-  min-height: var(--pst-header-height);
-  max-height: var(--pst-header-height);
-  height: var(--pst-header-height);
   z-index: 5000;
   padding-left: 15px;
   padding-right: 15px;
+
+  .container-xl {
+    padding: 0;
+  }
 }
 
 // FOOTER --------------------------------------------------------------------
