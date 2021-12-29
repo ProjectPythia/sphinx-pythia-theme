@@ -1,15 +1,5 @@
 {%- extends "sphinx_book_theme/layout.html" %}
 
-{%- if theme_page_layouts and pagename in theme_page_layouts %}
-{%- set page_layout = theme_page_layouts[pagename] %}
-{%- else %}
-{%- set page_layout = "default" %}
-{%- endif %}
-
-{% if page_layout == "banner" %}
-{% block docs_sidebar %}{% endblock %}
-{% endif %}
-
 {%- block body_tag %}
   <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="132">
 {%- endblock %}
@@ -19,36 +9,18 @@
 {{ super() }}
 {%- endblock %}
 
-{%- block docs_main %}
-{%- if page_layout == "banner" %}
-<main class="col p-0 bd-content banner-main overflow-auto" role="main">
-{%- else %}
-<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+{%- block docs_sidebar %}
+{%- if sidebars %}
+{{ super() }}
 {%- endif %}
-  {% block docs_body %}
-  {%- if page_layout == "default" %}
-  {%- include "topbar.html" %}
-  {%- endif %}
-  <div id="main-content" class="row">
-    {%- if page_layout == "banner" %}
-    <div class="col p-0">
-    {%- else %}
-    <div class="col-12 col-md-9 pl-md-3 pr-md-0">
-    {%- endif %}
-      {%- if page_layout == "banner" %}
-      {{ apply_banner_layout(super.super()) }}
-      {%- else %}
-      {{ super.super() }}
-      {%- endif %}
-      {%- if page_layout == "default" %}
-      {% if theme_show_prev_next %}
-      {% include "_templates/prev-next.html" %}
-      {% endif %}
-      {%- endif %}
-    </div>
-  </div>
-  {% endblock %}
-</main>
+{% endblock %}
+
+{%- block docs_main %}
+{%- if theme_page_layouts and pagename in theme_page_layouts %}
+{%- include theme_page_layouts[pagename] %}
+{%- else %}
+{%- include "page-default.html" %}
+{%- endif %}
 {%- endblock %}
 
 {%- block docs_navbar %}
