@@ -1,4 +1,3 @@
-import copy
 import os
 import shutil
 from pathlib import Path
@@ -36,41 +35,19 @@ def copy_config_images(app):
 
 
 def add_functions_to_context(app, pagename, templatename, context, doctree):
-    def _denest_sections(html, maxdepth=2, split=True):
-        if maxdepth < 2:
-            return html
-
+    def _denest_sections(html):
         soup = BeautifulSoup(html, "html.parser")
+        sections = []
+        for h1 in soup.find_all(["h1"]):
+            sections.append(h1.parent)
+            for child in h1.parent.children:
+                if (child.name == "section") or (
+                    child.name == "div" and "section" in child["class"]
+                ):
+                    sections.append(child.extract())
+        return "\n".join(str(s) for s in sections)
 
-        hnames = [f"h{i}" for i in range(2, maxdepth + 1)]
-        htags = soup.find_all(hnames)
-        htags.sort(key=lambda x: x.name)
-
-        for htag in htags:
-
-            div_section = htag.find_parent("div", {"class": "section"})
-            if div_section is None:
-                continue
-
-            div_parent = div_section.parent
-
-            if split:
-                div_remainder = soup.new_tag(div_parent.name)
-                div_remainder.attrs = copy.copy(div_parent.attrs)
-                del div_remainder["id"]
-                remainder = [sibling for sibling in div_section.next_siblings]
-                div_remainder.extend(remainder)
-
-            div_section = div_section.extract()
-
-            div_parent.insert_after(div_section)
-
-            if split:
-                div_section.insert_after(div_remainder)
-
-        return str(soup)
-
-    def apply_banner_layout(html):
+    def apply_denested_layout(html):
         _html = _denest_sections(html)
         soup = BeautifulSoup(_html, "html.parser")
 
@@ -101,6 +78,11 @@ def add_functions_to_context(app, pagename, templatename, context, doctree):
             image = s.get("image", None)
             color = s.get("color", None)
             caption = s.get("caption", None)
+            classes = s.get("class", None)
+
+            d = s.find_parent("div", ["section"])
+            if d is not None and classes is not None:
+                d["class"] += classes
 
             d = s.find_parent("div", ["sectionwrapper-1", "sectionwrapper-2"])
             s.extract()
@@ -131,7 +113,7 @@ def add_functions_to_context(app, pagename, templatename, context, doctree):
 
         return str(soup)
 
-    context["apply_banner_layout"] = apply_banner_layout
+    context["apply_denested_layout"] = apply_denested_layout
 
 
 def copy_image(app, image):
