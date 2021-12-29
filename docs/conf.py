@@ -108,7 +108,10 @@ html_sourcelink_suffix = ""
 html_static_path = ["_static"]
 html_theme = "sphinx_pythia_theme"
 html_title = "Sphinx Pythia Theme"
-
+html_sidebars = {
+    "index": [],
+    "standalone": [],
+}
 html_theme_options = {
     "github_url": "https://github.com/ProjectPythia/sphinx-pythia-theme",
     "twitter_url": "https://twitter.com/project_pythia",
@@ -137,7 +140,8 @@ html_theme_options = {
         },
     ],
     "page_layouts": {
-        "index": "banner",
+        "index": "page-banner.html",
+        "standalone": "page-standalone.html",
     },
     "footer_logos": {
         "NCAR": "images/NCAR-contemp-logo-blue.svg",
