@@ -11,19 +11,12 @@ import sys
 
 author = "the Project Pythia Community"
 copyright = "2021"
-language = None
 
 # -- General configuration ---------------------------------------------------
 
 exclude_patterns = ["**.ipynb_checkpoints", ".DS_Store", "Thumbs.db", "_build"]
 
-execution_allow_errors = False
-execution_excludepatterns = []
-execution_in_temp = False
-execution_timeout = 30
-
-external_toc_exclude_missing = False
-external_toc_path = "_toc.yml"
+# -- General configuration ---------------------------------------------------
 
 pygments_style = "sphinx"
 
@@ -52,6 +45,9 @@ extensions = [
 
 comments_config = {"hypothesis": False, "utterances": False}
 
+external_toc_exclude_missing = False
+external_toc_path = "_toc.yml"
+
 intersphinx_mapping = {
     "python": ("https://docs.python.org/3.8", None),
     "sphinx": ("https://www.sphinx-doc.org/en/master", None),
@@ -59,6 +55,10 @@ intersphinx_mapping = {
 
 jupyter_cache = ""
 jupyter_execute_notebooks = "cache"
+execution_allow_errors = False
+execution_excludepatterns = []
+execution_in_temp = False
+execution_timeout = 30
 
 myst_enable_extensions = [
     "amsmath",
@@ -100,18 +100,32 @@ use_multitoc_numbering = True
 
 # -- Options for HTML output -------------------------------------------------
 
+html_theme = "sphinx_pythia_theme"
+html_logo = "images/dummy_logo_dark.svg"
+html_title = "Sphinx Pythia Theme"
 html_copy_source = True
+html_sourcelink_suffix = ""
 html_favicon = "images/favicon.ico"
 html_last_updated_fmt = ""
-html_logo = "images/dummy_logo_dark.svg"
-html_sourcelink_suffix = ""
-html_static_path = ["_static"]
-html_theme = "sphinx_pythia_theme"
-html_title = "Sphinx Pythia Theme"
+
 html_sidebars = {
     "index": [],
     "standalone": [],
+    "reference/blog/*": [
+        "sidebar-logo.html",
+        "search-field.html",
+        "postcard.html",
+        "recentposts.html",
+        "tagcloud.html",
+        "categories.html",
+        "archives.html",
+        "sbt-sidebar-nav.html",
+        "sbt-sidebar-footer.html",
+    ],
 }
+
+html_static_path = ["_static"]
+
 html_theme_options = {
     "github_url": "https://github.com/ProjectPythia/sphinx-pythia-theme",
     "twitter_url": "https://twitter.com/project_pythia",
@@ -149,7 +163,7 @@ html_theme_options = {
         "UAlbany": "images/UAlbany-A2-logo-purple-gold.svg",
     },
     "extra_footer": (
-        '<img src="_static/nsf-logo.png" style="float:left;width:60px;height:60px;margin-right:1rem;">'
+        '<img src="/_static/nsf-logo.png" style="float:left;width:60px;height:60px;margin-right:1rem;">'
         "This material is based upon work supported by the National "
         "Science Foundation under Grant Nos. 2026863 and 2026899. Any "
         "opinions, findings, and conclusions or recommendations expressed "

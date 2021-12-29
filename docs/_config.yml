@@ -2,7 +2,7 @@
 # Book settings
 title: ""
 logo: images/dummy_logo_dark.svg
-author: The Project Pythia Community
+author: the Project Pythia Community
 email: kpaul@ucar.edu
 description: >- # this means to ignore newlines
   This is an example book built with Jupyter Books.
@@ -16,7 +16,8 @@ html:
   use_edit_page_button: true
   use_repository_button: true
   use_issues_button: true
-  baseurl: https://jupyterbook.org/
+  use_download_button: true
+  baseurl: https://projectpythia.org/
 
 repository:
   url: https://github.com/ProjectPythia/sphinx-pythia-theme
@@ -48,21 +49,33 @@ sphinx:
   config:
     html_theme: sphinx_pythia_theme
     html_theme_options:
-      domnav:
-        - content: Documentation
+      github_url: https://github.com/ProjectPythia/sphinx-pythia-theme
+      twitter_url: https://twitter.com/project_pythia
+      repository_url: https://github.com/ProjectPythia/sphinx-pythia-theme
+      extra_footer: |
+        <img src="/_static/nsf-logo.png" style="float:left;width:60px;height:60px;margin-right:1rem;">
+        This material is based upon work supported by the National
+        Science Foundation under Grant Nos. 2026863 and 2026899. Any
+        opinions, findings, and conclusions or recommendations expressed
+        in this material are those of the author(s) and do not necessarily
+        reflect the views of the National Science Foundation.
+      extra_navbar: Theme by <a href="https://projectpythia.org">Project Pythia</a>
+      navbar_links:
+        - name: Documentation
           url: 'index#documentation'
-        - content: GitHub
+      external_links:
+        - name: GitHub
           url: https://github.com/ProjectPythia/sphinx-pythia-theme
       page_layouts:
-        index: banner
-      footer:
-        logos:
-          NCAR: images/NCAR-contemp-logo-blue.svg
-          Unidata: images/Unidata_logo_horizontal_1200x300.svg
-          UAlbany: images/UAlbany-A2-logo-purple-gold.svg
-        acknowledgement:
-          content: This material is based upon work supported by the National Science Foundation under Grant Nos. 2026863 and 2026899. Any opinions, findings, and conclusions or recommendations expressed in this material are those of the author(s) and do not necessarily reflect the views of the National Science Foundation.
-          image: images/nsf-logo.png
+        index: page-banner.html
+        standalone: page-standalone.html
+      footer_logos:
+        NCAR: images/NCAR-contemp-logo-blue.svg
+        Unidata: images/Unidata_logo_horizontal_1200x300.svg
+        UAlbany: images/UAlbany-A2-logo-purple-gold.svg
+    html_sidebars:
+      index: []
+      standalone: []
     blog_path: reference/blog
     blog_post_pattern: "reference/blog/*.md"
     blog_baseurl: "https://sphinx-pythia-theme.readthedocs.io"
