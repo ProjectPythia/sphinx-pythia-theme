@@ -180,6 +180,15 @@ main.banner-main {
     font-size: 1.25rem;
     font-weight: 300;
   }
+
+  div.section.dark-banner {
+    h1, h2, h3, h4, h5, h6 {
+      color: var(--spt-color-light) !important;
+    }
+    p {
+      color: var(--spt-color-light) !important;
+    }
+  }
 }
 
 // FOOTER --------------------------------------------------------------------
