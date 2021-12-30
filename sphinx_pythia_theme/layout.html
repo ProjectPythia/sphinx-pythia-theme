@@ -19,7 +19,21 @@
 {%- if theme_page_layouts and pagename in theme_page_layouts %}
 {%- include theme_page_layouts[pagename] %}
 {%- else %}
-{%- include "page-default.html" %}
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+  {%- block docs_body %}
+  {%- if sidebars %}
+  {%- include "topbar.html" %}
+  {%- endif %}
+  <div id="main-content" class="row">
+    <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+      {{ super.super() }}
+      {% if theme_show_prev_next %}
+      {% include "_templates/prev-next.html" %}
+      {% endif %}
+    </div>
+  </div>
+  {%- endblock %}
+</main>
 {%- endif %}
 {%- endblock %}
 
