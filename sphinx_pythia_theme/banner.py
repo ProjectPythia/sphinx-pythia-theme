@@ -42,6 +42,7 @@ class Banner(Directive):
         "image": directives.uri,
         "color": directives.unchanged,
         "caption": directives.unchanged,
+        "class": directives.unchanged,
     }
 
     def run(self):

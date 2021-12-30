@@ -55,14 +55,23 @@ $document-width: calc(0.5 * (var(--breakpoint-md) + var(--breakpoint-lg)));
 
 // HEADER --------------------------------------------------------------------
 
-.domnav {
-  min-height: var(--pst-header-height);
-  max-height: var(--pst-header-height);
-  height: var(--pst-header-height);
-  z-index: 5000;
-}
-.banner-col {
+#shim {
   padding: 0;
+  margin-top: var(--pst-header-height);
+}
+
+#navbar-main {
+  z-index: 5000;
+  padding-left: 15px;
+  padding-right: 15px;
+
+  .container-xl {
+    padding: 0;
+  }
+}
+
+#navbar-icon-links i:before {
+  color: var(--spt-color-light) !important;
 }
 
 // STANDALONE LAYOUT ---------------------------------------------------------
@@ -108,7 +117,11 @@ main.standalone-main {
 // BANNER LAYOUT -------------------------------------------------------------
 
 main.banner-main {
-  padding: 0;
+  padding: 0 !important;
+
+  #main-content {
+    padding: 0 !important;
+  }
 
   div.sectionwrapper-1 {
     position: relative;
@@ -167,27 +180,57 @@ main.banner-main {
     font-size: 1.25rem;
     font-weight: 300;
   }
+
+  div.section.dark-banner {
+    h1, h2, h3, h4, h5, h6 {
+      color: var(--spt-color-light) !important;
+    }
+    p {
+      color: var(--spt-color-light) !important;
+    }
+  }
 }
 
 // FOOTER --------------------------------------------------------------------
 
-div.footer {
+.footer {
   color: rgba(var(--spt-color-light), 1);
   font-size: 0.8rem;
   font-family: var(--spt-font-footnote);
+  padding: 0;
 
-  div.logobar {
+  h1, h2, h3, h4, h5, h6, p, a {
+    color: rgba(var(--spt-color-light), 1);
+    font-family: var(--spt-font-footnote);
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-size: 1rem;
+    margin-bottom: 0.2rem;
+  }
+
+  p {
+    font-size: 0.8rem;
+  }
+
+  .footer-logos {
     background-color: rgba(var(--spt-color-gray-200), 1);
   }
 
-  div.infobar {
+  .footer-info,
+  .footer-menu {
     color: rgba(var(--spt-color-gray-400), 1);
     background-color: rgba(var(--spt-color-dark), 1);
     padding-top: 0.4rem;
     padding-bottom: 0.4rem;
+
+    .col-footer-menu {
+      min-width: 300px;
+      max-width: 300px;
+    }
   }
 
-  div.acknowledgement {
+  .footer-extra {
     background-color: rgba(var(--spt-color-gray-700), 1);
     padding-top: 1rem;
     padding-bottom: 1rem;

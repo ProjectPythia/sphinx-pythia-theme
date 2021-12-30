@@ -15,6 +15,10 @@ BRANCH = "master"
 
 
 def download_files(repo_path="docs/reference", local_path="reference"):
+    if os.path.isdir(local_path):
+        print("References already exist.  Skipping.")
+        return
+
     files = find_files(repo_path=repo_path)
     for path, url in files:
         final_path = Path(local_path) / Path(path).relative_to(repo_path)

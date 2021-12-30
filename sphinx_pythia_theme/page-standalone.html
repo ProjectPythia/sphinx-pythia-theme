@@ -1,0 +1,10 @@
+<main class="col p-0 bd-content standalone-main overflow-auto" role="main">
+  <div id="main-content" class="row">
+    <div class="col p-0">
+      {{ apply_denested_layout(body) }}
+      {% if theme_show_prev_next %}
+      {% include "_templates/prev-next.html" %}
+      {% endif %}
+    </div>
+  </div>
+</main>

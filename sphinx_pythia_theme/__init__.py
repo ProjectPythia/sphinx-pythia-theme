@@ -3,7 +3,7 @@ import shutil
 from pathlib import Path
 from pkg_resources import get_distribution, DistributionNotFound
 
-from bs4 import BeautifulSoup as bs
+from bs4 import BeautifulSoup
 from sphinx.application import Sphinx
 
 from .banner import Banner
@@ -20,9 +20,23 @@ def get_html_theme_path():
     return theme_path
 
 
+def copy_config_images(app):
+    if hasattr(app.config, "html_theme_options"):
+        config = app.config.html_theme_options
+    else:
+        return
+
+    if "footer_logos" in config:
+        logos_config = config["footer_logos"]
+
+        for key in logos_config:
+            image = logos_config[key]
+            logos_config[key] = copy_image(app, image)
+
+
 def add_functions_to_context(app, pagename, templatename, context, doctree):
     def _denest_sections(html):
-        soup = bs(html, "html.parser")
+        soup = BeautifulSoup(html, "html.parser")
         sections = []
         for h1 in soup.find_all(["h1"]):
             sections.append(h1.parent)
@@ -33,9 +47,9 @@ def add_functions_to_context(app, pagename, templatename, context, doctree):
                     sections.append(child.extract())
         return "\n".join(str(s) for s in sections)
 
-    def apply_banner_layout(html):
-        html = _denest_sections(html)
-        soup = bs(html, "html.parser")
+    def apply_denested_layout(html):
+        _html = _denest_sections(html)
+        soup = BeautifulSoup(_html, "html.parser")
 
         # Insert Bootstrap classes into section divs
         for s in soup.select("section,div.section"):
@@ -64,6 +78,11 @@ def add_functions_to_context(app, pagename, templatename, context, doctree):
             image = s.get("image", None)
             color = s.get("color", None)
             caption = s.get("caption", None)
+            classes = s.get("class", None)
+
+            d = s.find_parent("div", ["section"])
+            if d is not None and classes is not None:
+                d["class"] += classes
 
             d = s.find_parent("div", ["sectionwrapper-1", "sectionwrapper-2"])
             s.extract()
@@ -94,7 +113,7 @@ def add_functions_to_context(app, pagename, templatename, context, doctree):
 
         return str(soup)
 
-    context["apply_banner_layout"] = apply_banner_layout
+    context["apply_denested_layout"] = apply_denested_layout
 
 
 def copy_image(app, image):
@@ -109,26 +128,6 @@ def copy_image(app, image):
         return str(Path("_images") / old_img.name)
     else:
         raise FileNotFoundError(f"Image file not found: {old_img}")
-
-
-def copy_config_images(app):
-    if hasattr(app.config, "html_theme_options"):
-        config = app.config.html_theme_options
-    else:
-        return
-
-    if "footer" in config:
-        footer_config = config["footer"]
-
-        if "logos" in footer_config:
-            for key in footer_config["logos"]:
-                image = footer_config["logos"][key]
-                footer_config["logos"][key] = copy_image(app, image)
-
-        if "acknowledgement" in footer_config:
-            if "image" in footer_config["acknowledgement"]:
-                image = footer_config["acknowledgement"]["image"]
-                footer_config["acknowledgement"]["image"] = copy_image(app, image)
 
 
 def setup(app: Sphinx):
