@@ -199,21 +199,35 @@ main.banner-main {
   font-family: var(--spt-font-footnote);
   padding: 0;
 
-  p {
+  h1, h2, h3, h4, h5, h6, p, a {
     color: rgba(var(--spt-color-light), 1);
-    font-size: 0.8rem;
     font-family: var(--spt-font-footnote);
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-size: 1rem;
+    margin-bottom: 0.2rem;
+  }
+
+  p {
+    font-size: 0.8rem;
   }
 
   .footer-logos {
     background-color: rgba(var(--spt-color-gray-200), 1);
   }
 
-  .footer-info {
+  .footer-info,
+  .footer-menu {
     color: rgba(var(--spt-color-gray-400), 1);
     background-color: rgba(var(--spt-color-dark), 1);
     padding-top: 0.4rem;
     padding-bottom: 0.4rem;
+
+    .col-footer-menu {
+      min-width: 300px;
+      max-width: 300px;
+    }
   }
 
   .footer-extra {
