@@ -1,0 +1,18 @@
+{% if theme_footer_menu %}
+  <div class="container-fluid footer-menu">
+    <div class="container">
+      <div class="row">
+        {% for section in theme_footer_menu and theme_footer_menu[section]|length > 0 %}
+        <div class="col">
+          <h1>{{ section|upper }}</h1>
+          <ul class="list-unstyled">
+            {% for item in theme_footer_menu[section] %}
+            <li><a href="{{ theme_footer_menu[section]['url'] }}">{{ theme_footer_menu[section]['name'] }}</a></li>
+            {% endfor %}
+          </ul>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+{% endif %}
