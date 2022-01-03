@@ -77,7 +77,7 @@ $document-width: calc(0.5 * (var(--breakpoint-md) + var(--breakpoint-lg)));
 // STANDALONE LAYOUT ---------------------------------------------------------
 
 main.standalone-main {
-  padding: 2rem 0 0 0;
+  padding: 0 !important;
   background-color: white;
 
   div.sectionwrapper-1,
