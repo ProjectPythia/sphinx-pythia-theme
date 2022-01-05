@@ -137,6 +137,8 @@ def setup(app: Sphinx):
     app.connect("builder-inited", copy_config_images)
     app.connect("html-page-context", add_functions_to_context)
 
+    app.config.templates_path.append("_templates")
+
     return {
         "version": "0.0",
         "parallel_read_safe": True,
