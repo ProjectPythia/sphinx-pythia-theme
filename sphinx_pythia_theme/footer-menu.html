@@ -9,14 +9,14 @@
         {% if col_items %}
         <div class="{{ col_class }} footer-menu-col">
           {% if col_title %}
-          <h1>{{ col_title }}</h1>
+          <h1>{{ _(col_title) }}</h1>
           {% endif %}
           <ul class="list-unstyled">
             {% for item in col_items %}
             {% set item_name = item.get('name', '') %}
             {% set item_url = item.get('url', '') %}
             {% if item_url and item_name %}
-            <li><a href="{{ item_url }}">{{ item_name }}</a></li>
+            <li><a href="{{ item_url }}">{{ _(item_name) }}</a></li>
             {% elif item_name %}
             <li>{{ item_name }}</li>
             {% elif item_url %}
