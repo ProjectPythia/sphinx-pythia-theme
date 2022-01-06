@@ -4,7 +4,7 @@
       <div class="row justify-content-center">
         {% for column in theme_footer_menu %}
         {% set col_title = column.get('title', '') %}
-        {% set col_class = column.get('class', 'col-2') %}
+        {% set col_class = column.get('class', 'col-8 col-sm-4 col-md-3 col-lg-2') %}
         {% set col_items = column.get('items', []) %}
         {% if col_items %}
         <div class="{{ col_class }} footer-menu-col">
