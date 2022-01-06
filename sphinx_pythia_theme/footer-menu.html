@@ -2,13 +2,26 @@
   <div class="container-fluid footer-menu pt-4">
     <div class="container">
       <div class="row justify-content-center">
-        {% for section in theme_footer_menu %}
-        {% if theme_footer_menu[section]|length > 0 %}
-        <div class="col-3 col-footer-menu">
-          <h1>{{ section }}</h1>
+        {% for column in theme_footer_menu %}
+        {% set col_title = column.get('title', '') %}
+        {% set col_class = column.get('class', 'col-2') %}
+        {% set col_items = column.get('items', []) %}
+        {% if col_items %}
+        <div class="{{ col_class }} footer-menu-col">
+          {% if col_title %}
+          <h1>{{ col_title }}</h1>
+          {% endif %}
           <ul class="list-unstyled">
-            {% for item in theme_footer_menu[section] %}
-            <li><a href="{{ item['url'] }}">{{ item['name'] }}</a></li>
+            {% for item in col_items %}
+            {% set item_name = item.get('name', '') %}
+            {% set item_url = item.get('url', '') %}
+            {% if item_url and item_name %}
+            <li><a href="{{ item_url }}">{{ item_name }}</a></li>
+            {% elif item_name %}
+            <li>{{ item_name }}</li>
+            {% elif item_url %}
+            <li><a href="{{ item_url }}">{{ item_url }}</a></li>
+            {% endif %}
             {% endfor %}
           </ul>
         </div>
