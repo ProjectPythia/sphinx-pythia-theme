@@ -59,7 +59,7 @@ jobs:
         with:
           python-version: 3.8
       - name: Install build dependecies
-        run: pip install wheel
+        run: pip install setuptools setuptools-scm wheel
       - name: Build package
         run: python setup.py sdist bdist_wheel
       - name: Publish
