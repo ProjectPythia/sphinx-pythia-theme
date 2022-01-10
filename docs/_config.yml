@@ -45,6 +45,9 @@ parse:
     - smartquotes
     - substitution
 
+bibtex_bibfiles:
+  - reference/references.bib
+
 sphinx:
   config:
     html_theme: sphinx_pythia_theme
@@ -63,9 +66,9 @@ sphinx:
       navbar_links:
         - name: Documentation
           url: 'index#documentation'
-      external_links:
         - name: GitHub
           url: https://github.com/ProjectPythia/sphinx-pythia-theme
+          external: True
       page_layouts:
         index: page-banner.html
         standalone: page-standalone.html
@@ -110,3 +113,4 @@ sphinx:
     - sphinx_inline_tabs
     - sphinx.ext.autodoc
     - sphinx.ext.intersphinx
+    - sphinxcontrib.bibtex
