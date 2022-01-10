@@ -15,7 +15,9 @@ PREFIX = "https://api.github.com/repos/executablebooks/sphinx-book-theme"
 BRANCH = "master"
 
 
-def download_files(repo_paths=["docs/references.bib", "docs/reference/"], local_path="reference"):
+def download_files(
+    repo_paths=["docs/references.bib", "docs/reference/"], local_path="reference"
+):
     if os.path.isdir(local_path):
         print("References already exist.  Skipping.")
         return
