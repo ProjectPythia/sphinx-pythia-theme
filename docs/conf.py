@@ -160,51 +160,6 @@ html_theme_options = {
         "index": "page-banner.html",
         "standalone": "page-standalone.html",
     },
-    "footer_menu": [
-        {
-            "title": "More about...",
-            "items": [
-                {
-                    "name": "Project Pythia",
-                    "url": "https://projectpythia.org/about",
-                },
-                {
-                    "name": "Pangeo",
-                    "url": "https://pangeo.io",
-                },
-                {
-                    "name": "Project Jupyter",
-                    "url": "https://jupyter.org",
-                },
-            ],
-        },
-        {
-            "title": "Let us know...",
-            "items": [
-                {
-                    "name": "Submit an issue on GitHub",
-                    "url": "https://github.com/ProjectPythia/sphinx-pythia-theme/issues/new?title=Issue%20with%20Sphinx%20Pythia%20Theme&body=Your%20issue%20content%20here.",  # noqa
-                },
-                {
-                    "name": "Feedback to Project Pythia",
-                    "url": "https://docs.google.com/forms/d/e/1FAIpQLSeVa1TC9xM-dk7qIE2e8bsgSrIP82yYDNw3wew3J46eREJa4w/viewform?usp=sf_link",  # noqa
-                },
-            ],
-        },
-        {
-            "title": "Join the community",
-            "items": [
-                {
-                    "name": "Contributor's Guide",
-                    "url": "https://foundations.projectpythia.org/appendix/how-to-contribute.html",  # noqa
-                },
-                {
-                    "name": "Our GitHub Organization",
-                    "url": "https://github.com/ProjectPythia",  # noqa
-                },
-            ],
-        },
-    ],
     "footer_logos": {
         "NCAR": "images/NCAR-contemp-logo-blue.svg",
         "Unidata": "images/Unidata_logo_horizontal_1200x300.svg",
