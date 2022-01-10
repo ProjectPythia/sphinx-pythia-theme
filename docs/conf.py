@@ -40,8 +40,11 @@ extensions = [
     "sphinx.ext.autodoc",
     "sphinx.ext.intersphinx",
     "sphinx.ext.viewcode",
+    "sphinxcontrib.bibtex",
     "sphinxext.opengraph",
 ]
+
+bibtex_bibfiles = ['reference/references.bib']
 
 comments_config = {"hypothesis": False, "utterances": False}
 
