@@ -26,17 +26,27 @@ Beyond Sphinx Book Theme
 ------------------------
 
 The Sphinx Pythia Theme adds some new features to the existing features
-provided by Sphinx Book Theme and the PyData Sphinx Theme, upon which the
+provided by the Sphinx Book Theme and the PyData Sphinx Theme, upon which the
 Sphinx Book Theme is built.
 
 Banner Layouts
 ^^^^^^^^^^^^^^
 
-One new feature is the use of alternate layouts  for main pages, such as
+One new feature is the use of alternate layouts for main pages, such as
 the **banner** layout.  The banner layout converts all *titles* and *sections*
 (i.e., ``#`` and ``##`` blocks) into *banners* that are full-width, have plenty
 of padding (to separate them from the other content), and allow you to specify
 background colors and images for the banner sections.
+
+The page you are now reading is a *banner* layout page!
+
+Standalone Layouts
+^^^^^^^^^^^^^^^^^^
+
+Another kind of alternate layout is the *standalone* layout, which displays
+text exactly the same way as the *banner* layout, but it does not separate out
+the sections into separate "banners."  The heading fonts and styling
+are the same.
 
 Documentation
 -------------
