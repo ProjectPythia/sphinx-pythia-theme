@@ -148,7 +148,7 @@ html_theme_options = {
     "show_toc_level": 2,
     "navbar_align": "left",
     "navbar_links": [
-        {"name": "Documentation", "url": "index.html#documentation"},
+        {"name": "Documentation", "url": "index#documentation"},
     ],
     "external_links": [
         {
