@@ -6,7 +6,6 @@
 
 import os
 from pathlib import Path
-import pprint
 
 import click
 import requests
