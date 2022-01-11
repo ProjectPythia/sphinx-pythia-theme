@@ -6,14 +6,7 @@
     {% else %}
     {% set external = '' %}
     {% endif %}
-    {% set base, anchor = navbar_link.url.split('#', 1) if '#' in navbar_link.url else (navbar_link.url, '') %}
-    {% if hasdoc(base) %}
-    {% set docpath = pathto(base) %}
-    {% set url = docpath.split('#', 1)[0] + '#' + anchor %}
-    {% else %}
-    {% set url = navbar_link.url %}
-    {% endif %}
-    <a class="nav-link nav-internal" href="{{ url }}">{{ _(navbar_link.name) }}{{ external }}</a>
+    <a class="nav-link nav-internal" href="{{ spt_pathto(navbar_link.url) }}">{{ _(navbar_link.name) }}{{ external }}</a>
   </li>
   {% endfor %}
   {% for external_link in theme_external_links %}
