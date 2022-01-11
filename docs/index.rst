@@ -17,7 +17,7 @@ Book, however, just like the Sphinx Book Theme, itself.
 .. raw:: html
 
    <span class="d-flex justify-content-center py-4">
-     <a href="/about.html" role="button" class="btn btn-light btn-lg">
+     <a href="about.html" role="button" class="btn btn-light btn-lg">
        Read more about the Sphinx Pythia Theme
      </a>
    </span>
@@ -58,7 +58,7 @@ Documentation
 .. raw:: html
 
    <span class="d-flex justify-content-center py-4">
-     <a href="/about.html" role="button" class="btn btn-primary btn-lg">
+     <a href="about.html" role="button" class="btn btn-primary btn-lg">
        Read the documentation
      </a>
    </span>
