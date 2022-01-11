@@ -27,7 +27,7 @@ def download_files(repo_path="docs/reference", local_path="reference"):
         print(path, repo_path, local_path, final_path)
         os.makedirs(final_path.parent, exist_ok=True)
         if not final_path.exists():
-            # print(f"Downloading references file {path}")
+            print(f"Downloading references file {path}")
             resp = requests.get(url)
             final_path.write_text(resp.content.decode())
 
