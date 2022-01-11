@@ -10,7 +10,7 @@ import sys
 # -- Project information -----------------------------------------------------
 
 author = "the Project Pythia Community"
-copyright = "2021"
+copyright = "2022"
 
 # -- General configuration ---------------------------------------------------
 
