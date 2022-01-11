@@ -2,10 +2,18 @@
   {% for navbar_link in theme_navbar_links %}
   <li class="nav-item">
     {% if "external" in navbar_link and navbar_link.external %}
-    <a class="nav-link nav-internal" href="{{ navbar_link.url }}">{{ _(navbar_link.name) }}<i class="fas fa-external-link-alt"></i></a>
+    {% set external = '<i class="fas fa-external-link-alt"></i>' %}
     {% else %}
-    <a class="nav-link nav-internal" href="{{ navbar_link.url }}">{{ _(navbar_link.name) }}</a>
+    {% set external = '' %}
     {% endif %}
+    {% set base, anchor = navbar_link.url.split('#', 1) if '#' in navbar_link.url else (navbar_link.url, '') %}
+    {% if hasdoc(base) %}
+    {% set docpath = pathto(base) %}
+    {% set url = docpath.split('#', 1)[0] + '#' + anchor %}
+    {% else %}
+    {% set url = navbar_link.url %}
+    {% endif %}
+    <a class="nav-link nav-internal" href="{{ url }}">{{ _(navbar_link.name) }}{{ external }}</a>
   </li>
   {% endfor %}
   {% for external_link in theme_external_links %}
