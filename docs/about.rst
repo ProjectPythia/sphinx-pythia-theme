@@ -296,8 +296,6 @@ to use for the given document name.  By default, any pages not listed in the
 ``page_layouts`` option will have the default page layout, which corresponds to
 the typical layout of any Jupyter Book page.
 
-The `landing page <index.html>`_ of this documentation is an example of this layout.
-
 Standalone Pages
 ^^^^^^^^^^^^^^^^
 
@@ -305,7 +303,7 @@ Standalone pages use the ``page-standalone.html`` template in the same way that 
 *banner* pages above use the ``page-banner.html`` template.  Standalone pages have
 the same heading and text styling used by banner pages, but they do not have extra
 padding nor the ability to declare banner backgrounds to the sections.  The
-`Standalone <standalone.html>`_ page is an example of this layout.
+:doc:`/standalone` page is an example of this layout.
 
 Custom Templates
 ----------------
