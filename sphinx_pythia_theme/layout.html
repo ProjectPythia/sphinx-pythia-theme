@@ -14,7 +14,11 @@
     </nav>
     {%- endblock %}
 
+    {%- if theme_page_layouts and pagename in theme_page_layouts %}
     <div class="container-fluid">
+    {%- else %}
+    <div class="container-xl">
+    {%- endif %}
       <div class="row">
         {%- block docs_sidebar %}
         {%- if sidebars %}
