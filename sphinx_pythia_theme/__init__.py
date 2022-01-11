@@ -116,11 +116,11 @@ def add_functions_to_context(app, pagename, templatename, context, doctree):
     context["apply_denested_layout"] = apply_denested_layout
 
     def spt_pathto(uri):
-        baseuri, anchor = uri.split('#', 1) if '#' in uri else (uri, '')
-        anchor = '#' + anchor if anchor else ''
-        if context['hasdoc'](baseuri):
-            docuri = context['pathto'](baseuri)
-            return docuri.split('#', 1)[0] + anchor
+        baseuri, anchor = uri.split("#", 1) if "#" in uri else (uri, "")
+        anchor = "#" + anchor if anchor else ""
+        if context["hasdoc"](baseuri):
+            docuri = context["pathto"](baseuri)
+            return docuri.split("#", 1)[0] + anchor
         else:
             return uri
 
