@@ -44,7 +44,7 @@ extensions = [
     "sphinxext.opengraph",
 ]
 
-bibtex_bibfiles = ['reference/references.bib']
+bibtex_bibfiles = ["reference/references.bib"]
 
 comments_config = {"hypothesis": False, "utterances": False}
 
