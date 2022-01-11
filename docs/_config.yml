@@ -3,6 +3,7 @@
 title: ""
 logo: images/dummy_logo_dark.svg
 author: the Project Pythia Community
+copyright: "2022"
 email: kpaul@ucar.edu
 description: >- # this means to ignore newlines
   This is an example book built with Jupyter Books.
@@ -55,13 +56,6 @@ sphinx:
       github_url: https://github.com/ProjectPythia/sphinx-pythia-theme
       twitter_url: https://twitter.com/project_pythia
       repository_url: https://github.com/ProjectPythia/sphinx-pythia-theme
-      extra_footer: |
-        <img src="/_static/nsf-logo.png" style="float:left;width:60px;height:60px;margin-right:1rem;">
-        This material is based upon work supported by the National
-        Science Foundation under Grant Nos. 2026863 and 2026899. Any
-        opinions, findings, and conclusions or recommendations expressed
-        in this material are those of the author(s) and do not necessarily
-        reflect the views of the National Science Foundation.
       extra_navbar: Theme by <a href="https://projectpythia.org">Project Pythia</a>
       navbar_links:
         - name: Documentation

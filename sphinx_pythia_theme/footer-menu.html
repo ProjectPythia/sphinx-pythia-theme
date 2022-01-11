@@ -22,11 +22,11 @@
             {% set ext_icon = '' %}
             {% endif %}
             {% if item_url and item_name %}
-            <li><a href="{{ item_url }}">{{ _(item_name) }}{{ ext_icon }}</a></li>
+            <li><a href="{{ spt_pathto(item_url) }}">{{ _(item_name) }}{{ ext_icon }}</a></li>
             {% elif item_name %}
             <li>{{ item_name }}</li>
             {% elif item_url %}
-            <li><a href="{{ item_url }}">{{ item_url }}{{ ext_icon }}</a></li>
+            <li><a href="{{ spt_pathto(item_url) }}">{{ item_url }}{{ ext_icon }}</a></li>
             {% endif %}
             {% endfor %}
           </ul>

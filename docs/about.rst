@@ -61,6 +61,11 @@ will be displayed after any links specified by the ``navbar_links`` option.
               - content: Link2
                 url: https://link2.com/some/other/link
 
+.. note::
+
+   The ``url`` value can be a Sphinx document name, in addition to an absolute or relative URL.  In fact,
+   using Sphinx document names is the best way of generating the link correctly on different pages.
+
 Icons can be displayed in the top right of the navigation bar using the PyData Sphinx Theme's
 `icon links customization <https://pydata-sphinx-theme.readthedocs.io/en/latest/user_guide/configuring.html#local-image-icons>`_
 (``icon_links``) option or by using the built-in PyData Sphinx Theme
@@ -296,8 +301,6 @@ to use for the given document name.  By default, any pages not listed in the
 ``page_layouts`` option will have the default page layout, which corresponds to
 the typical layout of any Jupyter Book page.
 
-The `landing page <index.html>`_ of this documentation is an example of this layout.
-
 Standalone Pages
 ^^^^^^^^^^^^^^^^
 
@@ -305,7 +308,7 @@ Standalone pages use the ``page-standalone.html`` template in the same way that 
 *banner* pages above use the ``page-banner.html`` template.  Standalone pages have
 the same heading and text styling used by banner pages, but they do not have extra
 padding nor the ability to declare banner backgrounds to the sections.  The
-`Standalone <standalone.html>`_ page is an example of this layout.
+:doc:`/standalone` page is an example of this layout.
 
 Custom Templates
 ----------------
