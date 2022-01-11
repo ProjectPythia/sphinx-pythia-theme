@@ -61,10 +61,10 @@ will be displayed after any links specified by the ``navbar_links`` option.
               - content: Link2
                 url: https://link2.com/some/other/link
 
-:::{note}
-The ``url`` value can be a Sphinx document name, in addition to an absolute or relative URL.  In fact,
-using Sphinx document names is the best way of generating the link correctly on different pages.
-:::
+.. note::
+
+   The ``url`` value can be a Sphinx document name, in addition to an absolute or relative URL.  In fact,
+   using Sphinx document names is the best way of generating the link correctly on different pages.
 
 Icons can be displayed in the top right of the navigation bar using the PyData Sphinx Theme's
 `icon links customization <https://pydata-sphinx-theme.readthedocs.io/en/latest/user_guide/configuring.html#local-image-icons>`_
