@@ -15,13 +15,15 @@ BRANCH = "master"
 
 
 def download_files(repo_path="docs/reference", local_path="reference"):
-    if os.path.isdir(local_path):
-        print("References already exist.  Skipping.")
-        return
-
     files = find_files(repo_path=repo_path)
+
     for path, url in files:
-        final_path = Path(local_path) / Path(path).relative_to(repo_path)
+        if path == repo_path:
+            rel_path = Path(path).name
+        else:
+            rel_path = Path(path).relative_to(repo_path)
+        final_path = Path(local_path) / rel_path
+        print(path, repo_path, local_path, final_path)
         os.makedirs(final_path.parent, exist_ok=True)
         if not final_path.exists():
             print(f"Downloading references file {path}")
@@ -32,8 +34,12 @@ def download_files(repo_path="docs/reference", local_path="reference"):
 def find_files(repo_path="docs/reference"):
     url = f"{PREFIX}/contents/{repo_path}?ref={BRANCH}"
     resp = requests.get(url)
+    resp_json = resp.json()
+    if isinstance(resp_json, dict):
+        resp_json = [resp_json]
+
     files = []
-    for item in resp.json():
+    for item in resp_json:
         if item["type"] == "dir":
             files.extend(find_files(repo_path=item["path"]))
         elif item["download_url"]:
@@ -46,7 +52,12 @@ def find_files(repo_path="docs/reference"):
 @click.command()
 @click.argument("outdir", type=click.Path(), required=True)
 def get_references(outdir):
-    download_files(local_path=outdir)
+    if os.path.isdir(outdir):
+        print("References already exist.  Skipping.")
+        return
+
+    download_files(repo_path="docs/reference", local_path=outdir)
+    download_files(repo_path="docs/references.bib", local_path=outdir)
 
 
 if __name__ == "__main__":

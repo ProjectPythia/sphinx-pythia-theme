@@ -206,7 +206,7 @@ main.banner-main {
 
   h1, h2, h3, h4, h5, h6 {
     font-size: 1rem;
-    margin-bottom: 0.2rem;
+    margin-bottom: 5px;
   }
 
   p {
@@ -223,6 +223,11 @@ main.banner-main {
     background-color: rgba(var(--spt-color-dark), 1);
     padding-top: 0.4rem;
     padding-bottom: 0.4rem;
+
+    li {
+      line-height: 1rem;
+      margin-bottom: 5px;
+    }
   }
 
   .footer-extra {

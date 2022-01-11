@@ -4,23 +4,29 @@
       <div class="row justify-content-center">
         {% for column in theme_footer_menu %}
         {% set col_title = column.get('title', '') %}
-        {% set col_class = column.get('class', 'col-2') %}
+        {% set col_class = column.get('class', 'col-8 col-sm-4 col-md-3 col-lg-2') %}
         {% set col_items = column.get('items', []) %}
         {% if col_items %}
         <div class="{{ col_class }} footer-menu-col">
           {% if col_title %}
-          <h1>{{ col_title }}</h1>
+          <h1>{{ _(col_title) }}</h1>
           {% endif %}
           <ul class="list-unstyled">
             {% for item in col_items %}
             {% set item_name = item.get('name', '') %}
             {% set item_url = item.get('url', '') %}
+            {% set item_external = item.get('external', '') %}
+            {% if item_external %}
+            {% set ext_icon = '<i class="fas fa-external-link-alt"></i>' %}
+            {% else %}
+            {% set ext_icon = '' %}
+            {% endif %}
             {% if item_url and item_name %}
-            <li><a href="{{ item_url }}">{{ item_name }}</a></li>
+            <li><a href="{{ item_url }}">{{ _(item_name) }}{{ ext_icon }}</a></li>
             {% elif item_name %}
             <li>{{ item_name }}</li>
             {% elif item_url %}
-            <li><a href="{{ item_url }}">{{ item_url }}</a></li>
+            <li><a href="{{ item_url }}">{{ item_url }}{{ ext_icon }}</a></li>
             {% endif %}
             {% endfor %}
           </ul>
