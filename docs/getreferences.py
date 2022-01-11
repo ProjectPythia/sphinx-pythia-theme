@@ -15,25 +15,24 @@ PREFIX = "https://api.github.com/repos/executablebooks/sphinx-book-theme"
 BRANCH = "master"
 
 
-def download_files(repo_paths=["docs/references.bib", "docs/reference/"], local_path="reference"):
-    if os.path.isdir(local_path):
-        print("References already exist.  Skipping.")
-        return
+def download_files(repo_path="docs/reference", local_path="reference"):
+    files = find_files(repo_path=repo_path)
 
-    files = []
-    for repo_path in repo_paths:
-        files.extend(find_files(repo_path=repo_path, path_is_file=repo_path[-1] != "/"))
-
-    for path, rel_dir, url in files:
-        final_path = Path(local_path) / Path(path).relative_to(rel_dir)
+    for path, url in files:
+        if path == repo_path:
+            rel_path = Path(path).name
+        else:
+            rel_path = Path(path).relative_to(repo_path)
+        final_path = Path(local_path) / rel_path
+        print(path, repo_path, local_path, final_path)
         os.makedirs(final_path.parent, exist_ok=True)
         if not final_path.exists():
-            print(f"Downloading references file {path}")
+            # print(f"Downloading references file {path}")
             resp = requests.get(url)
             final_path.write_text(resp.content.decode())
 
 
-def find_files(repo_path="docs/reference", path_is_file=False):
+def find_files(repo_path="docs/reference"):
     url = f"{PREFIX}/contents/{repo_path}?ref={BRANCH}"
     resp = requests.get(url)
     resp_json = resp.json()
@@ -45,8 +44,7 @@ def find_files(repo_path="docs/reference", path_is_file=False):
         if item["type"] == "dir":
             files.extend(find_files(repo_path=item["path"]))
         elif item["download_url"]:
-            rel_dir = os.path.dirname(repo_path) if path_is_file else repo_path
-            files.append((item["path"], rel_dir, item["download_url"]))
+            files.append((item["path"], item["download_url"]))
         else:
             raise KeyError(f"Invalid response: {item}")
     return files
@@ -55,7 +53,12 @@ def find_files(repo_path="docs/reference", path_is_file=False):
 @click.command()
 @click.argument("outdir", type=click.Path(), required=True)
 def get_references(outdir):
-    download_files(local_path=outdir)
+    if os.path.isdir(outdir):
+        print("References already exist.  Skipping.")
+        return
+
+    download_files(repo_path="docs/reference", local_path=outdir)
+    download_files(repo_path="docs/references.bib", local_path=outdir)
 
 
 if __name__ == "__main__":
