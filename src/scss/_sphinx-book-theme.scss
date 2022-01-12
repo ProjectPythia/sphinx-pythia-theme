@@ -8,6 +8,10 @@
   padding-top: 0;
 }
 
+#main-content {
+  min-height: calc(100vh - var(--pst-header-height));
+}
+
 .topbar {
   top: var(--pst-header-height) !important;
   padding: 0 !important;
