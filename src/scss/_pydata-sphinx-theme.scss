@@ -11,8 +11,9 @@
 }
 
 .prev-next-area {
-  margin: 2rem 0 0 0;
+  margin: 2rem auto 0 auto;
   border-top: 1px solid rgba(var(--spt-color-gray-300), 1);
+  max-width: $document-width;
   i {
     font-size: 1.1rem;
     color: rgba(var(--spt-color-gray-600), 1);
