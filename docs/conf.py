@@ -163,7 +163,7 @@ html_theme_options = {
     "footer_logos": {
         "NCAR": {
             "image": "images/NCAR-contemp-logo-blue.svg",
-            "url": "https://ncar.ucar.edu"
+            "url": "https://ncar.ucar.edu",
         },
         "Unidata": {
             "image": "images/Unidata_logo_horizontal_1200x300.svg",
