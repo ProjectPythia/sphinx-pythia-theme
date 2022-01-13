@@ -30,8 +30,18 @@ def copy_config_images(app):
         logos_config = config["footer_logos"]
 
         for key in logos_config:
-            image = logos_config[key]
-            logos_config[key] = copy_image(app, image)
+            is_dict = isinstance(logos_config[key], dict)
+
+            image = logos_config[key].get("image", "") if is_dict else logos_config[key]
+            if image:
+                image = copy_image(app, image)
+            else:
+                continue
+
+            if is_dict:
+                logos_config[key]["image"] = image
+            else:
+                logos_config[key] = image
 
 
 def add_functions_to_context(app, pagename, templatename, context, doctree):

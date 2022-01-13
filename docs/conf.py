@@ -161,8 +161,13 @@ html_theme_options = {
         "standalone": "page-standalone.html",
     },
     "footer_logos": {
-        "NCAR": "images/NCAR-contemp-logo-blue.svg",
-        "Unidata": "images/Unidata_logo_horizontal_1200x300.svg",
+        "NCAR": {
+            "image": "images/NCAR-contemp-logo-blue.svg",
+            "url": "https://ncar.ucar.edu",
+        },
+        "Unidata": {
+            "image": "images/Unidata_logo_horizontal_1200x300.svg",
+        },
         "UAlbany": "images/UAlbany-A2-logo-purple-gold.svg",
     },
     "extra_navbar": ('Theme by <a href="https://projectpythia.org">Project Pythia</a>'),
