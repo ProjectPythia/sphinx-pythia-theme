@@ -30,7 +30,7 @@ setup(
     zip_safe=True,
     include_package_data=True,
     install_requires=[
-        "sphinx-book-theme>=0.1.7<0.2",
+        "sphinx-book-theme>=0.1.7,<0.2",
     ],
     packages=find_packages(),
     entry_points={"sphinx.html_themes": ["sphinx_pythia_theme = sphinx_pythia_theme"]},
