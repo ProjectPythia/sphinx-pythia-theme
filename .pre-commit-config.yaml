@@ -28,8 +28,8 @@ repos:
       args: [--no-build-isolation]
       additional_dependencies: [setuptools-scm]
 
-  - repo: https://github.com/executablebooks/web-compile
-    rev: v0.2.1
+  - repo: https://github.com/kmpaul/web-compile
+    rev: v0.2.2
     hooks:
       - id: web-compile
         args: [--config=.web-compile-config.yml]
