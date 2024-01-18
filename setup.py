@@ -10,7 +10,7 @@ setup(
         "Bug Tracker": "https://github.com/ProjectPythia/sphinx-pythia-theme/issues",
     },
     author="Kevin Paul",
-    author_email="kpaul@ucar.edu",
+    author_email="projectpythia@ucar.edu",
     classifiers=[
         "Development Status :: 3 - Alpha",
         "Environment :: Web Environment",
