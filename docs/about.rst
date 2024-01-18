@@ -31,7 +31,7 @@ Additionally, the
 (``external_links``) option from the PyData Sphinx Theme still works, and these links
 will be displayed after any links specified by the ``navbar_links`` option.
 
-.. tabbed:: Sphinx
+.. tab-set-code:: Sphinx
 
    .. code-block:: python
 
@@ -46,7 +46,7 @@ will be displayed after any links specified by the ``navbar_links`` option.
           ]
       }
 
-.. tabbed:: Jupyter Book
+.. tab-set-code:: Jupyter Book
 
    .. code-block:: yaml
 
@@ -91,7 +91,7 @@ To add logo images to the *logo bar* in the footer, use the ``footer_logos`` opt
 ``html_theme_options``.  The name given to each logo is used as the alternate name of
 the image in HTML.
 
-.. tabbed:: Sphinx
+.. tab-set-code:: Sphinx
 
    .. code-block:: python
 
@@ -102,7 +102,7 @@ the image in HTML.
           }
       }
 
-.. tabbed:: Jupyter Book
+.. tab-set-code:: Jupyter Book
 
    .. code-block:: yaml
 
@@ -125,7 +125,7 @@ key containing any CSS classes to add to the HTML column division, and an ``item
 list of dictionaries containing ``name``, ``url``, and ``external`` keys (with the same meaning as
 the keys in the ``navbar_links`` option above).
 
-.. tabbed:: Sphinx
+.. tab-set-code:: Sphinx
 
    .. code-block:: python
 
@@ -164,7 +164,7 @@ the keys in the ``navbar_links`` option above).
           ],
       }
 
-.. tabbed:: Jupyter Book
+.. tab-set-code:: Jupyter Book
 
    .. code-block:: yaml
 
@@ -227,7 +227,7 @@ Each *banner* section can be given its own background color or even background i
 To customize your own banners, all you need to do is add a ``banner`` directive to your
 section.
 
-.. tabbed:: reStructuredText
+.. tab-set-code:: reStructuredText
 
    .. code-block:: rst
 
@@ -237,7 +237,7 @@ section.
         caption: Photo by Jeff Stapleton from Pexels
         class: dark-banner
 
-.. tabbed:: Myst Markdown
+.. tab-set-code:: Myst Markdown
 
    .. code-block:: markdown
 
@@ -275,7 +275,7 @@ you need to declare which pages (by document name) will have the *banner* layout
 this, you need to declare the ``page_layouts`` option in the ``html_theme_options`` and
 tell the theme to use the ``page-banner.html`` template.
 
-.. tabbed:: Sphinx
+.. tab-set-code:: Sphinx
 
    .. code-block:: python
 
@@ -285,7 +285,7 @@ tell the theme to use the ``page-banner.html`` template.
           }
       }
 
-.. tabbed:: Jupyter Book
+.. tab-set-code:: Jupyter Book
 
    .. code-block:: yaml
 
