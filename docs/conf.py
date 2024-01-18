@@ -9,8 +9,8 @@ import sys
 
 # -- Project information -----------------------------------------------------
 
-author = "the Project Pythia Community"
-copyright = "2022"
+author = "The Project Pythia Community"
+copyright = "2024"
 
 # -- General configuration ---------------------------------------------------
 
@@ -52,7 +52,7 @@ external_toc_exclude_missing = False
 external_toc_path = "_toc.yml"
 
 intersphinx_mapping = {
-    "python": ("https://docs.python.org/3.8", None),
+    "python": ("https://docs.python.org/3.11", None),
     "sphinx": ("https://www.sphinx-doc.org/en/master", None),
 }
 
