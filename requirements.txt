@@ -5,7 +5,8 @@ matplotlib
 pandas
 sphinx-click
 sphinx-design
-sphinx-panels
 sphinx-inline-tabs
+sphinx-panels
+sphinx-tabs
 sphinxcontrib-youtube
 sphinxext-opengraph
