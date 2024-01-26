@@ -18,7 +18,7 @@ Where the Sphinx Book Theme places your ``html_logo`` at the top of the left sid
 Theme places the logo on the left of the top navigation bar.  The PyData Sphinx Theme allows the user
 to set the link attached to the logo with the ``logo_link`` option in your Sphinx ``html_theme_options``
 dictionary.  You can learn how to customize your logo on the
-`PyData Sphinx Theme documentation <https://pydata-sphinx-theme.readthedocs.io/en/latest/user_guide/configuring.html#configure-project-logo>`_.
+`PyData Sphinx Theme documentation <https://pydata-sphinx-theme.readthedocs.io/en/stable/user_guide/branding.html#customize-logo-link>`_.
 
 The links on the navigation bar can be set with the ``html_theme_options`` ``navbar_links`` option.
 This is a list of dictionaries containing a ``name`` key, ``url`` key, and an ``external`` key.  The

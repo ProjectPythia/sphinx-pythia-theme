@@ -32,15 +32,19 @@ extensions = [
     "sphinx_click.ext",
     "sphinx_comments",
     "sphinx_copybutton",
+    'sphinx_design',
     "sphinx_external_toc",
     "sphinx_inline_tabs",
     "sphinx_panels",
+    'sphinx_tabs.tabs',
     "sphinx_thebe",
     "sphinx_togglebutton",
     "sphinx.ext.autodoc",
     "sphinx.ext.intersphinx",
+    "sphinx.ext.todo",
     "sphinx.ext.viewcode",
     "sphinxcontrib.bibtex",
+    "sphinxcontrib.youtube",
     "sphinxext.opengraph",
 ]
 
@@ -115,7 +119,7 @@ html_sidebars = {
     "index": [],
     "standalone": [],
     "reference/blog/*": [
-        "sidebar-logo.html",
+        "navbar-logo.html",
         "search-field.html",
         "postcard.html",
         "recentposts.html",
@@ -123,7 +127,6 @@ html_sidebars = {
         "categories.html",
         "archives.html",
         "sbt-sidebar-nav.html",
-        "sbt-sidebar-footer.html",
     ],
 }
 

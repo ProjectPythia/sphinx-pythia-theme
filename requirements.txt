@@ -7,4 +7,5 @@ sphinx-click
 sphinx-design
 sphinx-panels
 sphinx-inline-tabs
+sphinxcontrib-youtube
 sphinxext-opengraph

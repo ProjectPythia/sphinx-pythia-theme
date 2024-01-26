@@ -108,3 +108,4 @@ sphinx:
     - sphinx.ext.autodoc
     - sphinx.ext.intersphinx
     - sphinxcontrib.bibtex
+    - sphinxcontrib.youtube
