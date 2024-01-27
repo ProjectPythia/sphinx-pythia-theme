@@ -6,5 +6,3 @@ dependencies:
     - pip
     - pip:
       - -r ../requirements.txt
-      - sphinx-tabs
-      - sphinxcontrib-youtube
