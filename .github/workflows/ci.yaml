@@ -38,9 +38,9 @@ jobs:
         pip install -r requirements.txt
         python -m pip install . --no-deps
 
-    - name: conda list
+    - name: pip list
       run: |
-        conda list
+        pip list
 
     - name: Download references from Sphinx Book Theme
       run: |
