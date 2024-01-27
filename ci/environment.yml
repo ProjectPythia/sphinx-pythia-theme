@@ -1,0 +1,7 @@
+name: sphinx-pythia-theme_build
+channels:
+    - conda-forge
+dependencies:
+    - pip
+    - pip:
+      - -r ../requirements.txt
