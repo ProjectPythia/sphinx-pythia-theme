@@ -34,7 +34,6 @@ extensions = [
     "sphinx_copybutton",
     "sphinx_design",
     "sphinx_external_toc",
-    "sphinx_inline_tabs",
     "sphinx_panels",
     "sphinx_tabs.tabs",
     "sphinx_thebe",
