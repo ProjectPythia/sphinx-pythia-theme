@@ -1,0 +1,66 @@
+name: Upload to PyPI
+
+on:
+  release:
+    types:
+      - published
+
+jobs:
+  test-build:
+    if: github.repository == 'ProjectPythia/sphinx-pythia-theme'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5.0.0
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install setuptools setuptools-scm wheel twine check-manifest
+
+      - name: Build tarball and wheels
+        run: |
+          python setup.py sdist bdist_wheel
+          python -m pip wheel . -w dist --no-deps
+
+      - name: Test the built artifacts
+        run: |
+          python -m twine check --strict dist/*
+          pwd
+          if [ -f dist/sphinx-pythia-theme-0.0.0.tar.gz ]; then
+            echo "❌ INVALID VERSION NUMBER"
+            exit 1
+          else
+            echo "✅ Looks good"
+          fi
+      - uses: actions/upload-artifact@v4
+        with:
+          name: releases
+          path: dist
+
+  publish:
+    needs: test-build
+    if: github.event_name == 'release'
+    runs-on: ubuntu-latest
+
+    environment:
+      name: pypi
+      url: https://pypi.org/p/sphinx-pythia-theme
+    permissions:
+      id-token: write
+
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          name: releases
+          path: dist
+
+      - name: Publish package to PyPI
+        uses: pypa/gh-action-pypi-publish@v1.8.11
+        with:
+          user: __token__
+          password: ${{ secrets.PYPI_TOKEN }}
