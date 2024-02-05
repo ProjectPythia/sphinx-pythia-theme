@@ -5,6 +5,7 @@
 {%- endblock %}
 
 {%- block content %}
+{{ super() }}
     <div class="container-fluid" id="shim"></div>
     <div class="container-fluid" id="banner"></div>
 
@@ -40,8 +41,6 @@
   {%- block scripts_end %}
   {{ _webpack.body_post() }}
   {%- endblock %}
-
-{{ super() }}
 {%- endblock %}
 
 {%- block footer %}
