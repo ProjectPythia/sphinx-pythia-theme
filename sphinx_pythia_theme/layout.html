@@ -30,9 +30,6 @@
         {%- else %}
         <main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
           {%- block docs_body %}
-          {%- if sidebars %}
-          {%- include "topbar.html" %}
-          {%- endif %}
           <div id="main-content" class="row">
             <div class="col-12 col-md-9 pl-md-3 pr-md-0">
               {{ super.super() }}
