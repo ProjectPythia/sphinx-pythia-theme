@@ -2,7 +2,7 @@
 
 {%- block body_tag %}
   {# set up with scrollspy to update the toc as we scroll #}
-  {{ super.super() }}
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="132">
 {%- endblock %}
 
 {%- block content %}
