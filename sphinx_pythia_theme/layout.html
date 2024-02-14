@@ -61,7 +61,11 @@
     </div>
 
   {%- block scripts_end %}
-    {{ _webpack.body_post() }}
+  {{ _webpack.body_post() }}
   {%- endblock %}
 
+{%- endblock %}
+
+{%- block footer %}
+{{ super.super() }}
 {%- endblock %}
