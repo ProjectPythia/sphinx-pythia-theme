@@ -58,20 +58,10 @@
 
       </div>
     </div>
+    </div>
 
   {%- block scripts_end %}
     {{ _webpack.body_post() }}
   {%- endblock %}
 
 {%- endblock %}
-
-{# Footer #}
-{%- block footer %}
-{{ super.super() }}
-{%- endblock footer %}
-
-{# Silence the sidebars and relbars since we define our own #}
-{% block header %}{% endblock %}
-{% block relbar1 %}{% endblock %}
-{% block relbar2 %}{% endblock %}
-{% block sidebarsourcelink %}{% endblock %}
