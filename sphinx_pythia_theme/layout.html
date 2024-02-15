@@ -37,18 +37,6 @@
           <div id="main-content" class="row">
             <div class="col-12 col-md-9 pl-md-3 pr-md-0">
               {{ super.super() }}
-              {# Article Footer #}
-              {% if theme_article_footer_items %}
-                <footer class="bd-footer-article">
-                  {% include "sections/footer-article.html" %}
-                </footer>
-              {% endif %}
-              {# prev-next buttons #}
-              {% if theme_show_prev_next %}
-                <footer class="prev-next-footer">
-                  {% include "components/prev-next.html" %}
-                </footer>
-              {% endif %}
             </div>
           </div>
           {%- endblock %}
