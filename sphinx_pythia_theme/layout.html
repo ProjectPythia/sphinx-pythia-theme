@@ -59,7 +59,8 @@
   <footer class="bd-footer">
     {%- include "footer.html" %}
   </footer>
-{%- endblock
+{{ super.super() }}
+{%- endblock %}
 
 
 {# Silence the sidebars and relbars since we define our own #}
