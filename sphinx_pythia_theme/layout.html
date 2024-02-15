@@ -66,9 +66,6 @@
 
 {%- endblock %}
 
-{# Footer #}
 {%- block footer %}
-  <footer class="bd-footer">
-    {%- include "sections/footer.html" %}
-  </footer>
-{%- endblock footer %}
+{{ super.super() }}
+{%- endblock %}
