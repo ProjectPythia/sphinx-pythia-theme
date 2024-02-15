@@ -56,6 +56,15 @@
 {%- endblock %}
 
 {%- block footer %}
-{%- include "footer.html" %}
+  <footer class="bd-footer">
+    {%- include "footer.html" %}
+  </footer>
 {{ super.super() }}
-{%- endblock %}
+{%- endblock
+
+
+{# Silence the sidebars and relbars since we define our own #}
+{% block header %}{% endblock %}
+{% block relbar1 %}{% endblock %}
+{% block relbar2 %}{% endblock %}
+{% block sidebarsourcelink %}{% endblock %}
