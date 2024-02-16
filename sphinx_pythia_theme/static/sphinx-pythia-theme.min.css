@@ -4,6 +4,7 @@
     --spt-font-body: 'Poppins';
     --spt-font-headings: 'Poppins';
     --spt-font-footnote: 'Cormorant';
+
     --spt-color-gray-100: 248, 249, 250;
     --spt-color-gray-200: 233, 236, 239;
     --spt-color-gray-300: 222, 226, 230;
@@ -23,6 +24,7 @@
     --spt-color-blue-lightest: 156, 191, 213;
     --spt-color-deep-blue: 1, 33, 105;
     --spt-color-green-highlight: 168, 199, 0;
+
     --pst-color-primary: var(--spt-color-blue)!important;
     --pst-color-primary-hover: var(--spt-color-blue-lighter)!important;
     --pst-color-secondary: var(--spt-color-blue-lightest)!important;
@@ -30,6 +32,7 @@
     --pst-color-link-hover: var(--pst-color-secondary) !important;
     --pst-color-headerlink: var(--spt-color-gray-300)!important;
     --pst-color-headerlink-hover: var(--spt-color-gray-100)!important;
+
     --tabs-size-label: 0.8rem !important;
     --tabs-color-label-active: rgba(var(--pst-color-primary), 1) !important;
     --tabs-color-label-inactive: rgba(var(--spt-color-blue-lightest), 1) !important
