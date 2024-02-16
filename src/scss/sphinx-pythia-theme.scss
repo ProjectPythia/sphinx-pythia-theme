@@ -27,8 +27,8 @@
 
   --pst-color-primary: var(--spt-color-blue);
   --pst-color-primary-hover: var(--spt-color-blue-lighter);
-  --pst-color-link: var(--pst-color-primary);
-  --pst-color-link-hover: var(--pst-color-primary);
+  --pst-color-link: var(--pst-color-primary)!important;
+  --pst-color-link-hover: var(--pst-color-primary)!important;
   --pst-color-headerlink: var(--spt-color-gray-500);
   --pst-color-headerlink-hover: var(--spt-color-gray-500);
 
