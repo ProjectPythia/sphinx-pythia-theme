@@ -25,13 +25,13 @@
     --spt-color-deep-blue: 1, 33, 105;
     --spt-color-green-highlight: 168, 199, 0;
 
-    --pst-color-primary: var(--spt-color-blue);
-    --pst-color-primary-hover: var(--spt-color-blue-lighter);
-    --pst-color-secondary: var(--spt-color-blue-lightest);
-    --pst-color-link: var(--pst-color-primary);
-    --pst-color-link-hover: var(--pst-color-secondary);
-    --pst-color-headerlink: var(--spt-color-gray-300);
-    --pst-color-headerlink-hover: var(--spt-color-gray-100);
+    --pst-color-primary: var(--spt-color-blue) !important;
+    --pst-color-primary-hover: var(--spt-color-blue-lighter) !important;
+    --pst-color-secondary: var(--spt-color-blue-lightest) !important;
+    --pst-color-link: var(--pst-color-primary) !important;
+    --pst-color-link-hover: var(--pst-color-secondary) !important;
+    --pst-color-headerlink: var(--spt-color-gray-300) !important;
+    --pst-color-headerlink-hover: var(--spt-color-gray-100) !important;
 
     --tabs-size-label: 0.8rem !important;
     --tabs-color-label-active: rgba(var(--pst-color-primary), 1) !important;
