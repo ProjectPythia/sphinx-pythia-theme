@@ -174,6 +174,7 @@ html_theme_options = {
         },
         "UAlbany": "images/UAlbany-A2-logo-purple-gold.svg",
     },
+    "footer_start": ["footer-logos", "footer-menu", "footer-info", "footer-extra"],
     "extra_navbar": ('Theme by <a href="https://projectpythia.org">Project Pythia</a>'),
 }
 
