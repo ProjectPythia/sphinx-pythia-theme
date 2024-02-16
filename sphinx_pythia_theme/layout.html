@@ -56,14 +56,8 @@
 {%- endblock %}
 
 {%- block footer %}
-  <footer class="footer">
-    <div class="container-fluid m-0 p-0">
-    {% for footer_item in theme_footer_items %}
-      <div class="footer-item">
-      {% include footer_item %}
-      </div>
-    {% endfor %}
-    </div>
+  <footer class="bd-footer">
+     {%- include "footer.html" %}
   </footer>
 {%- endblock %}
 

@@ -1,2 +1,20 @@
 {%- if theme_footer_logos %}
+  <div class="container-fluid footer-logos">
+    <div class="container-xl">
+      <div class="row d-flex flex-wrap align-items-center">
+        {%- for key in theme_footer_logos %}
+        {%- set val = theme_footer_logos[key] %}
+        {%- set img = val.get('image', '') if val is mapping else val %}
+        {%- set url = val.get('url', '') if val is mapping else '' %}
+        <div class="d-flex col-lg-3 col-md-4 col-sm-6 p-2 mx-auto">
+          {%- if url %}
+          <a href="{{ pathto(url, 1) }}"><img alt="{{ key }}" src="{{ pathto(img, 1) }}" style="width: 100%"></a>
+          {%- else %}
+          <img alt="{{ key }}" src="{{ pathto(img, 1) }}" style="width: 100%">
+          {%- endif %}
+        </div>
+        {%- endfor %}
+      </div>
+    </div>
+  </div>
 {%- endif %}
