@@ -147,8 +147,8 @@ html_theme_options = {
     "use_download_button": True,
     "logo_only": True,
     "logo": {
-            "link": "https://sphinx-pythia-theme.readthedocs.io",
-        },
+        "link": "https://sphinx-pythia-theme.readthedocs.io",
+    },
     "show_toc_level": 2,
     "navbar_align": "left",
     "navbar_links": [
