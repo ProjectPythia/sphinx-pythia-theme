@@ -29,10 +29,10 @@
     --pst-color-primary-hover: var(--spt-color-blue-lighter) !important;
     --pst-color-secondary: var(--spt-color-blue-lightest) !important;
     --pst-color-link: #1a648f !important; /* The same value wth var(--pst-color-primary), using var() didn't work; don't know why) */
-    --pst-color-link-hover: #ced4da !important; /* The same value wth var(--pst-color-secondary), using var() didn't work; don't know why) */
+    --pst-color-link-hover: #9cbfd5 !important; /* The same value wth var(--pst-color-secondary), using var() didn't work; don't know why) */
     --pst-color-headerlink: var(--spt-color-gray-300) !important;
     --pst-color-headerlink-hover: var(--spt-color-gray-100) !important;
-    --pst-color-text-muted: #adb5bd !important; /* Normally wouldn't be needed to set explicitly, but top-navbar tabs' color didn't owrk without this */
+    --pst-color-text-muted: #dee2e6 !important; /* Normally wouldn't be needed to set explicitly, but top-navbar tabs' color didn't owrk without this */
 
     --tabs-size-label: 0.8rem !important;
     --tabs-color-label-active: rgba(var(--pst-color-primary), 1) !important;
