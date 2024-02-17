@@ -75,8 +75,13 @@ Footer Bar
 ----------
 
 In addition to the top navigation bar at the top of each page, the full-width footer
-bar from the PyData Sphinx Theme has been readded to the bottom of every page.  By default, the
-footer bar only contains copyright and additional information about the Sphinx version (if configured).
+bar from the PyData Sphinx Theme has been re-added to the bottom of every page.
+
+.. note::
+   While PyData Sphinx Theme has ``footer_start``, ``footer_center``, and ``footer_end`` to set,
+our theme supports only ``footer_start``, and allows to add below structures into it.
+
+By default, the footer bar only contains copyright and additional information about the Sphinx version (if configured).
 Three additional sections can be added to the footer: a *logo bar*, a *bottom navigation menu*, and
 an *extras* section.
 
@@ -84,12 +89,12 @@ Footer Logo Bar
 ^^^^^^^^^^^^^^^
 
 The *logo bar* section can be used to add logo images for various partner or collaboration
-institutions, products, or other entities involved with site itself.  These are spread out
+institutions, products, or other entities involved with site itself. These are spread out
 evenly across the footer in a light-gray full-width box.
 
 To add logo images to the *logo bar* in the footer, use the ``footer_logos`` option of the
-``html_theme_options``.  The name given to each logo is used as the alternate name of
-the image in HTML.
+``html_theme_options`` and then add it to ``footer_start``.  The name given to each logo is
+used as the alternate name of the image in HTML.
 
 .. tab-set-code:: Sphinx
 
@@ -99,7 +104,8 @@ the image in HTML.
           'footer_logos': {
               'name1': 'images/logo1.svg',
               'name2': 'images/logo2.svg',
-          }
+          },
+          "footer_start": ["footer-logos"]
       }
 
 .. tab-set-code:: Jupyter Book
@@ -162,6 +168,7 @@ the keys in the ``navbar_links`` option above).
                   ],
               },
           ],
+          "footer_start": ["footer-menu"]
       }
 
 .. tab-set-code:: Jupyter Book
@@ -195,7 +202,7 @@ Extra Footer
 The *extra* section of the footer is displayed immediately below the *info* section, and
 it can be set with the
 `extra footer <https://sphinx-book-theme.readthedocs.io/en/latest/customize/index.html?highlight=extra_footer#theme-options>`_
-(``extra_footer``) Sphinx Book Theme option.
+(``extra_footer``) Sphinx Book Theme option and then added to the ``footer_start``.
 
 Special Page layouts
 --------------------

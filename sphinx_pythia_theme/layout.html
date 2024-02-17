@@ -1,1 +1,69 @@
 {%- extends "sphinx_book_theme/layout.html" %}
+
+{%- block body_tag %}
+  {# set up with scrollspy to update the toc as we scroll #}
+  {{ super.super() }}
+{%- endblock %}
+
+{%- block content %}
+  {%- block docs_navbar %}
+    <header class="navbar navbar-dark navbar-expand-lg bg-dark fixed-top bd-header shadow" id="navbar-main">
+      {%- include "sections/header.html" %}
+    </header>
+    {%- endblock %}
+
+  {%- if theme_page_layouts and pagename in theme_page_layouts %}
+    <div class="container-fluid">
+    {%- else %}
+    <div class="container-xl">
+    {%- endif %}
+      <div class="row">
+        {%- block docs_toc %}
+        {%- if sidebars %}
+        {{ super() }}
+        {%- else %}
+        <div class="d-none col-12 col-md-1 col-xl-2 bd-sidebar no-sidebar"></div>
+        {%- endif %}
+        {%- endblock %}
+
+        {# Main content area #}
+        {%- block docs_main %}
+        {%- if theme_page_layouts and pagename in theme_page_layouts %}
+        {%- include theme_page_layouts[pagename] %}
+        {%- else %}
+        <main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+          {%- block docs_body %}
+          <div id="main-content" class="row">
+            <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+              {{ super.super() }}
+            </div>
+          </div>
+          {%- endblock %}
+        {{ super.super() }}
+        </main>
+        {%- endif %}
+        {%- endblock %}
+
+      </div>
+    </div>
+    </div>
+
+  {%- block scripts_end %}
+  {{ _webpack.body_post() }}
+  {%- endblock %}
+
+{%- endblock %}
+
+{# Use our own footer to use only footer_start and display multiple #}
+{# structures in it, e.g. logos, menu, etc.  #}
+{%- block footer %}
+  <footer class="bd-footer">
+     {% include "footer.html" %}
+  </footer>
+{%- endblock %}
+
+{# Silence the sidebars and relbars since we define our own #}
+{% block header %}{% endblock %}
+{% block relbar1 %}{% endblock %}
+{% block relbar2 %}{% endblock %}
+{% block sidebarsourcelink %}{% endblock %}

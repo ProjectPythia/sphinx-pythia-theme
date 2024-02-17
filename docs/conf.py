@@ -60,7 +60,7 @@ intersphinx_mapping = {
 }
 
 jupyter_cache = ""
-jupyter_execute_notebooks = "cache"
+nb_execution_mode = "cache"
 execution_allow_errors = False
 execution_excludepatterns = []
 execution_in_temp = False
@@ -146,7 +146,9 @@ html_theme_options = {
     "use_repository_button": True,
     "use_download_button": True,
     "logo_only": True,
-    "logo_link": "https://sphinx-pythia-theme.readthedocs.io",
+    "logo": {
+        "link": "https://sphinx-pythia-theme.readthedocs.io",
+    },
     "show_toc_level": 2,
     "navbar_align": "left",
     "navbar_links": [
@@ -172,6 +174,7 @@ html_theme_options = {
         },
         "UAlbany": "images/UAlbany-A2-logo-purple-gold.svg",
     },
+    "footer_start": ["footer-logos", "footer-menu", "footer-info", "footer-extra"],
     "extra_navbar": ('Theme by <a href="https://projectpythia.org">Project Pythia</a>'),
 }
 
