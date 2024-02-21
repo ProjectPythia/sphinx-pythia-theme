@@ -1,6 +1,7 @@
 exclude: >
     (?x)^(
       \.vscode/settings\.json|
+      sphinx_pythia_theme\static\sphinx-pythia-theme.min.css
     )$
 repos:
 
