@@ -4,7 +4,7 @@ title: ""
 logo: images/dummy_logo_dark.svg
 author: the Project Pythia Community
 copyright: "2024"
-email: kpaul@ucar.edu
+email: projectpythia@ucar.edu
 description: >- # this means to ignore newlines
   This is an example book built with Jupyter Books.
 
