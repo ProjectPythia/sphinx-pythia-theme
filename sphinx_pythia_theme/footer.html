@@ -1,9 +1,14 @@
-<footer class="footer">
-  <div class="container-fluid m-0 p-0">
-  {% for footer_item in theme_footer_items %}
-    <div class="footer-item">
-    {% include footer_item %}
+{% if theme_footer_start or theme_footer_center or theme_footer_end %}
+  {# Implement only footer_start to house all the #}
+  {# footer items in it, e.g. logos, menu, etc. Use of  #}
+  {# footer_center and footer_end may probably break how the rest looks  #}
+  {% if theme_footer_start %}
+    <div class="footer-items__start">
+      <div class="container-fluid m-0 p-0">
+      {% for item in theme_footer_start %}
+        <div class="footer-item">{% include item %}</div>
+      {% endfor %}
+      </div>
     </div>
-  {% endfor %}
-  </div>
-</footer>
+  {% endif %}
+{% endif %}

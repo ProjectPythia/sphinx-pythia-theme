@@ -9,8 +9,8 @@ import sys
 
 # -- Project information -----------------------------------------------------
 
-author = "the Project Pythia Community"
-copyright = "2022"
+author = "The Project Pythia Community"
+copyright = "2024"
 
 # -- General configuration ---------------------------------------------------
 
@@ -32,15 +32,18 @@ extensions = [
     "sphinx_click.ext",
     "sphinx_comments",
     "sphinx_copybutton",
+    "sphinx_design",
     "sphinx_external_toc",
-    "sphinx_inline_tabs",
     "sphinx_panels",
+    "sphinx_tabs.tabs",
     "sphinx_thebe",
     "sphinx_togglebutton",
     "sphinx.ext.autodoc",
     "sphinx.ext.intersphinx",
+    "sphinx.ext.todo",
     "sphinx.ext.viewcode",
     "sphinxcontrib.bibtex",
+    "sphinxcontrib.youtube",
     "sphinxext.opengraph",
 ]
 
@@ -52,12 +55,12 @@ external_toc_exclude_missing = False
 external_toc_path = "_toc.yml"
 
 intersphinx_mapping = {
-    "python": ("https://docs.python.org/3.8", None),
+    "python": ("https://docs.python.org/3.11", None),
     "sphinx": ("https://www.sphinx-doc.org/en/master", None),
 }
 
 jupyter_cache = ""
-jupyter_execute_notebooks = "cache"
+nb_execution_mode = "cache"
 execution_allow_errors = False
 execution_excludepatterns = []
 execution_in_temp = False
@@ -115,7 +118,7 @@ html_sidebars = {
     "index": [],
     "standalone": [],
     "reference/blog/*": [
-        "sidebar-logo.html",
+        "navbar-logo.html",
         "search-field.html",
         "postcard.html",
         "recentposts.html",
@@ -123,7 +126,6 @@ html_sidebars = {
         "categories.html",
         "archives.html",
         "sbt-sidebar-nav.html",
-        "sbt-sidebar-footer.html",
     ],
 }
 
@@ -144,7 +146,9 @@ html_theme_options = {
     "use_repository_button": True,
     "use_download_button": True,
     "logo_only": True,
-    "logo_link": "https://sphinx-pythia-theme.readthedocs.io",
+    "logo": {
+        "link": "https://sphinx-pythia-theme.readthedocs.io",
+    },
     "show_toc_level": 2,
     "navbar_align": "left",
     "navbar_links": [
@@ -170,6 +174,7 @@ html_theme_options = {
         },
         "UAlbany": "images/UAlbany-A2-logo-purple-gold.svg",
     },
+    "footer_start": ["footer-logos", "footer-menu", "footer-info", "footer-extra"],
     "extra_navbar": ('Theme by <a href="https://projectpythia.org">Project Pythia</a>'),
 }
 

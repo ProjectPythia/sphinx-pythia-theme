@@ -4,6 +4,8 @@ jupyter-book
 matplotlib
 pandas
 sphinx-click
+sphinx-design
 sphinx-panels
-sphinx-inline-tabs
+sphinx-tabs
+sphinxcontrib-youtube
 sphinxext-opengraph

@@ -1,43 +1,45 @@
 @import 'sphinx-book-theme.css';
 
-:root {
-  --spt-font-body: 'Poppins';
-  --spt-font-headings: 'Poppins';
-  --spt-font-footnote: 'Cormorant';
+:root{
+    --spt-font-body: 'Poppins';
+    --spt-font-headings: 'Poppins';
+    --spt-font-footnote: 'Cormorant';
 
-  --spt-color-gray-100: 248, 249, 250;
-  --spt-color-gray-200: 233, 236, 239;
-  --spt-color-gray-300: 222, 226, 230;
-  --spt-color-gray-400: 206, 212, 218;
-  --spt-color-gray-500: 173, 181, 189;
-  --spt-color-gray-600: 108, 117, 125;
-  --spt-color-gray-700: 73, 80, 87;
-  --spt-color-gray-800: 52, 58, 64;
-  --spt-color-gray-900: 33, 37, 41;
-  --spt-color-light: var(--spt-color-gray-100);
-  --spt-color-dark: var(--spt-color-gray-800);
-  --spt-color-green: 0, 121, 124;
-  --spt-color-green-lighter: 20, 141, 144;
-  --spt-color-green-lightest: 130, 231, 234;
-  --spt-color-blue: 26, 101, 143;
-  --spt-color-blue-lighter: 46, 121, 163;
-  --spt-color-blue-lightest: 156, 191, 213;
-  --spt-color-deep-blue: 1, 33, 105;
-  --spt-color-green-highlight: 168, 199, 0;
+    --spt-color-gray-100: 248, 249, 250;
+    --spt-color-gray-200: 233, 236, 239;
+    --spt-color-gray-300: 222, 226, 230;
+    --spt-color-gray-400: 206, 212, 218;
+    --spt-color-gray-500: 173, 181, 189;
+    --spt-color-gray-600: 108, 117, 125;
+    --spt-color-gray-700: 73, 80, 87;
+    --spt-color-gray-800: 52, 58, 64;
+    --spt-color-gray-900: 33, 37, 41;
+    --spt-color-light: var(--spt-color-gray-100);
+    --spt-color-dark: var(--spt-color-gray-800);
+    --spt-color-green: 0, 121, 124;
+    --spt-color-green-lighter: 20, 141, 144;
+    --spt-color-green-lightest: 130, 231, 234;
+    --spt-color-blue: 26, 101, 143;
+    --spt-color-blue-lighter: 46, 121, 163;
+    --spt-color-blue-lightest: 156, 191, 213;
+    --spt-color-deep-blue: 1, 33, 105;
+    --spt-color-green-highlight: 168, 199, 0;
 
-  --pst-color-primary: var(--spt-color-blue);
-  --pst-color-primary-hover: var(--spt-color-blue-lighter);
-  --pst-color-link: var(--pst-color-primary);
-  --pst-color-link-hover: var(--pst-color-primary);
-  --pst-color-headerlink: var(--spt-color-gray-500);
-  --pst-color-headerlink-hover: var(--spt-color-gray-500);
+    --pst-color-primary: var(--spt-color-blue) !important;
+    --pst-color-primary-hover: var(--spt-color-blue-lighter) !important;
+    --pst-color-secondary: var(--spt-color-blue-lightest) !important;
+    --pst-color-link: #1a648f !important; /* The same value with var(--pst-color-primary), using var() didn't work; don't know why) */
+    --pst-color-link-hover: #9cbfd5 !important; /* The same value with var(--pst-color-secondary), using var() didn't work; don't know why) */
+    --pst-color-headerlink: var(--spt-color-gray-300) !important;
+    --pst-color-headerlink-hover: var(--spt-color-gray-100)!important;
+    --pst-color-text-muted: #6c757d !important; /* The same value with var(--spt-color-gray-500), using var() didn't work; don't know why) */
 
-  --tabs-size-label: 0.8rem !important;
-  --tabs-color-label-active: rgba(var(--pst-color-primary), 1) !important;
-  --tabs-color-label-inactive: rgba(var(--spt-color-blue-lightest), 1) !important;
+    --tabs-size-label: 0.8rem !important;
+    --tabs-color-label-active: rgba(var(--pst-color-primary), 1) !important;
+    --tabs-color-label-inactive: rgba(var(--spt-color-blue-lightest), 1) !important
 }
 
-$document-width: calc(0.5 * (var(--breakpoint-md) + var(--breakpoint-lg)));
+$document-width: calc(0.5 * (var(--bs-breakpoint-md) + var(--bs-breakpoint-lg)));
 
 @import "general";
 @import "bootstrap4";
@@ -68,6 +70,10 @@ $document-width: calc(0.5 * (var(--breakpoint-md) + var(--breakpoint-lg)));
   .container-xl {
     padding: 0;
   }
+}
+
+.bd-header {
+  background: #343a40 !important
 }
 
 #navbar-icon-links i:before {
@@ -191,9 +197,18 @@ main.banner-main {
   }
 }
 
+// CONTENT LAYOUT -------------------------------------------------------------
+
+.bd-main .bd-content .bd-article-container {
+  max-width: 100%;  /* default is 60em */
+}
+.bd-page-width {
+  max-width: 85%;  /* default is 88rem */
+}
+
 // FOOTER --------------------------------------------------------------------
 
-.footer {
+.bd-footer {
   color: rgba(var(--spt-color-light), 1);
   font-size: 0.8rem;
   font-family: var(--spt-font-footnote);

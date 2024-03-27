@@ -152,7 +152,7 @@ def copy_image(app, image):
 
 
 def setup(app: Sphinx):
-    app.require_sphinx("3.5")
+    app.require_sphinx("5.0")
     app.add_html_theme("sphinx_pythia_theme", get_html_theme_path())
     app.add_directive("banner", Banner)
     app.connect("builder-inited", copy_config_images)
