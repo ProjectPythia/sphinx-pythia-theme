@@ -48,7 +48,6 @@ $document-width: calc(0.5 * (var(--bs-breakpoint-md) + var(--bs-breakpoint-lg)))
 @import "pydata-sphinx-theme";
 @import "sphinx-book-theme";
 @import "myst";
-@import "sphinx-panels";
 @import "sphinx-thebe";
 
 // ===========================================================================
