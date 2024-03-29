@@ -32,6 +32,7 @@ setup(
     install_requires=[
         "sphinx>=5.0",
         "sphinx-book-theme>=1.0.0",
+        "sphinx_design",
     ],
     packages=find_packages(),
     entry_points={"sphinx.html_themes": ["sphinx_pythia_theme = sphinx_pythia_theme"]},
