@@ -4,7 +4,7 @@ jupyter-book
 matplotlib
 pandas
 sphinx-click
-sphinx-design
+sphinx_design
 sphinx-tabs
 sphinxcontrib-youtube
 sphinxext-opengraph
