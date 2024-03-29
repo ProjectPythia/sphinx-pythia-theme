@@ -34,7 +34,6 @@ extensions = [
     "sphinx_copybutton",
     "sphinx_design",
     "sphinx_external_toc",
-    "sphinx_panels",
     "sphinx_tabs.tabs",
     "sphinx_thebe",
     "sphinx_togglebutton",
@@ -89,8 +88,6 @@ nitpick_ignore = [
 ]
 
 numfig = True
-
-panels_add_bootstrap_css = False
 
 source_suffix = {
     ".rst": "restructuredtext",
