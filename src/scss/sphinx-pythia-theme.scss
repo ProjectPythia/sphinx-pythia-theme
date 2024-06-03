@@ -287,3 +287,10 @@ main.banner-main {
   @extend .iframe;
   padding-bottom: calc(0.75 * 75%);
 }
+
+/* Dark mode styles */
+@media (prefers-color-scheme: dark) {
+  p {
+    color: black;
+  }
+}
