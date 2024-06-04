@@ -323,6 +323,10 @@ html[data-theme="dark"] .highlight .c {
   color: #797129;
 }
 
+html[data-theme="dark"] .highlight .c1 {
+  color: #797129;
+}
+
 html[data-theme="dark"] .highlight .cp {
   color: #797129;
 }
@@ -340,6 +344,14 @@ html[data-theme="dark"] .highlight .kn {
 }
 
 html[data-theme="dark"] .highlight .l {
+  color: #797129;
+}
+
+html[data-theme="dark"] .highlight .mf {
+  color: #797129;
+}
+
+html[data-theme="dark"] .highlight .mi {
   color: #797129;
 }
 
@@ -362,11 +374,27 @@ html[data-theme="dark"] .highlight .o {
   color: #008000;
 }
 
+html[data-theme="dark"] .highlight .ow {
+  color: #7928a1;
+}
+
 html[data-theme="dark"] .highlight .p {
   color: #545454;
 }
 
 html[data-theme="dark"] .highlight .s {
+  color: #008000;
+}
+
+html[data-theme="dark"] .highlight .sa {
+  color: #008000;
+}
+
+html[data-theme="dark"] .highlight .se {
+  color: #008000;
+}
+
+html[data-theme="dark"] .highlight .si {
   color: #008000;
 }
 
@@ -379,5 +407,19 @@ html[data-theme="dark"] .highlight .s2 {
 }
 
 html[data-theme="dark"] .highlight pre {
+  color: black;
+}
+
+html[data-theme="dark"] table thead tr {
+  background-color: white;
+}
+
+html[data-theme="dark"] table tbody tr:nth-child(2n) {
+  background-color: white;
+}
+
+
+
+html[data-theme="dark"] span.collapsed {
   color: black;
 }
