@@ -303,6 +303,34 @@ html[data-theme="dark"] p {
   color: white;
 }
 
+html[data-theme="dark"] .section-title {
+  color: white;
+}
+
+html[data-theme="dark"] h1.display-1 {
+  color: white;
+}
+
+html[data-theme="dark"] h2.display-2 {
+  color: white;
+}
+
+html[data-theme="dark"] h3.display-3 {
+  color: white;
+}
+
+html[data-theme="dark"]  main.banner-main div.sectionwrapper-2:nth-child(even) {
+  background-color: #495057;
+}
+
+html[data-theme="dark"] main.banner-main div.sectionwrapper-2 {
+  background-color: black
+}
+
+html[data-theme="dark"] .container-fluid {
+  background-color: black;
+}
+
 html[data-theme="dark"] .sd-btn-primary, .sd-btn-outline-primary:hover, .sd-btn-outline-primary:focus {
   color: #0a7d91 !important;
 }
@@ -367,6 +395,14 @@ html[data-theme="dark"] .highlight .nb {
   color: #797129;
 }
 
+html[data-theme=dark] .highlight .nc {
+  color: #0078a1 !important;
+}
+
+html[data-theme="dark"] .highlight .nd {
+  color: #797129;
+}
+
 html[data-theme=dark] .highlight .nf {
   color: #0078a1 !important;
 }
@@ -399,6 +435,10 @@ html[data-theme="dark"] .highlight .sa {
   color: #008000;
 }
 
+html[data-theme="dark"] .highlight .sd {
+  color: #008000;
+}
+
 html[data-theme="dark"] .highlight .se {
   color: #008000;
 }
@@ -422,7 +462,6 @@ html[data-theme="dark"] .highlight pre {
 html[data-theme="dark"] span.collapsed {
   color: black;
 }
-
 
 html[data-theme="dark"] .output.text_html table thead tr {
   background-color: white;
