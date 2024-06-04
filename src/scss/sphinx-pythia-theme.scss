@@ -288,34 +288,18 @@ main.banner-main {
   padding-bottom: calc(0.75 * 75%);
 }
 
+.sd-btn-primary, .sd-btn-outline-primary:hover, .sd-btn-outline-primary:focus {
+  color: #0a7d91 !important;
+}
+
 /* Dark mode styles */
 @media (prefers-color-scheme: dark) {
   p {
     color: black;
   }
 
-    /* Specific styles for code cells (they have IDs instead of a class)*/
-    #codecell1, #codecell2, #codecell3, #codecell4, #codecell5,
-    #codecell6, #codecell7, #codecell8, #codecell9, #codecell10,
-    #codecell11, #codecell12, #codecell13, #codecell14, #codecell15,
-    #codecell16, #codecell17, #codecell18, #codecell19, #codecell20,
-    #codecell21, #codecell22, #codecell23, #codecell24, #codecell25,
-    #codecell26, #codecell27, #codecell28, #codecell29, #codecell30,
-    #codecell31, #codecell32, #codecell33, #codecell34, #codecell35,
-    #codecell36, #codecell37, #codecell38, #codecell39, #codecell40,
-    #codecell41, #codecell42, #codecell43, #codecell44, #codecell45,
-    #codecell46, #codecell47, #codecell48, #codecell49, #codecell50,
-    #codecell51, #codecell52, #codecell53, #codecell54, #codecell55,
-    #codecell56, #codecell57, #codecell58, #codecell59, #codecell60,
-    #codecell61, #codecell62, #codecell63, #codecell64, #codecell65,
-    #codecell66, #codecell67, #codecell68, #codecell69, #codecell70,
-    #codecell71, #codecell72, #codecell73, #codecell74, #codecell75,
-    #codecell76, #codecell77, #codecell78, #codecell79, #codecell80,
-    #codecell81, #codecell82, #codecell83, #codecell84, #codecell85,
-    #codecell86, #codecell87, #codecell88, #codecell89, #codecell90,
-    #codecell91, #codecell92, #codecell93, #codecell94, #codecell95,
-    #codecell96, #codecell97, #codecell98, #codecell99, #codecell100 {
-      color: black; /* Light text color for dark mode */
+  .sd-btn-primary, .sd-btn-outline-primary:hover, .sd-btn-outline-primary:focus {
+    color: #0a7d91 !important;
   }
 }
 
@@ -356,5 +340,21 @@ html[data-theme="dark"] .highlight .p {
 }
 
 element.style {
+  color: black;
+}
+
+html[data-theme="dark"] .highlight .nt {
+  color: #007faa;
+}
+
+html[data-theme="dark"] .highlight .l {
+  color: #797129;
+}
+
+html[data-theme="dark"] .highlight .cp {
+  color: #797129;
+}
+
+html[data-theme="dark"] .highlight pre {
   color: black;
 }
