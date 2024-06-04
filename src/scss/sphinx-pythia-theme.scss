@@ -459,8 +459,16 @@ html[data-theme="dark"] .highlight pre {
   color: black;
 }
 
-html[data-theme="dark"] span.collapsed {
+html[data-theme="dark"] summary {
   color: black;
+}
+
+html[data-theme="dark"] svg.tb-icon.toggle-chevron-right {
+  color: white
+}
+
+html[data-theme="dark"] span.toggle-details__summary-text {
+  color: white
 }
 
 html[data-theme="dark"] .output.text_html table thead tr {
@@ -469,4 +477,12 @@ html[data-theme="dark"] .output.text_html table thead tr {
 
 html[data-theme="dark"] .output.text_html table tbody tr:nth-child(2n) {
   background-color: white;
+}
+
+html[data-theme="dark"] .output.text_html table.dataframe thead tr {
+  background-color: #29313d;
+}
+
+html[data-theme="dark"] .output.text_html table.dataframe tbody tr:nth-child(2n) {
+  background-color: #222832;
 }
