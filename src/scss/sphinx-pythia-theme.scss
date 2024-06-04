@@ -299,23 +299,27 @@ main.banner-main {
   }
 }
 
-html[data-theme="light"] .sd-btn-primary, .sd-btn-outline-primary:hover, .sd-btn-outline-primary:focus {
+html[data-theme="dark"] p {
+  color: white;
+}
+
+html[data-theme="dark"] .sd-btn-primary, .sd-btn-outline-primary:hover, .sd-btn-outline-primary:focus {
   color: #0a7d91 !important;
 }
 
-html[data-theme="light"] .btn {
+html[data-theme="dark"] .btn {
   --bs-btn-color: white;
 }
 
-html[data-theme="light"] .search-button {
+html[data-theme="dark"] .search-button {
   color: white;
 }
 
-html[data-theme="light"] .nav-link {
+html[data-theme="dark"] .nav-link {
   color: white;
 }
 
-html[data-theme="light"] .highlight .c {
+html[data-theme="dark"] .highlight .c {
   color: #797129;
 }
 
@@ -327,7 +331,7 @@ html[data-theme="dark"] .highlight .k {
   color: #7928a1;
 }
 
-html[data-theme="light"] .highlight .kc {
+html[data-theme="dark"] .highlight .kc {
   color: #7928a1;
 }
 
