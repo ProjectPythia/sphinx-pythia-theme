@@ -347,6 +347,10 @@ html[data-theme="dark"] .highlight .l {
   color: #797129;
 }
 
+html[data-theme="dark"] .highlight .m {
+  color: #797129;
+}
+
 html[data-theme="dark"] .highlight .mf {
   color: #797129;
 }
@@ -362,6 +366,11 @@ html[data-theme="dark"] .highlight .n {
 html[data-theme="dark"] .highlight .nb {
   color: #797129;
 }
+
+html[data-theme=dark] .highlight .nf {
+  color: #0078a1 !important;
+}
+
 html[data-theme="dark"] .highlight .nn {
   color: #545454;
 }
@@ -418,8 +427,10 @@ html[data-theme="dark"] table tbody tr:nth-child(2n) {
   background-color: white;
 }
 
-
-
 html[data-theme="dark"] span.collapsed {
+  color: black;
+}
+
+html[data-theme="dark"] th.head p {
   color: black;
 }
