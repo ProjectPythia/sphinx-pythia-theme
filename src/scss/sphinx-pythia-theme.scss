@@ -419,18 +419,15 @@ html[data-theme="dark"] .highlight pre {
   color: black;
 }
 
-html[data-theme="dark"] table thead tr {
-  background-color: white;
-}
-
-html[data-theme="dark"] table tbody tr:nth-child(2n) {
-  background-color: white;
-}
-
 html[data-theme="dark"] span.collapsed {
   color: black;
 }
 
-html[data-theme="dark"] th.head p {
-  color: black;
+
+html[data-theme="dark"] .output.text_html table thead tr {
+  background-color: white;
+}
+
+html[data-theme="dark"] .output.text_html table tbody tr:nth-child(2n) {
+  background-color: white;
 }
