@@ -301,14 +301,69 @@ main.banner-main {
   .sd-btn-primary, .sd-btn-outline-primary:hover, .sd-btn-outline-primary:focus {
     color: #0a7d91 !important;
   }
+
+  .btn {
+    --bs-btn-color: white;
+  }
+
+  .search-button {
+    color: white;
+  }
+
+  .nav-link {
+    color: white;
+  }
 }
 
-html[data-theme="dark"] .highlight .nn {
-  color: #545454;
+html[data-theme="light"] .highlight .cp {
+  color: #797129;
+}
+
+html[data-theme="dark"] .highlight .cp {
+  color: #797129;
+}
+
+html[data-theme="dark"] .highlight .k {
+  color: #7928a1;
+}
+
+html[data-theme="light"] .highlight .kc {
+  color: #7928a1;
+}
+
+html[data-theme="dark"] .highlight .kn {
+  color: #7928a1
+}
+
+html[data-theme="dark"] .highlight .l {
+  color: #797129;
 }
 
 html[data-theme="dark"] .highlight .n {
   color: #545454;
+}
+
+html[data-theme="dark"] .highlight .nb {
+  color: #797129;
+}
+html[data-theme="dark"] .highlight .nn {
+  color: #545454;
+}
+
+html[data-theme="dark"] .highlight .nt {
+  color: #007faa;
+}
+
+html[data-theme="dark"] .highlight .o {
+  color: #008000;
+}
+
+html[data-theme="dark"] .highlight .p {
+  color: #545454;
+}
+
+html[data-theme="dark"] .highlight .s {
+  color: #008000;
 }
 
 html[data-theme="dark"] .highlight .s1 {
@@ -316,43 +371,7 @@ html[data-theme="dark"] .highlight .s1 {
 }
 
 html[data-theme="dark"] .highlight .s2 {
-  color: #0080
-}
-
-html[data-theme="dark"] .highlight .o {
-  color: #008000;
-}
-
-html[data-theme="dark"] .highlight .kn {
-  color: #7928a1
-}
-
-html[data-theme="dark"] .highlight .k {
-  color: #7928a1;
-}
-
-html[data-theme="dark"] .highlight .nb {
-  color: #797129;
-}
-
-html[data-theme="dark"] .highlight .p {
-  color: #545454;
-}
-
-element.style {
-  color: black;
-}
-
-html[data-theme="dark"] .highlight .nt {
-  color: #007faa;
-}
-
-html[data-theme="dark"] .highlight .l {
-  color: #797129;
-}
-
-html[data-theme="dark"] .highlight .cp {
-  color: #797129;
+  color: #008000
 }
 
 html[data-theme="dark"] .highlight pre {
