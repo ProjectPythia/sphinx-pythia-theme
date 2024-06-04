@@ -297,25 +297,25 @@ main.banner-main {
   p {
     color: black;
   }
-
-  .sd-btn-primary, .sd-btn-outline-primary:hover, .sd-btn-outline-primary:focus {
-    color: #0a7d91 !important;
-  }
-
-  .btn {
-    --bs-btn-color: white;
-  }
-
-  .search-button {
-    color: white;
-  }
-
-  .nav-link {
-    color: white;
-  }
 }
 
-html[data-theme="light"] .highlight .cp {
+html[data-theme="light"] .sd-btn-primary, .sd-btn-outline-primary:hover, .sd-btn-outline-primary:focus {
+  color: #0a7d91 !important;
+}
+
+html[data-theme="light"] .btn {
+  --bs-btn-color: white;
+}
+
+html[data-theme="light"] .search-button {
+  color: white;
+}
+
+html[data-theme="light"] .nav-link {
+  color: white;
+}
+
+html[data-theme="light"] .highlight .c {
   color: #797129;
 }
 
